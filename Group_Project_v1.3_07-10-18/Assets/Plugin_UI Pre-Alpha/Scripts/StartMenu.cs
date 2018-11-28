@@ -80,7 +80,7 @@ public class StartMenu : MonoBehaviour
 
         if (controlAssign.existingConNums.Count >= 2)
         {
-            //startGameInfo.SetActive(true);
+            startGameInfo.SetActive(true);
         }
         else
         {

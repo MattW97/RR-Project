@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 64975140050442810}
   - component: {fileID: 114792020802064582}
   - component: {fileID: 82215590855218556}
+  - component: {fileID: 114378195800059050}
   m_Layer: 0
   m_Name: Mallet
   m_TagString: Untagged
@@ -225,6 +226,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114378195800059050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014203658083364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9411765, g: 0.877795, b: 0.366782, a: 1}
+  outlineWidth: 1.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!114 &114792020802064582
 MonoBehaviour:
   m_ObjectHideFlags: 1

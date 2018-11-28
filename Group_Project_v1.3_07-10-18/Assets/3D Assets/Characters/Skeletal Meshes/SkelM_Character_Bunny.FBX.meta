@@ -1,0 +1,169 @@
+fileFormatVersion: 2
+guid: b68d2ba277dc7274a8c482ec5ac6770a
+timeCreated: 1543264093
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Chest
+    100002: Head
+    100004: LeftAnkle
+    100006: LeftArmCollarbone
+    100008: LeftFingers
+    100010: LeftFoot
+    100012: LeftLowerArm
+    100014: LeftLowerLeg
+    100016: LeftLowerThumb
+    100018: LeftPalm
+    100020: LeftUpperArm
+    100022: LeftUpperLeg
+    100024: LeftUpperThumb
+    100026: Neck
+    100028: NEWBody
+    100030: NEWBunny
+    100032: Pelvis
+    100034: RightAnkle
+    100036: RightArmCollarbone
+    100038: RightFingers
+    100040: RightFoot
+    100042: RightLowerArm
+    100044: RightLowerLeg
+    100046: RightLowerThumb
+    100048: RightPalm
+    100050: RightUpperArm
+    100052: RightUpperLeg
+    100054: RightUpperThumb
+    100056: //RootNode
+    100058: Spine1
+    100060: Spine2
+    100062: Spine3
+    100064: Spine4
+    100066: Spine5
+    400000: Chest
+    400002: Head
+    400004: LeftAnkle
+    400006: LeftArmCollarbone
+    400008: LeftFingers
+    400010: LeftFoot
+    400012: LeftLowerArm
+    400014: LeftLowerLeg
+    400016: LeftLowerThumb
+    400018: LeftPalm
+    400020: LeftUpperArm
+    400022: LeftUpperLeg
+    400024: LeftUpperThumb
+    400026: Neck
+    400028: NEWBody
+    400030: NEWBunny
+    400032: Pelvis
+    400034: RightAnkle
+    400036: RightArmCollarbone
+    400038: RightFingers
+    400040: RightFoot
+    400042: RightLowerArm
+    400044: RightLowerLeg
+    400046: RightLowerThumb
+    400048: RightPalm
+    400050: RightUpperArm
+    400052: RightUpperLeg
+    400054: RightUpperThumb
+    400056: //RootNode
+    400058: Spine1
+    400060: Spine2
+    400062: Spine3
+    400064: Spine4
+    400066: Spine5
+    4300000: NEWBody
+    4300002: NEWBunny
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: NEWBody
+    13700002: NEWBunny
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 599abe782e97aaf48b1ebb1ce7148d76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultMat3
+    second: {fileID: 2100000, guid: b747d8533a79e744a8bca5a72769f39a, type: 2}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

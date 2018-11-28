@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 225627996, guid: ffea41b2ef7376143bee608c897e587a, type: 3}
+  m_Name: Atlas_BloodDecalSpriteSheet
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f1d1ca42e08ef0b4f9e653346857ef86, type: 2}
+  regions:
+  - name: UI_DECALS_BLOOD_SPRITE_0
+    region:
+      serializedVersion: 2
+      x: 0.018
+      y: 0.54
+      width: 0.256
+      height: 0.43
+  - name: UI_DECALS_BLOOD_SPRITE_1
+    region:
+      serializedVersion: 2
+      x: 0.316
+      y: 0.53
+      width: 0.326
+      height: 0.45666668
+  - name: UI_DECALS_BLOOD_SPRITE_2
+    region:
+      serializedVersion: 2
+      x: 0.708
+      y: 0.54333335
+      width: 0.282
+      height: 0.42666668
+  - name: UI_DECALS_BLOOD_SPRITE_3
+    region:
+      serializedVersion: 2
+      x: 0.712
+      y: 0.013333334
+      width: 0.286
+      height: 0.44333333
+  - name: UI_DECALS_BLOOD_SPRITE_4
+    region:
+      serializedVersion: 2
+      x: 0.344
+      y: 0.07333333
+      width: 0.268
+      height: 0.38333333
+  - name: UI_DECALS_BLOOD_SPRITE_5
+    region:
+      serializedVersion: 2
+      x: 0.002
+      y: 0.01
+      width: 0.318
+      height: 0.49666667

@@ -26,6 +26,7 @@ GameObject:
   m_Component:
   - component: {fileID: 475348}
   - component: {fileID: 11475346}
+  - component: {fileID: 95334234365134772}
   m_Layer: 0
   m_Name: BloodSplatterDecal
   m_TagString: Untagged
@@ -129,13 +130,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 7168
   mode: 0
-  source: 0
+  source: 1
   aspectCorrectionMode: 0
   recursiveMode: 0
   skinningQuality: 0
   material: {fileID: 2100000, guid: 17cb8513bdf70f040badac2c171ec2a6, type: 2}
-  atlas: {fileID: 0}
-  atlasRegionIndex: 0
+  atlas: {fileID: 11400000, guid: 5c6f8155d16e0714fa5165767166a0fe, type: 2}
+  atlasRegionIndex: 5
   maxDistance: 5
   projectionDistance: 1
   smoothNormals: 0
@@ -155,7 +156,7 @@ MonoBehaviour:
   normalChannelMode: 0
   tangentChannelMode: 0
   recursiceLookup: 0
-  randomIndexEnabled: 0
+  randomIndexEnabled: 1
   recursiceLookupSteps: 0
   autoDestroy: 0
   opacityMode: 0
@@ -196,3 +197,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175348}
   m_IsPrefabParent: 1
+--- !u!95 &95334234365134772
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175348}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 077cf803b7e9bb94b9236155bb603182, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

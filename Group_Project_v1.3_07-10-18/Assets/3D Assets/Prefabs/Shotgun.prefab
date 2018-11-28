@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 54336365597438050}
   - component: {fileID: 64723721874739472}
   - component: {fileID: 114488016496090074}
+  - component: {fileID: 114545278888354862}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -498,11 +499,29 @@ MonoBehaviour:
   bullet: {fileID: 1511319414114544, guid: 531633ddf3c913b4cacf455e4e4051b1, type: 2}
   player: {fileID: 0}
   ammoAmount: 0
+  canDealDamage: 0
   thisRigidbody: {fileID: 0}
   muzzleFlash: {fileID: 198952885707169484}
   baseballBatImpact: {fileID: 0}
   macheteImpact: {fileID: 0}
   weaponSelection: 0
+--- !u!114 &114545278888354862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725091296434496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9411765, g: 0.877795, b: 0.366782, a: 1}
+  outlineWidth: 1.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!136 &136905491377865300
 CapsuleCollider:
   m_ObjectHideFlags: 1

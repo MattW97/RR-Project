@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour {
     #region GameObjects
     [HideInInspector] public GameObject weapon;
     private GameObject closestPlayer;
+    private GameObject pelvisGameObj;
     public GameObject gorePackage;
     #endregion
 
@@ -126,6 +127,15 @@ public class PlayerController : MonoBehaviour {
                 pickUpScript = child.transform.GetComponent<PickUp>();
             }
         }
+
+        //Transform[] children = GetComponentsInChildren<Transform>();
+        //foreach (Transform child in children)
+        //{
+        //    if (child.gameObject.name == "Pelvis")
+        //    {
+        //        pelvisGameObj = child.gameObject;
+        //    }
+        //}
     }
 
     void Update()
@@ -206,6 +216,7 @@ public class PlayerController : MonoBehaviour {
             if(goreAmmount == 1)
             {
                 Instantiate(gorePackage, thisTransform.position, thisTransform.rotation);
+
                 goreAmmount++;
             }
             else
@@ -237,6 +248,7 @@ public class PlayerController : MonoBehaviour {
         // Drop weapon if you get knocked out or die
         if (!canControl || isDead)
         {
+            //thisTransform.position =  pelvisGameObj.transform.position;
             isHoldingWeapon = false;
             DropWeapon();
         }
@@ -389,7 +401,7 @@ public class PlayerController : MonoBehaviour {
             }
             thisRigidbody.isKinematic = true;
             GetComponent<Animator>().enabled = false;
-            GetComponent<CapsuleCollider>().enabled = false;
+            GetComponent<CapsuleCollider>().enabled = false;            
         }
 
         else if (!ragdollToggle) //Reset Ragdoll

@@ -103,6 +103,8 @@ public class WeaponScript : MonoBehaviour {
         canShoot = true;
 
         despawnTimer = initDespawnTime;
+
+        gameObject.GetComponent<Outline>().enabled = false;
     }
 
     public void GetDropped ()
@@ -115,6 +117,8 @@ public class WeaponScript : MonoBehaviour {
         thisRigidbody.isKinematic = false;
 
         canShoot = false;
+
+        gameObject.GetComponent<Outline>().enabled = true;
     }
 
     public void Shoot(GameObject player)
@@ -183,8 +187,8 @@ public class WeaponScript : MonoBehaviour {
             {
                 collider.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(meleeDamage / 2);
 
-                Vector3 moveDirection = collider.transform.position - thisTransform.position;
-                collider.GetComponent<Rigidbody>().AddForce(moveDirection * 50, ForceMode.Impulse);
+                //Vector3 moveDirection = collider.transform.position - thisTransform.position;
+                //collider.GetComponent<Rigidbody>().AddForce(moveDirection * 50, ForceMode.Impulse);
                 Transform bloodParticleObject = collider.gameObject.transform.Find("BloodSplatterParticle");
                 bloodParticleObject.rotation = Quaternion.LookRotation(thisTransform.forward);
                 bloodParticleObject.GetComponent<ParticleSystem>().Play();

@@ -11,30 +11,35 @@ ModelImporter:
     100006: SM_Factory_Trap_Forklift_BladeRight
     100008: SM_Factory_Trap_Forklift_SmallWheel
     100010: //RootNode
+    100012: SM_Factory_Trap_Forklift_Blades
     400000: SM_Factory_Trap_Forklift_BigWheel
     400002: SM_Factory_Trap_Forklift_BladeBase
     400004: SM_Factory_Trap_Forklift_BladeLeft
     400006: SM_Factory_Trap_Forklift_BladeRight
     400008: SM_Factory_Trap_Forklift_SmallWheel
     400010: //RootNode
+    400012: SM_Factory_Trap_Forklift_Blades
     2300000: SM_Factory_Trap_Forklift_BigWheel
     2300002: SM_Factory_Trap_Forklift_BladeBase
     2300004: SM_Factory_Trap_Forklift_BladeLeft
     2300006: SM_Factory_Trap_Forklift_BladeRight
     2300008: SM_Factory_Trap_Forklift_SmallWheel
     2300010: //RootNode
+    2300012: SM_Factory_Trap_Forklift_Blades
     3300000: SM_Factory_Trap_Forklift_BigWheel
     3300002: SM_Factory_Trap_Forklift_BladeBase
     3300004: SM_Factory_Trap_Forklift_BladeLeft
     3300006: SM_Factory_Trap_Forklift_BladeRight
     3300008: SM_Factory_Trap_Forklift_SmallWheel
     3300010: //RootNode
+    3300012: SM_Factory_Trap_Forklift_Blades
     4300000: SM_Factory_Trap_Forklift_Base
     4300002: SM_Factory_Trap_Forklift_BigWheel
     4300004: SM_Factory_Trap_Forklift_BladeBase
     4300006: SM_Factory_Trap_Forklift_BladeRight
     4300008: SM_Factory_Trap_Forklift_BladeLeft
     4300010: SM_Factory_Trap_Forklift_SmallWheel
+    4300012: SM_Factory_Trap_Forklift_Blades
     7400000: Take 001
     9500000: //RootNode
   externalObjects:
