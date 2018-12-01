@@ -17,6 +17,8 @@ public class CameraScript : MonoBehaviour {
     private float distanceBetweenPlayers;
     private float maxCameraDistance;
     private float minCameraDistance;
+    private float cameraYOffset;
+    private float cameraZOffset;
 
     private float p1DistToMid;
     private float p2DistToMid;
@@ -34,7 +36,9 @@ public class CameraScript : MonoBehaviour {
     {
         newCameraPos = Camera.main.transform.position;
         maxCameraDistance = 35;
-        minCameraDistance = 3;
+        minCameraDistance = 2;
+        cameraYOffset = 0.0f;
+        cameraZOffset = 0.0f;
         audioSource = this.GetComponent<AudioSource>();
         audioSource.clip = mainMenuMusic;
         audioSource.Play();
@@ -78,9 +82,9 @@ public class CameraScript : MonoBehaviour {
         middlePoint = vectorBetweenPlayers;
 
         newCameraPos.y = (midPoint.transform.position.y + ((distanceBetweenPlayers / maxCameraDistance) * (maxCameraDistance - minCameraDistance))) + minCameraDistance;
-        newCameraPos.z = (midPoint.transform.position.z + (-1 * (newCameraPos.y * 1.0f))) + 0.75f;
+        newCameraPos.z = (midPoint.transform.position.z + (-1 * (newCameraPos.y * 1.0f)));
 
-        Vector3 des = new Vector3(midPoint.transform.position.x, newCameraPos.y, (0.75f + newCameraPos.z));
+        Vector3 des = new Vector3(midPoint.transform.position.x, (newCameraPos.y + cameraYOffset), (newCameraPos.z + cameraZOffset));
 
         Camera.main.transform.position = des;
     }
