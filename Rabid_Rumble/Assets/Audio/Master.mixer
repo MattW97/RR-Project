@@ -9,12 +9,24 @@ AudioMixerController:
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
+  - {fileID: 245310073752265454}
   - {fileID: 24500006}
-  m_StartSnapshot: {fileID: 24500006}
+  - {fileID: 245317426099653104}
+  m_StartSnapshot: {fileID: 245310073752265454}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 474a1e70a30057142bcf806e54dff7b1
+    name: ambientVolume
+  - guid: 9a083ef14c7986a48816d95993cc91e0
+    name: masterVolume
+  - guid: 50c70d86a493c574e800ff0b1066fa4e
+    name: musicVolume
+  - guid: 98283ca1917c1d349bd7e63d78f09431
+    name: soundEffectsVolume
+  - guid: 974a4e33feb42104eaa0829ba83b87b9
+    name: voicesVolume
   m_AudioMixerGroupViews:
   - guids:
     - 2ffa37bcd097c644db55a4ba6dd12320
@@ -24,7 +36,7 @@ AudioMixerController:
     - 1704ed6e5d87e3d499555d770f0bcc89
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 24500006}
+  m_TargetSnapshot: {fileID: 245317426099653104}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -64,12 +76,13 @@ AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: InGameSnapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 37f7d5a4cb856704193da4ebddd36aa2
   m_FloatValues:
-    9a083ef14c7986a48816d95993cc91e0: 0
-    50c70d86a493c574e800ff0b1066fa4e: -19.928473
+    474a1e70a30057142bcf806e54dff7b1: -19.928473
+    9a083ef14c7986a48816d95993cc91e0: -0.002441872
+    50c70d86a493c574e800ff0b1066fa4e: 0
   m_TransitionOverrides: {}
 --- !u!243 &243092540985698166
 AudioMixerGroupController:
@@ -191,3 +204,35 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!245 &245310073752265454
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: MainMenuSnapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 5bb2bd3cc8ca21440bedca187ecae7eb
+  m_FloatValues:
+    474a1e70a30057142bcf806e54dff7b1: -80
+    98283ca1917c1d349bd7e63d78f09431: -80
+    9a083ef14c7986a48816d95993cc91e0: -0.002441872
+    974a4e33feb42104eaa0829ba83b87b9: -80
+    50c70d86a493c574e800ff0b1066fa4e: 0
+  m_TransitionOverrides: {}
+--- !u!245 &245317426099653104
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: PausedGameSnapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: a795c3d4440a0f44e83c2916fb59d2ea
+  m_FloatValues:
+    474a1e70a30057142bcf806e54dff7b1: -39.928783
+    98283ca1917c1d349bd7e63d78f09431: -39.928783
+    9a083ef14c7986a48816d95993cc91e0: -0.002441872
+    974a4e33feb42104eaa0829ba83b87b9: -39.928783
+    50c70d86a493c574e800ff0b1066fa4e: 0
+    1cbcde38c8888f941899bf6d8bb7d01c: 50
+    7b5bfde9ee00cfe40a669a4f27d11153: 0
+  m_TransitionOverrides: {}

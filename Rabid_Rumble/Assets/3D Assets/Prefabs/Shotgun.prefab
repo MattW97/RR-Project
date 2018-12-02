@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 64723721874739472}
   - component: {fileID: 114488016496090074}
   - component: {fileID: 114545278888354862}
+  - component: {fileID: 82176339762137768}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -424,6 +425,87 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 594ad0884d419cf49998ec9fdc00fb4e, type: 3}
+--- !u!82 &82176339762137768
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725091296434496}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243092540985698166, guid: 8b22cf05dd73e6c4991db5d335cda148,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95032423208299208
 Animator:
   serializedVersion: 3
@@ -504,8 +586,10 @@ MonoBehaviour:
   canDealDamage: 0
   thisRigidbody: {fileID: 0}
   muzzleFlash: {fileID: 198952885707169484}
-  baseballBatImpact: {fileID: 0}
-  macheteImpact: {fileID: 0}
+  baseballBatImpact: {fileID: 8300000, guid: 6ab68cd4155175b499d2a613df379d88, type: 3}
+  malletImpact: {fileID: 8300000, guid: 8e247d5f07b45184ba993c546a7af24a, type: 3}
+  macheteImpact: {fileID: 8300000, guid: 89c46de7ca3ed284a9c73e13c7d19aa0, type: 3}
+  shotgunFire: {fileID: 8300000, guid: ef7a876ad03572443b620ce932f7940d, type: 3}
   weaponSelection: 0
 --- !u!114 &114545278888354862
 MonoBehaviour:

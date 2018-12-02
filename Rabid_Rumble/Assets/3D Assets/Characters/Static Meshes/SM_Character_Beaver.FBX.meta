@@ -9,19 +9,24 @@ ModelImporter:
     100002: NEWBeaverTail
     100004: NEWBody
     100006: //RootNode
+    100008: Beaver
     400000: NEWBeaverhead
     400002: NEWBeaverTail
     400004: NEWBody
     400006: //RootNode
+    400008: Beaver
     2300000: NEWBeaverhead
     2300002: NEWBeaverTail
     2300004: NEWBody
+    2300006: Beaver
     3300000: NEWBeaverhead
     3300002: NEWBeaverTail
     3300004: NEWBody
+    3300006: Beaver
     4300000: NEWBody
     4300002: NEWBeaverhead
     4300004: NEWBeaverTail
+    4300006: Beaver
     9500000: //RootNode
   externalObjects:
   - first:

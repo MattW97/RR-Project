@@ -34,8 +34,9 @@ public class WeaponScript : MonoBehaviour {
 
     private AudioSource audioSource;
     public AudioClip baseballBatImpact;
-    //public AudioClip malletImpact;
+    public AudioClip malletImpact;
     public AudioClip macheteImpact;
+    public AudioClip shotgunFire;
 
     private string playerTag;
 
@@ -142,6 +143,7 @@ public class WeaponScript : MonoBehaviour {
                 }
 
                 muzzleFlash.Play();
+                audioSource.PlayOneShot(shotgunFire, 1.0f);
                 initAmmoAmount = initAmmoAmount - 1;
             }
             # region OldCode
@@ -212,15 +214,15 @@ public class WeaponScript : MonoBehaviour {
                 // Impact sounds
                 if (weaponSelection == WeaponType.BaseballBat)
                 {
-                    audioSource.PlayOneShot(baseballBatImpact, 0.2f);
+                    audioSource.PlayOneShot(baseballBatImpact, 1.0f);
                 }
                 if (weaponSelection == WeaponType.Mallet)
                 {
-                    audioSource.PlayOneShot(baseballBatImpact, 0.2f);
+                    audioSource.PlayOneShot(malletImpact, 1.0f);
                 }
                 if (weaponSelection == WeaponType.Machete)
                 {
-                    audioSource.PlayOneShot(macheteImpact, 0.2f);
+                    audioSource.PlayOneShot(macheteImpact, 1.0f);
                 }
             }
         }    

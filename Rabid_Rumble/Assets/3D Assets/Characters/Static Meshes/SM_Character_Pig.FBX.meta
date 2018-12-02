@@ -8,15 +8,20 @@ ModelImporter:
     100000: NEWBody
     100002: NEWPig
     100004: //RootNode
+    100006: Pig
     400000: NEWBody
     400002: NEWPig
     400004: //RootNode
+    400006: Pig
     2300000: NEWBody
     2300002: NEWPig
+    2300004: Pig
     3300000: NEWBody
     3300002: NEWPig
+    3300004: Pig
     4300000: NEWBody
     4300002: NEWPig
+    4300004: Pig
     9500000: //RootNode
   externalObjects:
   - first:
@@ -29,8 +34,13 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Body
     second: {fileID: 2100000, guid: 737c34f20402c5d49a0dcbd8a31d9487, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pig
+    second: {fileID: 2100000, guid: faf9f6e48c0d5b640862c3ce3232aca0, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -81,7 +91,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -97,10 +107,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -154,9 +154,10 @@ AudioSource:
   m_GameObject: {fileID: 1282994070294796}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243092540985698166, guid: 8b22cf05dd73e6c4991db5d335cda148,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -213,7 +214,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -244,11 +245,14 @@ MonoBehaviour:
   player: {fileID: 0}
   ammoAmount: 0
   impactAmount: 0
+  initAmmoAmount: 4
   canDealDamage: 0
   thisRigidbody: {fileID: 0}
   muzzleFlash: {fileID: 0}
-  baseballBatImpact: {fileID: 8300000, guid: f33f098b75e96914096fe3a51b99ad09, type: 3}
-  macheteImpact: {fileID: 8300000, guid: 857a9f1d2d5d6dd48bbe1459fb067bad, type: 3}
+  baseballBatImpact: {fileID: 8300000, guid: 6ab68cd4155175b499d2a613df379d88, type: 3}
+  malletImpact: {fileID: 8300000, guid: 8e247d5f07b45184ba993c546a7af24a, type: 3}
+  macheteImpact: {fileID: 8300000, guid: 89c46de7ca3ed284a9c73e13c7d19aa0, type: 3}
+  shotgunFire: {fileID: 8300000, guid: ef7a876ad03572443b620ce932f7940d, type: 3}
   weaponSelection: 3
 --- !u!114 &114968733479182690
 MonoBehaviour:

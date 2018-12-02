@@ -9,7 +9,7 @@ public class PlayerAnimationScript : MonoBehaviour {
 
     private AudioSource audioSource;
     //public AudioClip shotgunFire;
-    public AudioClip baseballBatSwing;
+    public AudioClip swingClip;
     //public AudioClip malletSwing;
     //public AudioClip macheteSwing;
 
@@ -77,7 +77,7 @@ public class PlayerAnimationScript : MonoBehaviour {
                     animator.ResetTrigger("AttackTrigger");
                     animator.SetTrigger("AttackTrigger");
 
-                    audioSource.PlayOneShot(baseballBatSwing, 0.5f);
+                    audioSource.PlayOneShot(swingClip, 1.0f);
                 }
 
             }
@@ -93,7 +93,7 @@ public class PlayerAnimationScript : MonoBehaviour {
                     animator.ResetTrigger("AttackTrigger");
                     animator.SetTrigger("AttackTrigger");
 
-                    audioSource.PlayOneShot(baseballBatSwing, 0.5f);
+                    audioSource.PlayOneShot(swingClip, 1.0f);
                 }
             }
             if (weapon.weaponSelection == WeaponScript.WeaponType.Machete)
@@ -108,7 +108,7 @@ public class PlayerAnimationScript : MonoBehaviour {
                     animator.ResetTrigger("AttackTrigger");
                     animator.SetTrigger("AttackTrigger");
 
-                    audioSource.PlayOneShot(baseballBatSwing, 0.5f);
+                    audioSource.PlayOneShot(swingClip, 1.0f);
                 }
             }
         }      
