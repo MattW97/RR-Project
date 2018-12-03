@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour {
     private GameObject pelvisGameObj;
     public GameObject gorePackage;
     public GameObject tagSetter;
+    public GameObject playerReticle;
     #endregion
 
     #region Vector3s
@@ -274,6 +275,8 @@ public class PlayerController : MonoBehaviour {
         {
             movementSpeed = 3;
 
+            playerReticle.SetActive(true);
+
             // Configure input for right analog stick
             playerDirection = Vector3.right * Player.GetAxis("RightHoz") - Vector3.forward * Player.GetAxis("RightVert");
 
@@ -285,6 +288,8 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
+            playerReticle.SetActive(false);
+
             if (movementInput != Vector3.zero)
             {
                 movementSpeed = 4;
@@ -489,7 +494,7 @@ public class PlayerController : MonoBehaviour {
         {
             WeaponScript weaponScript = weapon.GetComponent<WeaponScript>();
             weaponScript.GetDropped();
-        }   
+        }
     }
 
     void OnTriggerStay(Collider col)

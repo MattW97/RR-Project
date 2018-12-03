@@ -118,7 +118,7 @@ MonoBehaviour:
   flipNormals: 0
   backfaceCulling: 0
   distance: 0.001
-  angleConstraint: 89
+  angleConstraint: 53
   technique: 0
   deferredFlags: 0
   transformObserver:

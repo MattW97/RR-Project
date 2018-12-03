@@ -202,7 +202,7 @@ public class WeaponScript : MonoBehaviour {
         if(player != null)
         {
             
-            if (collider.tag == "Player" && canDealDamage)
+            if (collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
             {
                 collider.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(meleeDamage / 2);
                 Physics.IgnoreCollision(thisTransform.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
@@ -231,7 +231,7 @@ public class WeaponScript : MonoBehaviour {
     {
         if (player != null)
         {
-            if (collider.tag == "Player" && collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
+            if (collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
             {
                 Vector3 moveDirection = collider.transform.position - thisTransform.position;
                 collider.GetComponent<Rigidbody>().AddForce(moveDirection * impactAmount, ForceMode.Impulse);
