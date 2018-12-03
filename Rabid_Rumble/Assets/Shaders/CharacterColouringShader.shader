@@ -1,4 +1,4 @@
-﻿Shader "Custom/CharacterColoruingShader" {
+﻿Shader "Custom/CharacterColouringShader" {
 	Properties {
 		_Color1 ("ColorPrimary", Color) = (1,1,1,1)
 		_Color2 ("ColorSecondary", Color) = (1,1,1,1)

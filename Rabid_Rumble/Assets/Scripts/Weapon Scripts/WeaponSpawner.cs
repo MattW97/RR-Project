@@ -49,8 +49,6 @@ public class WeaponSpawner : MonoBehaviour
 
     void RespawnWeapon()
     {
-        lightObject.SetActive(false);
-
         respawnTimer -= Time.deltaTime;
 
         if (respawnTimer <= 0)
@@ -58,8 +56,6 @@ public class WeaponSpawner : MonoBehaviour
             weaponIndex = Random.Range(0, weapons.Count);
             Quaternion weaponRotation = weapons[weaponIndex].transform.rotation * Quaternion.Euler(10, 0, 0);
             Instantiate(weapons[weaponIndex], this.transform.position + new Vector3(0, 0.5f, 0), weaponRotation, gameObject.transform);
-
-            lightObject.SetActive(true);
 
             respawnTimer = initRespawnTime;
 

@@ -25,6 +25,7 @@ public class WeaponScript : MonoBehaviour {
 
     private bool canShoot;
     private bool reloading;
+    public bool initialPickup;
 
     public bool canDealDamage;
 
@@ -62,6 +63,7 @@ public class WeaponScript : MonoBehaviour {
         canShoot = false;
         reloading = false;
         canDealDamage = false;
+        initialPickup = false;
 
         despawnTimer = initDespawnTime;
 
@@ -112,6 +114,8 @@ public class WeaponScript : MonoBehaviour {
         despawnTimer = initDespawnTime;
 
         gameObject.GetComponent<Outline>().enabled = false;
+
+        initialPickup = true;
     }
 
     public void GetDropped ()
@@ -133,7 +137,7 @@ public class WeaponScript : MonoBehaviour {
         //PlayerController playerController = player.GetComponent<PlayerController>();
 
         // If right trigger is pressed...
-        if(weaponSelection == WeaponType.Shotgun && canDealDamage == true)
+        if(weaponSelection == WeaponType.Shotgun)
         {
             if (initAmmoAmount > 0)
             {
@@ -202,7 +206,7 @@ public class WeaponScript : MonoBehaviour {
         if(player != null)
         {
             
-            if (collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
+            if (collider.gameObject.tag == "Player" && collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
             {
                 collider.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(meleeDamage / 2);
                 Physics.IgnoreCollision(thisTransform.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
@@ -231,7 +235,7 @@ public class WeaponScript : MonoBehaviour {
     {
         if (player != null)
         {
-            if (collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
+            if (collider.gameObject.tag == "Player" && collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
             {
                 Vector3 moveDirection = collider.transform.position - thisTransform.position;
                 collider.GetComponent<Rigidbody>().AddForce(moveDirection * impactAmount, ForceMode.Impulse);

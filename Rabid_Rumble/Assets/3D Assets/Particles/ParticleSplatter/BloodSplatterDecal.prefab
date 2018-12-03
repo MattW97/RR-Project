@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 475348}
   - component: {fileID: 11475346}
   - component: {fileID: 95334234365134772}
+  - component: {fileID: 114849178746767726}
   m_Layer: 0
   m_Name: BloodSplatterDecal
   m_TagString: Untagged
@@ -68,12 +69,12 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175346}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 2100000, guid: 17cb8513bdf70f040badac2c171ec2a6, type: 2}
   m_StaticBatchInfo:
@@ -116,9 +117,9 @@ MonoBehaviour:
   baked: 0
   bakeOnAwake: 1
   flipNormals: 0
-  backfaceCulling: 0
+  backfaceCulling: 1
   distance: 0.001
-  angleConstraint: 53
+  angleConstraint: 89
   technique: 0
   deferredFlags: 0
   transformObserver:
@@ -137,12 +138,12 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 17cb8513bdf70f040badac2c171ec2a6, type: 2}
   atlas: {fileID: 11400000, guid: 5c6f8155d16e0714fa5165767166a0fe, type: 2}
   atlasRegionIndex: 5
-  maxDistance: 5
+  maxDistance: 0.5
   projectionDistance: 1
   smoothNormals: 0
   normalSmoothFactor: 0
   normalSmoothThreshold: 0
-  resolution: 4
+  resolution: 2
   multiMeshEnabled: 0
   cullInvisible: 0
   cullUnreachable: 0
@@ -183,7 +184,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   surfaceRotation: 0
-  quality: 2
+  quality: 1
   sharedMesh: {fileID: 0}
   instanceID: 0
 --- !u!1001 &100100000
@@ -214,3 +215,14 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114849178746767726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14985fd69da471b4ebbf26e686e7bfce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

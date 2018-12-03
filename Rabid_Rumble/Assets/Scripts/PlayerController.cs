@@ -164,7 +164,13 @@ public class PlayerController : MonoBehaviour {
                 #region Pick Up Weapon and Drop Weapon
                 if (!isHoldingWeapon && canPickUpWeapon)
                 {
-                    if(player.GetButtonDown("Interact"))
+                    if (weapon.GetComponent<WeaponScript>().initialPickup == false)
+                    {
+                        PickUpWeapon();
+                        isHoldingWeapon = !isHoldingWeapon;
+                    }
+
+                    if (player.GetButtonDown("Interact"))
                     {
                         PickUpWeapon();
                         isHoldingWeapon = !isHoldingWeapon;
