@@ -9,7 +9,7 @@ public class WeaponSpawner : MonoBehaviour
     private int weaponIndex;
 
     private float respawnTimer;
-    private float initRespawnTime = 5;
+    private float initRespawnTime = 15;
 
     private Transform thisTransform;
 

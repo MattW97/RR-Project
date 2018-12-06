@@ -7,7 +7,8 @@ public class PickUp : MonoBehaviour {
 
     public float force = 4000;
     public Rigidbody rb;
-    public bool join = false; public GameObject playerToJoinTo;
+    public bool join = false;
+    public GameObject playerToJoinTo;
     private Rigidbody connectionPoint;
 
     private void Start()

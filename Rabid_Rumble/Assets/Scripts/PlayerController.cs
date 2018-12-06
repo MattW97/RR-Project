@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Rewired;
+using Obi;
 
 [RequireComponent(typeof(IKControl))]
 public class PlayerController : MonoBehaviour {
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 
     #region ints
     [HideInInspector] public int totalCurrentMashes = 0;
-    private int lives = 3;
+    private int deathCount = 0;
     private int goreAmmount = 0;
     #endregion
 
@@ -80,7 +82,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 movementInput;
     [HideInInspector] public Vector3 movementVelocity;
     [HideInInspector] public Vector3 playerDirection;
-    [HideInInspector] public Vector3 startingPosition;
+    public Vector3 startingPosition;
     #endregion
 
     [HideInInspector] public string playerTag;
@@ -88,7 +90,6 @@ public class PlayerController : MonoBehaviour {
     private Transform thisTransform;
     private Rigidbody thisRigidbody;
     [HideInInspector] public Rigidbody rightHand;
-
     [HideInInspector] public PickUp pickUpScript;
     [HideInInspector] public PlayerHealthManager healthManager;
 
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject playerSkeletalMesh;
     public List<Transform> otherPlayersOrigin;
     public Transform thisPlayersOrigin;
-    public PlayerUI playerUILink;
+    public Text deathCounterText;
 
 
     public int playerId = 0; // The Rewired player id of this character
@@ -112,13 +113,16 @@ public class PlayerController : MonoBehaviour {
 
     void Start()
     {
+        // Set the game to active in the Game Manager
+        deathCounterText.gameObject.SetActive(false);
+
         healthManager = GetComponent<PlayerHealthManager>();
         canControl = false;
         isDead = false;
         //mashTimer = 0.5f;
         respawnTimer = respawnTimerReset;
         isHoldingWeapon = false;
-        startingPosition = transform.position + new Vector3(0, 0.5f, 0);
+        startingPosition = transform.position + new Vector3(0, 0.01f, 0);
         RagdollSetup();
         playerTag = tagSetter.tag;
 
@@ -133,30 +137,57 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        //Transform[] children = GetComponentsInChildren<Transform>();
-        //foreach (Transform child in children)
-        //{
-        //    if (child.gameObject.name == "Pelvis")
-        //    {
-        //        pelvisGameObj = child.gameObject;
-        //    }
-        //}
+        // Set player number for UI
+        #region Player numbers
+        if (tagSetter.tag == "Player 1")
+        {
+            playerNum = 1;
+        }
+        if (tagSetter.tag == "Player 2")
+        {
+            playerNum = 2;
+        }
+        if (tagSetter.tag == "Player 3")
+        {
+            playerNum = 3;
+        }
+        if (tagSetter.tag == "Player 4")
+        {
+            playerNum = 4;
+        }
+        #endregion
     }
 
     void Update()
     {
-        // Only get values if moving
-        if(thisRigidbody.velocity.x > 0 || thisRigidbody.velocity.x < 0 || thisRigidbody.velocity.z > 0 || thisRigidbody.velocity.z < 0)
+        // Enable the end game death count and disable player control
+        if (GameObject.Find("GameManager").GetComponent<UtilityManager>().countdownSeconds == 0 && GameObject.Find("GameManager").GetComponent<UtilityManager>().countdownMinutes == 0)
         {
-            GetCharDirections();
+            canControl = false;
+            deathCounterText.gameObject.SetActive(true);
+            thisRigidbody.velocity = new Vector3(0,0,0);
+            forwardBackward = 0;
+            rightLeft = 0;
         }
-
-        joystickAxisValue = Mathf.Clamp01(new Vector2(Player.GetAxis("LeftHoz"), Player.GetAxis("LeftVert")).sqrMagnitude);
 
         if (!isDead)
         {
             if (canControl)
             {
+                if(GameObject.Find("GameManager").GetComponent<UtilityManager>().activeGame != true)
+                {
+                    GameObject.Find("GameManager").GetComponent<UtilityManager>().activeGame = true;
+                    GameObject.Find("GameManager").GetComponent<UtilityManager>().countdownTimerActive = true;
+                }          
+
+                // Only get values if moving
+                if (thisRigidbody.velocity.x > 0 || thisRigidbody.velocity.x < 0 || thisRigidbody.velocity.z > 0 || thisRigidbody.velocity.z < 0)
+                {
+                    GetCharDirections();
+                }
+
+                joystickAxisValue = Mathf.Clamp01(new Vector2(Player.GetAxis("LeftHoz"), Player.GetAxis("LeftVert")).sqrMagnitude);
+
                 CharMovement();
                 GrabAndDrag();
                 Jumping();
@@ -194,21 +225,8 @@ public class PlayerController : MonoBehaviour {
             if (ragdolling)
             {
                 ButtonMashing();
+                thisPlayersOrigin.position = rightHand.transform.position;
             }
-
-            #region Button Mash degredation timer (Optional)
-            //if (TotalCurrentMashes > 0)
-            //{
-            //    mashTimer -= Time.deltaTime;
-            //if (mashTimer <= 0)
-            //{
-            //    TotalCurrentMashes = TotalCurrentMashes - 1;
-            //    mashTimer = 1f;
-            //}
-
-            //Debug.Log(TotalCurrentMashes);
-            //}
-            #endregion
         }
 
         if (isDead)
@@ -216,7 +234,6 @@ public class PlayerController : MonoBehaviour {
             #region Respawning
             respawnTimer -= Time.deltaTime;
 
-            // Recursivly searches all children to find the right hand
             SkinnedMeshRenderer[] children = GetComponentsInChildren<SkinnedMeshRenderer>();
             foreach (SkinnedMeshRenderer child in children)
             {
@@ -225,23 +242,26 @@ public class PlayerController : MonoBehaviour {
 
             if(goreAmmount == 1)
             {
-                Instantiate(gorePackage, thisTransform.position, thisTransform.rotation);
+                Instantiate(gorePackage, thisPlayersOrigin.position, thisPlayersOrigin.rotation);
+                GetComponentInChildren<ObiGoreScript>().bloodTriggered = true;
 
                 goreAmmount++;
+
+                deathCount = deathCount + 1;
             }
             else
             {
                 goreAmmount++;
             }
 
-            if (respawnTimer <= 0 && lives > 0)
+            if (respawnTimer <= 0)
             {
                 foreach (SkinnedMeshRenderer child in children)
                 {
                     child.enabled = true;
                 }
 
-                transform.position = startingPosition;
+                thisTransform.position = startingPosition;
                 isDead = false;
                 canControl = true;
                 ragdolling = false;
@@ -249,7 +269,6 @@ public class PlayerController : MonoBehaviour {
                 numToMash = 5;
                 healthManager.currentHealth = healthManager.startingHealth;
                 respawnTimer = respawnTimerReset;
-                lives = lives - 1;
                 goreAmmount = 0;
             }
             #endregion
@@ -267,6 +286,8 @@ public class PlayerController : MonoBehaviour {
         {
             DistanceToPlayer();
         }
+
+        deathCounterText.text = "Player " + (playerId + 1).ToString() + " Deaths: " + deathCount.ToString();
     }
 
     void CharMovement()
@@ -421,7 +442,6 @@ public class PlayerController : MonoBehaviour {
         else if (!ragdollToggle) //Reset Ragdoll
         {
             ragdolling = false;
-            thisTransform.position = new Vector3(thisPlayersOrigin.position.x, 0 , thisPlayersOrigin.position.z);
             totalCurrentMashes = 0;
             numToMash = numToMash * numToMashMultiplier;
             canControl = true;
@@ -449,10 +469,6 @@ public class PlayerController : MonoBehaviour {
                 inRange = true;
                 ClosestPlayer = otherPlayertrans.gameObject;
                 break;
-
-                //GetComponent<IKControl>().lookObj = placeToLook;
-                //GetComponent<IKControl>().ikActive = true;
-                //pickUpScript = closestPlayer.GetComponentInChildren<PickUp>();
             }
             else
             {

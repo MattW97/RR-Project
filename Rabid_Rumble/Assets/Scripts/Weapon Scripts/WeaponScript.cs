@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Obi;
 
 public class WeaponScript : MonoBehaviour {
 
@@ -208,25 +209,32 @@ public class WeaponScript : MonoBehaviour {
             
             if (collider.gameObject.tag == "Player" && collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
             {
-                collider.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(meleeDamage / 2);
+                collider.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(meleeDamage);
                 Physics.IgnoreCollision(thisTransform.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
 
-                Transform bloodParticleObject = collider.gameObject.transform.Find("BloodSplatterParticle");
-                bloodParticleObject.rotation = Quaternion.LookRotation(thisTransform.forward);
-                bloodParticleObject.GetComponent<ParticleSystem>().Play();
+                //Transform bloodParticleObject = collider.gameObject.transform.Find("BloodSplatterParticle");
+                //bloodParticleObject.rotation = Quaternion.LookRotation(thisTransform.forward);
+                //bloodParticleObject.GetComponent<ParticleSystem>().Play();
+
+                Transform obiBloodObject = collider.gameObject.transform.Find("ObiBloodEmitter");
+                obiBloodObject.rotation = Quaternion.LookRotation(thisTransform.forward);
+                collider.gameObject.GetComponentInChildren<ObiBloodScript>().bloodTriggered = true;
 
                 // Impact sounds
                 if (weaponSelection == WeaponType.BaseballBat)
                 {
                     audioSource.PlayOneShot(baseballBatImpact, 1.0f);
+                    collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "BaseballBat";
                 }
                 if (weaponSelection == WeaponType.Mallet)
                 {
                     audioSource.PlayOneShot(malletImpact, 1.0f);
+                    collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Mallet";
                 }
                 if (weaponSelection == WeaponType.Machete)
                 {
                     audioSource.PlayOneShot(macheteImpact, 1.0f);
+                    collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Machete";
                 }
             }
         }    

@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114968733479182690}
   m_Layer: 0
   m_Name: Machete
-  m_TagString: Untagged
+  m_TagString: WeaponBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,6 +246,7 @@ MonoBehaviour:
   ammoAmount: 0
   impactAmount: 0
   initAmmoAmount: 4
+  initialPickup: 0
   canDealDamage: 0
   thisRigidbody: {fileID: 0}
   muzzleFlash: {fileID: 0}
@@ -280,7 +281,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 0
-  m_Direction: 1
+  m_Radius: 0.16
+  m_Height: 0.82
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.3333}

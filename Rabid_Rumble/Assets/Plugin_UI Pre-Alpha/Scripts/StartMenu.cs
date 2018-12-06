@@ -111,8 +111,6 @@ public class StartMenu : MonoBehaviour
                                 if (!playersInGame.Contains(player))
                                     playersInGame.Add(player);
 
-                                player.GetComponent<PlayerHealthManager>().heartIcon.gameObject.SetActive(true);
-
                                 player.gameObject.SetActive(true);
                             }
                             else
@@ -177,8 +175,6 @@ public class StartMenu : MonoBehaviour
                     player.playerNum = 3;
                     player.PlayerInGame = true;
 
-                    player.GetComponent<PlayerHealthManager>().heartIcon.gameObject.SetActive(true);
-
                     player.canControl = false;
 
                     if (!playersInGame.Contains(player))
@@ -194,9 +190,6 @@ public class StartMenu : MonoBehaviour
 
                     if (!playersInGame.Contains(player))
                         playersInGame.Add(player);
-
-
-                    player.GetComponent<PlayerHealthManager>().heartIcon.gameObject.SetActive(true);
 
                     player.gameObject.SetActive(true);
                 }

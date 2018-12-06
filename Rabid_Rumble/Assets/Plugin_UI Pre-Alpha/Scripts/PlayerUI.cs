@@ -63,13 +63,11 @@ public class PlayerUI : MonoBehaviour {
             portrait.gameObject.SetActive(false);
             shellIcon.gameObject.SetActive(false);
             yMash.transform.parent.gameObject.SetActive(false);
-            assignedPlayer.GetComponent<PlayerHealthManager>().heartIcon.gameObject.SetActive(false);
         }
         else
         {
             portrait.gameObject.SetActive(true);
             shellIcon.gameObject.SetActive(true);
-            assignedPlayer.GetComponent<PlayerHealthManager>().heartIcon.gameObject.SetActive(true);
 
         }
     }

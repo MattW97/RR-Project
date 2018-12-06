@@ -10,12 +10,12 @@ public class Conveyor : MonoBehaviour
 
     private void OnTriggerStay(Collider objectOnBelt)
     {
-        if(objectOnBelt.tag != "Weapon")
+        if(objectOnBelt.tag != "WeaponBody")
         {
             objectOnBelt.transform.position = Vector3.MoveTowards(objectOnBelt.transform.position, endOfBelt.position, conveyorSpeed * Time.deltaTime);
         }
 
-        if (objectOnBelt.tag == "Weapon")
+        if (objectOnBelt.tag == "WeaponBody")
         {
             if(objectOnBelt.transform.parent == null)
             {

@@ -71,7 +71,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Smoothness:
-        m_Texture: {fileID: 2800000, guid: a060d351641d6ec4c969f16f1f5f33e6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 227984a4e7de5f948803a2d250596800, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
