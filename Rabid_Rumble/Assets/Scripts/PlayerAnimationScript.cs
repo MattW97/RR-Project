@@ -119,6 +119,7 @@ public class PlayerAnimationScript : MonoBehaviour {
         if(playerController.isHoldingWeapon)
         {
             playerController.weapon.GetComponent<WeaponScript>().canDealDamage = true;
+            playerController.weapon.GetComponent<MeleeWeaponTrail>().Emit = true;
         }
     }
 
@@ -127,6 +128,7 @@ public class PlayerAnimationScript : MonoBehaviour {
         if(playerController.weapon != null)
         {
             playerController.weapon.GetComponent<WeaponScript>().canDealDamage = false;
+            playerController.weapon.GetComponent<MeleeWeaponTrail>().Emit = false;
         }   
     }
 
