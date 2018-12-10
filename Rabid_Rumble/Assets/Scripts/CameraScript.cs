@@ -11,6 +11,7 @@ public class CameraScript : MonoBehaviour {
     public Transform player4;
 
     public GameObject midPoint;
+    private GameObject playerPickerInfo;
 
     private Vector3 newCameraPos;
     private Vector3 middlePoint;
@@ -33,6 +34,11 @@ public class CameraScript : MonoBehaviour {
     public AudioClip combatMusic;
     public AudioClip victoryMusic;
 
+    private void Awake()
+    {
+        playerPickerInfo = GameObject.Find("PlayerPickerInfo");
+    }
+
     void Start()
     {
         newCameraPos = Camera.main.transform.position;
@@ -52,8 +58,8 @@ public class CameraScript : MonoBehaviour {
         p3DistToMid = Vector3.Distance(player3.position, midPoint.transform.position);
         p4DistToMid = Vector3.Distance(player4.position, midPoint.transform.position);
 
-        
-        switch (playerSelection.GetComponent<ControllerAssigner>().existingConNums.Count)
+
+        switch (playerPickerInfo.GetComponent<ChosenChar>().existingConNums.Count)
         {
             case 1:
                 //IF 1 PLAYER (Just uses same as 2 players for override)

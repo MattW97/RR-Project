@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Rewired;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Handles the start menu UI nothing special just movin between menus,
@@ -21,6 +22,7 @@ public class StartMenu : MonoBehaviour
     public GameObject parentObject;
     public GameObject overrideButton;
     public GameObject fightButton;
+    public GameObject fox;
     public GameObject closeOptionsButton;
 
     public List<Sprite> countdownSprites;
@@ -39,6 +41,7 @@ public class StartMenu : MonoBehaviour
     [Header("Links")]
     public List<PlayerController> players;
     public ControllerAssigner controlAssign;
+    public ChosenChar _chosenChar;
     private List<PlayerController> playersInGame;
 
     //private bool inStart;
@@ -95,29 +98,30 @@ public class StartMenu : MonoBehaviour
                 {
                     if (ReInput.players.GetPlayer(j).GetButtonDown("Mash"))
                     {
-                        menuFlyCamera.gameObject.SetActive(false);
-                        playerSelectionGameObj.SetActive(false);
+                        SceneManager.LoadScene("TESTLEVEL");
+                        //menuFlyCamera.gameObject.SetActive(false);
+                        //playerSelectionGameObj.SetActive(false);
 
-                        countdown = true;
+                        //countdown = true;
 
-                        foreach (PlayerController player in players)
-                        {
-                            player.inCountdown = true;
+                        //foreach (PlayerController player in players)
+                        //{
+                        //    player.inCountdown = true;
 
-                            if (player.PlayerInGame)
-                            {
-                                player.canControl = false;
+                        //    if (player.PlayerInGame)
+                        //    {
+                        //        player.canControl = false;
 
-                                if (!playersInGame.Contains(player))
-                                    playersInGame.Add(player);
+                        //        if (!playersInGame.Contains(player))
+                        //            playersInGame.Add(player);
 
-                                player.gameObject.SetActive(true);
-                            }
-                            else
-                            {
-                                player.PlayerInGame = false;
-                            }
-                        }
+                        //        player.gameObject.SetActive(true);
+                        //    }
+                        //    else
+                        //    {
+                        //        player.PlayerInGame = false;
+                        //    }
+                        //}
 
                     }
                 }
@@ -242,6 +246,10 @@ public class StartMenu : MonoBehaviour
         }
     }
 
+    public void TempRunOverride()
+    {
+        SceneManager.LoadScene("TESTLEVEL");
+    }
     public void RunOverride()
     {
         playerOverride = true;
@@ -253,6 +261,7 @@ public class StartMenu : MonoBehaviour
     {
         startMenuGameObj.SetActive(false);
         playerSelectionGameObj.SetActive(true);
+        es.SetSelectedGameObject(fox);
     }
 
     public void Options()

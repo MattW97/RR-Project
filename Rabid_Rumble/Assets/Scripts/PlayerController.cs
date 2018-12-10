@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using Rewired;
 using Obi;
 
-[RequireComponent(typeof(IKControl))]
 public class PlayerController : MonoBehaviour {
 
     #region floats
@@ -35,6 +34,7 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
     #region bools 
+
     [HideInInspector] public bool canControl;
     [HideInInspector] public bool isDead;
     [HideInInspector] public bool ragdolling;
@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject gorePackage;
     public GameObject tagSetter;
     public GameObject playerReticle;
+    private GameObject characterInfo;
     #endregion
 
     #region Vector3s
@@ -98,26 +99,42 @@ public class PlayerController : MonoBehaviour {
     public List<Transform> otherPlayersOrigin;
     public Transform thisPlayersOrigin;
     public Text deathCounterText;
-
-
+    
     public int playerId = 0; // The Rewired player id of this character
     private Player player; // The Rewired Player
 
     void Awake()
     {
+        characterInfo = GameObject.Find("PlayerPickerInfo");
+        playerSkeletalMesh = characterInfo.GetComponent<ChosenChar>().SelectedCharacter(playerId);
+
         thisTransform = GetComponent<Transform>();
+
+        if (playerSkeletalMesh == null)
+        {
+            canControl = false;
+            PlayerInGame = false;
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            Instantiate(playerSkeletalMesh, thisTransform.position, thisTransform.rotation, thisTransform);
+            canControl = true;
+            PlayerInGame = true;
+        }
+
         thisRigidbody = GetComponent<Rigidbody>();
-        Instantiate(playerSkeletalMesh, thisTransform.position, thisTransform.rotation, thisTransform);
         Player = ReInput.players.GetPlayer(playerId);
+
     }
 
     void Start()
     {
         // Set the game to active in the Game Manager
         deathCounterText.gameObject.SetActive(false);
-
+        
         healthManager = GetComponent<PlayerHealthManager>();
-        canControl = false;
+        //canControl = false;
         isDead = false;
         //mashTimer = 0.5f;
         respawnTimer = respawnTimerReset;
@@ -156,10 +173,21 @@ public class PlayerController : MonoBehaviour {
             playerNum = 4;
         }
         #endregion
+
     }
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            this.GetComponent<Animator>().applyRootMotion = false;
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            this.GetComponent<Animator>().applyRootMotion = true;
+        }
+
         // Enable the end game death count and disable player control
         if (GameObject.Find("GameManager").GetComponent<UtilityManager>().countdownSeconds == 0 && GameObject.Find("GameManager").GetComponent<UtilityManager>().countdownMinutes == 0)
         {
@@ -406,7 +434,7 @@ public class PlayerController : MonoBehaviour {
     private void RagdollSetup()
     {
         ragdolling = false;
-        GetComponent<Animator>().enabled = true;
+        GetComponentInChildren<Animator>().enabled = true;
 
         foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
         {
@@ -435,7 +463,7 @@ public class PlayerController : MonoBehaviour {
                 rb.isKinematic = false;
             }
             thisRigidbody.isKinematic = true;
-            GetComponent<Animator>().enabled = false;
+            GetComponentInChildren<Animator>().enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;            
         }
 
@@ -450,7 +478,7 @@ public class PlayerController : MonoBehaviour {
                 rb.isKinematic = true;
             }
             thisRigidbody.isKinematic = false;
-            GetComponent<Animator>().enabled = true;
+            GetComponentInChildren<Animator>().enabled = true;
             GetComponent<CapsuleCollider>().enabled = true;
         }
     }
@@ -473,7 +501,6 @@ public class PlayerController : MonoBehaviour {
             else
             {
                 inRange = false;
-                GetComponent<IKControl>().ikActive = false;
             }
         }   
     }
