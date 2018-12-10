@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4072999534248444}
   - component: {fileID: 114803158889170090}
+  - component: {fileID: 95447102494432968}
+  - component: {fileID: 114999869627570992}
   m_Layer: 0
   m_Name: Mouse Skeletal Mesh
   m_TagString: Untagged
@@ -1426,6 +1428,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25182205, y: 0.1302619, z: 0.13024521}
   m_Center: {x: -0.12591103, y: -0.017565385, z: -0.065122604}
+--- !u!95 &95447102494432968
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063717660676408}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0ccc8a5716b7c0643bcbf82db24c3f05, type: 3}
+  m_Controller: {fileID: 9100000, guid: 99d29c583ec7aa042890a3abce295115, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114803158889170090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1458,6 +1477,19 @@ MonoBehaviour:
   rb: {fileID: 0}
   join: 0
   playerToJoinTo: {fileID: 0}
+--- !u!114 &114999869627570992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063717660676408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789172ff004b7984aaf34079b64430c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  swingClip: {fileID: 8300000, guid: 7a665fec191789347bb803db0ce55217, type: 3}
 --- !u!135 &135068721499681540
 SphereCollider:
   m_ObjectHideFlags: 1

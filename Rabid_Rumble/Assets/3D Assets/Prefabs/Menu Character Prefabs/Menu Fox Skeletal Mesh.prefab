@@ -70,7 +70,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4040770211611016}
-  - component: {fileID: 114969528204387746}
   m_Layer: 0
   m_Name: Menu Fox Skeletal Mesh
   m_TagString: Untagged
@@ -1537,23 +1536,6 @@ MonoBehaviour:
   rb: {fileID: 0}
   join: 0
   playerToJoinTo: {fileID: 0}
---- !u!114 &114969528204387746
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1086067050915478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 2
-  outlineColor: {r: 1, g: 0.7241379, b: 0, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!135 &135160194620425552
 SphereCollider:
   m_ObjectHideFlags: 1

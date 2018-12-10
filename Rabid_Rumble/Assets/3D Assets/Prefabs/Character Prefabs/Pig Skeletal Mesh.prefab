@@ -316,6 +316,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4199379903872212}
   - component: {fileID: 114970823841559884}
+  - component: {fileID: 95157435313522608}
+  - component: {fileID: 114745308651438902}
   m_Layer: 0
   m_Name: Pig Skeletal Mesh
   m_TagString: Untagged
@@ -1426,6 +1428,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24850722, y: 0.13026191, z: 0.1302786}
   m_Center: {x: -0.03350415, y: -0.00939884, z: 0.06513929}
+--- !u!95 &95157435313522608
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650274846682064}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 943cc11d1d829914e81090c9714460a7, type: 3}
+  m_Controller: {fileID: 9100000, guid: 99d29c583ec7aa042890a3abce295115, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114703901466191356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1441,6 +1460,19 @@ MonoBehaviour:
   rb: {fileID: 0}
   join: 0
   playerToJoinTo: {fileID: 0}
+--- !u!114 &114745308651438902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650274846682064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789172ff004b7984aaf34079b64430c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  swingClip: {fileID: 8300000, guid: 7a665fec191789347bb803db0ce55217, type: 3}
 --- !u!114 &114970823841559884
 MonoBehaviour:
   m_ObjectHideFlags: 1

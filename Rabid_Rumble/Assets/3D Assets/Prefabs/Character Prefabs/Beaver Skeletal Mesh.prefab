@@ -309,8 +309,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4713280053628198}
   - component: {fileID: 114461356299434146}
+  - component: {fileID: 95564470654365008}
+  - component: {fileID: 114975922849250964}
   m_Layer: 0
-  m_Name: Beaver  Skeletal Mesh
+  m_Name: Beaver Skeletal Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1458,6 +1460,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.251822, y: 0.13026209, z: 0.13027857}
   m_Center: {x: -0.125911, y: -0.017565295, z: 0.06513933}
+--- !u!95 &95564470654365008
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1451553547193612}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 09b0f7d2e1d52a843b57b677a7011bf7, type: 3}
+  m_Controller: {fileID: 9100000, guid: 99d29c583ec7aa042890a3abce295115, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114267755845257634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1505,6 +1524,19 @@ MonoBehaviour:
   rb: {fileID: 54967397180500216}
   join: 0
   playerToJoinTo: {fileID: 0}
+--- !u!114 &114975922849250964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1451553547193612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789172ff004b7984aaf34079b64430c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  swingClip: {fileID: 8300000, guid: 7a665fec191789347bb803db0ce55217, type: 3}
 --- !u!135 &135587071109075942
 SphereCollider:
   m_ObjectHideFlags: 1

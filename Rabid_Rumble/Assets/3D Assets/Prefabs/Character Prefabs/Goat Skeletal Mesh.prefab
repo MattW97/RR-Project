@@ -507,6 +507,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4706469026983156}
   - component: {fileID: 114716129015707128}
+  - component: {fileID: 95693970294726862}
+  - component: {fileID: 114953581749910412}
   m_Layer: 0
   m_Name: Goat Skeletal Mesh
   m_TagString: Untagged
@@ -1426,6 +1428,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25182205, y: 0.1302619, z: 0.13027859}
   m_Center: {x: -0.12591103, y: -0.017565385, z: 0.06513929}
+--- !u!95 &95693970294726862
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943729992593944}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 147c7b7f961b0f045aac02988337ac59, type: 3}
+  m_Controller: {fileID: 9100000, guid: 99d29c583ec7aa042890a3abce295115, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114215642184219934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1458,6 +1477,19 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &114953581749910412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943729992593944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789172ff004b7984aaf34079b64430c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  swingClip: {fileID: 8300000, guid: 7a665fec191789347bb803db0ce55217, type: 3}
 --- !u!135 &135769309700913790
 SphereCollider:
   m_ObjectHideFlags: 1

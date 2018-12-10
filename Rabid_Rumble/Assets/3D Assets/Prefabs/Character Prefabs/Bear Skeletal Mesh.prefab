@@ -216,6 +216,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4189202914629348}
   - component: {fileID: 114635070950621066}
+  - component: {fileID: 95035658293606650}
+  - component: {fileID: 114459549840401174}
   m_Layer: 0
   m_Name: Bear Skeletal Mesh
   m_TagString: Untagged
@@ -1427,6 +1429,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24850716, y: 0.13026182, z: 0.13024537}
   m_Center: {x: -0.03350412, y: -0.009398833, z: -0.06512261}
+--- !u!95 &95035658293606650
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1413157229655182}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 372d7d70b4467ee4f87fc90a592534fb, type: 3}
+  m_Controller: {fileID: 9100000, guid: 99d29c583ec7aa042890a3abce295115, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114074853240816158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1442,6 +1461,19 @@ MonoBehaviour:
   rb: {fileID: 0}
   join: 0
   playerToJoinTo: {fileID: 0}
+--- !u!114 &114459549840401174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1413157229655182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 789172ff004b7984aaf34079b64430c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  swingClip: {fileID: 8300000, guid: 7a665fec191789347bb803db0ce55217, type: 3}
 --- !u!114 &114635070950621066
 MonoBehaviour:
   m_ObjectHideFlags: 1

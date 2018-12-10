@@ -69,7 +69,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4344757367799756}
-  - component: {fileID: 114034865234244102}
   m_Layer: 0
   m_Name: Menu Bunny Skeletal Mesh
   m_TagString: Untagged
@@ -1426,23 +1425,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25182205, y: 0.1302619, z: 0.13024521}
   m_Center: {x: -0.12591103, y: -0.017565385, z: -0.065122604}
---- !u!114 &114034865234244102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1144929008710766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 2
-  outlineColor: {r: 0.9098039, g: 0.36862746, b: 0.827451, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &114812889990417822
 MonoBehaviour:
   m_ObjectHideFlags: 1

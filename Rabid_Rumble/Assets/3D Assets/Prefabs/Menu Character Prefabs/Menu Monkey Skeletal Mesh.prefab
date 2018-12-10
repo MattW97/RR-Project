@@ -222,7 +222,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4901434027291422}
-  - component: {fileID: 114627610100726184}
   m_Layer: 0
   m_Name: Menu Monkey Skeletal Mesh
   m_TagString: Untagged
@@ -1458,23 +1457,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24850714, y: 0.13026212, z: 0.13024569}
   m_Center: {x: -0.03350413, y: -0.009398803, z: -0.06512275}
---- !u!114 &114627610100726184
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1353961896740684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 2
-  outlineColor: {r: 0.66176474, g: 0.39813626, b: 0.12164793, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &114659817180245706
 MonoBehaviour:
   m_ObjectHideFlags: 1
