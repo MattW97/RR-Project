@@ -17,8 +17,8 @@ public class PlayerAnimationScript : MonoBehaviour {
     void Start ()
     {
         animator = GetComponent<Animator>();
-        playerController = GetComponent<PlayerController>();
-        audioSource = GetComponent<AudioSource>();
+        playerController = GetComponentInParent<PlayerController>();
+        audioSource = GetComponentInParent<AudioSource>();
 	}
 	
 	// Update is called once per frame

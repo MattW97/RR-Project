@@ -6,5 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/S_JakeTestLevel.unity
+    path: Assets/Scenes/S_FactoryLevel.unity
     guid: 170322fc7064b48468c664b8c1c51bb8
+  - enabled: 1
+    path: Assets/Scenes/S_MainMenu.unity
+    guid: 81aa3b2412959cb40997387e0bfbc2c7
+  - enabled: 1
+    path: Assets/Scenes/TESTLEVEL.unity
+    guid: 6425bd323e87cbe4ba00af4175464c62

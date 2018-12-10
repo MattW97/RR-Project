@@ -15,11 +15,11 @@ public class ControllerAssigner : MonoBehaviour
     private int gamePlayerIdCounter = 0;
 
     public int rumbleStrength;
-    //public int leftMotorValue;
-    //public int rightMotorValue;
 
     public PlayerPanel[] playerPanels;
     public List<int> existingConNums;
+
+    public ChosenChar _chosenCharLink;
 
     void Awake()
     {
@@ -29,6 +29,7 @@ public class ControllerAssigner : MonoBehaviour
     private void Start()
     {
         existingConNums.Clear();
+        _chosenCharLink.existingConNums.Clear();
     }
 
     private void Update()
@@ -40,30 +41,10 @@ public class ControllerAssigner : MonoBehaviour
             {
                 AssignNextPlayer(i);
                 existingConNums.Add(i);
+                _chosenCharLink.existingConNums.Add(i);
             }
         }
-
-        //for (int i = 1; i <= 4; i++)
-        //{
-        //    if (Input.GetButtonDown("A_" + i) && !existingConNums.Contains(i))
-        //    {
-        //        existingConNums.Add(i);
-        //        AssignPlayer(i);
-        //    }
-        //}
     }
-
-    //public PlayerController AssignPlayer(int controller)
-    //{
-    //    for (int i = 0; i < playerPanels.Length; i++)
-    //    {
-    //        if (playerPanels[i].hasControllerAssinged == false)
-    //        {
-    //            return playerPanels[i].AssignController(controller);
-    //        }
-    //    }
-    //    return null;
-    //}
 
     void AssignNextPlayer(int rewiredPlayerId)
     {
@@ -104,7 +85,7 @@ public class ControllerAssigner : MonoBehaviour
         // Enable UI control for this Player now that he has joined
         rewiredPlayer.controllers.maps.SetMapsEnabled(true, "UI");
 
-        playerPanels[rewiredPlayerId].player.PlayerInGame = true;
+        //playerPanels[rewiredPlayerId].player.PlayerInGame = true;
         playerPanels[rewiredPlayerId].rewiredPlayerId = rewiredPlayerId;
         playerPanels[rewiredPlayerId].AssignController(rewiredPlayerId);
         playerPanels[rewiredPlayerId].rewiredPlayer = rewiredPlayer;
