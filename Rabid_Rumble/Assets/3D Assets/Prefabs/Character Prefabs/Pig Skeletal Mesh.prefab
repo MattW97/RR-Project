@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 114745308651438902}
   m_Layer: 0
   m_Name: Pig Skeletal Mesh
-  m_TagString: Untagged
+  m_TagString: SkeletalMesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

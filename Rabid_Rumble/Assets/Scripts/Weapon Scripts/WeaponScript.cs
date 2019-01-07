@@ -26,7 +26,7 @@ public class WeaponScript : MonoBehaviour {
 
     private bool canShoot;
     private bool reloading;
-    public bool initialPickup;
+    //public bool initialPickup;
 
     public bool canDealDamage;
 
@@ -64,7 +64,7 @@ public class WeaponScript : MonoBehaviour {
         canShoot = false;
         reloading = false;
         canDealDamage = false;
-        initialPickup = false;
+        //initialPickup = false;
 
         despawnTimer = initDespawnTime;
 
@@ -116,7 +116,7 @@ public class WeaponScript : MonoBehaviour {
 
         gameObject.GetComponent<Outline>().enabled = false;
 
-        initialPickup = true;
+        //initialPickup = true;
     }
 
     public void GetDropped ()
@@ -150,6 +150,7 @@ public class WeaponScript : MonoBehaviour {
                 muzzleFlash.Play();
                 audioSource.PlayOneShot(shotgunFire, 1.0f);
                 initAmmoAmount = initAmmoAmount - 1;
+                player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f);
             }
             # region OldCode
             //if (playerController.Player.GetAxis("Attack") > 0 && !reloading && !playerController.pickUpMode)
@@ -219,6 +220,9 @@ public class WeaponScript : MonoBehaviour {
                 Transform obiBloodObject = collider.gameObject.transform.Find("ObiBloodEmitter");
                 obiBloodObject.rotation = Quaternion.LookRotation(thisTransform.forward);
                 collider.gameObject.GetComponentInChildren<ObiBloodScript>().bloodTriggered = true;
+
+                player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f);
+                collider.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.2f);
 
                 // Impact sounds
                 if (weaponSelection == WeaponType.BaseballBat)

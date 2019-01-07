@@ -30,7 +30,7 @@ public class KillZone : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 8)
+        if (other.gameObject.layer == 9)
         {
             if (zoneSelection == ZoneType.ragdoll)
             {

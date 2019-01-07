@@ -61,14 +61,6 @@ public class ControllerAssigner : MonoBehaviour
 
         Player rewiredPlayer = ReInput.players.GetPlayer(rewiredPlayerId);
 
-
-        // Set vibration by motor type
-        foreach (Joystick j in rewiredPlayer.controllers.Joysticks)
-        {
-            if (!j.supportsVibration) continue;
-            j.SetVibration(rumbleStrength, rumbleStrength);
-        }
-
         // Set vibration by motor index
         foreach (Joystick j in rewiredPlayer.controllers.Joysticks)
         {
@@ -96,7 +88,7 @@ public class ControllerAssigner : MonoBehaviour
 
     IEnumerator Vibration(Player rewiredPlayer)
     {
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         // Stop vibration
         foreach (Joystick j in rewiredPlayer.controllers.Joysticks)
         {

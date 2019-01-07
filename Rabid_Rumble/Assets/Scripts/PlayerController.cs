@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour {
     #region bools 
 
     [HideInInspector] public bool canControl;
-    [HideInInspector] public bool isDead;
-    [HideInInspector] public bool ragdolling;
+    public bool isDead;
+    public bool ragdolling;
     [HideInInspector] public bool canPickUpWeapon;
     [HideInInspector] public bool isHoldingWeapon;
     [HideInInspector] public bool beenDragged;
@@ -46,9 +46,8 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector] public bool inCountdown;
 
     private bool playerInGame;
-    private bool isGrounded = false;
-    private bool jumpingBool = false;  
     private bool inRange;
+    private bool deathVibrate;
     public bool spawnGore;
 
     [Space]
@@ -77,7 +76,13 @@ public class PlayerController : MonoBehaviour {
     public GameObject tagSetter;
     public GameObject playerReticle;
     private GameObject characterInfo;
+    private GameObject yButtonUI;
+
     #endregion
+
+    private Image yButtonUIFill;
+    private Image xButtonUI;
+    private Image bButtonUI;
 
     #region Vector3s
     private Vector3 movementInput;
@@ -96,6 +101,7 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Change These For Each Player")]
     public GameObject playerSkeletalMesh;
+    public GameObject skeletalMeshRef;
     public List<Transform> otherPlayersOrigin;
     public Transform thisPlayersOrigin;
     public Text deathCounterText;
@@ -152,7 +158,32 @@ public class PlayerController : MonoBehaviour {
                 rightHand = child.transform.GetComponent<Rigidbody>();
                 pickUpScript = child.transform.GetComponent<PickUp>();
             }
+
+            if (child.gameObject.tag == "SkeletalMesh")
+            {
+                skeletalMeshRef = child.gameObject;
+            }
+
+            if (child.gameObject.name == "Y-Button")
+            {
+                yButtonUI = child.gameObject;
+                yButtonUIFill = yButtonUI.transform.Find("Y-Colour").GetComponent<Image>();
+            }
+
+            if (child.gameObject.name == "X-Button")
+            {
+                xButtonUI = child.gameObject.GetComponent<Image>();
+            }
+
+            if (child.gameObject.name == "B-Button")
+            {
+                bButtonUI = child.gameObject.GetComponent<Image>();
+            }
         }
+
+        yButtonUI.SetActive(false);
+        xButtonUI.enabled = false;
+        bButtonUI.enabled = false;
 
         // Set player number for UI
         #region Player numbers
@@ -178,16 +209,6 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            this.GetComponent<Animator>().applyRootMotion = false;
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            this.GetComponent<Animator>().applyRootMotion = true;
-        }
-
         // Enable the end game death count and disable player control
         if (GameObject.Find("GameManager").GetComponent<UtilityManager>().countdownSeconds == 0 && GameObject.Find("GameManager").GetComponent<UtilityManager>().countdownMinutes == 0)
         {
@@ -197,6 +218,8 @@ public class PlayerController : MonoBehaviour {
             forwardBackward = 0;
             rightLeft = 0;
         }
+
+        tagSetter.transform.position = skeletalMeshRef.transform.Find("Pelvis").transform.position;
 
         if (!isDead)
         {
@@ -218,16 +241,15 @@ public class PlayerController : MonoBehaviour {
 
                 CharMovement();
                 GrabAndDrag();
-                Jumping();
 
                 #region Pick Up Weapon and Drop Weapon
                 if (!isHoldingWeapon && canPickUpWeapon)
                 {
-                    if (weapon.GetComponent<WeaponScript>().initialPickup == false)
-                    {
-                        PickUpWeapon();
-                        isHoldingWeapon = !isHoldingWeapon;
-                    }
+                    //if (weapon.GetComponent<WeaponScript>().initialPickup == false)
+                    //{
+                    //    PickUpWeapon();
+                    //    isHoldingWeapon = !isHoldingWeapon;
+                    //}
 
                     if (player.GetButtonDown("Interact"))
                     {
@@ -248,12 +270,20 @@ public class PlayerController : MonoBehaviour {
                     weapon.GetComponent<WeaponScript>().Reload(gameObject);
                 }
                 #endregion
+
+                yButtonUI.SetActive(false);
             }
 
             if (ragdolling)
             {
                 ButtonMashing();
-                thisPlayersOrigin.position = rightHand.transform.position;
+                //thisPlayersOrigin.position = rightHand.transform.position;
+                transform.position = new Vector3 (skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z);
+                //new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z)
+
+                yButtonUI.SetActive(true);
+                xButtonUI.enabled = false;
+                yButtonUIFill.fillAmount = totalCurrentMashes / numToMash;
             }
         }
 
@@ -262,7 +292,13 @@ public class PlayerController : MonoBehaviour {
             #region Respawning
             respawnTimer -= Time.deltaTime;
 
-            SkinnedMeshRenderer[] children = GetComponentsInChildren<SkinnedMeshRenderer>();
+            if (!deathVibrate)
+            {
+                ControllerVibrate(0.3f);
+                deathVibrate = true;
+            }
+
+            SkinnedMeshRenderer[] children = skeletalMeshRef.GetComponentsInChildren<SkinnedMeshRenderer>();
             foreach (SkinnedMeshRenderer child in children)
             {
                 child.enabled = false;
@@ -325,6 +361,8 @@ public class PlayerController : MonoBehaviour {
         movementInput = new Vector3(Player.GetAxis("LeftHoz") * movementSpeed, 0, Player.GetAxis("LeftVert") * movementSpeed);
         movementVelocity = movementInput;
 
+        thisRigidbody.velocity = new Vector3(movementVelocity.x, -9.81f, movementVelocity.z);
+
         // When Left Trigger is pressed...
         if (Player.GetAxis("Aim") > 0)
         {
@@ -369,42 +407,10 @@ public class PlayerController : MonoBehaviour {
             else
             {
                 totalCurrentMashes++;
+                ControllerVibrate(0.1f);
             }
         }
         #endregion
-    }
-
-    void Jumping()
-    {
-        if (isGrounded)
-        {
-            verticalVelocity = -Physics.gravity.y * Time.deltaTime;
-
-            if (player.GetButtonDown("Jump") && !jumpingBool)
-            {
-                jumpingBool = true;
-                StartCoroutine(JumpGravity());
-            }
-
-            if (jumpingBool)
-            {
-                verticalVelocity = jumpForce;
-            }
-
-        }
-        else if (!isGrounded)
-        {
-            verticalVelocity -= 15 * Time.deltaTime;
-        }
-
-        thisRigidbody.velocity = new Vector3(movementVelocity.x, verticalVelocity, movementVelocity.z);
-    }
-
-    IEnumerator JumpGravity()
-    {
-        yield return new WaitForSeconds(.1f);
-        isGrounded = false;
-        jumpingBool = false;
     }
 
     //Used to calculate player directions for animation blend trees
@@ -464,12 +470,27 @@ public class PlayerController : MonoBehaviour {
             }
             thisRigidbody.isKinematic = true;
             GetComponentInChildren<Animator>().enabled = false;
-            GetComponent<CapsuleCollider>().enabled = false;            
+            GetComponent<CapsuleCollider>().enabled = false;
+            skeletalMeshRef.transform.parent = null;
+
+            foreach (Transform bones in skeletalMeshRef.transform.Find("Pelvis").GetComponentsInChildren<Transform>())
+            {
+                bones.gameObject.tag = "PlayerRagdoll";
+            }
         }
 
         else if (!ragdollToggle) //Reset Ragdoll
         {
             ragdolling = false;
+
+            skeletalMeshRef.transform.parent = gameObject.transform;
+            skeletalMeshRef.transform.position = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
+            skeletalMeshRef.transform.Find("Pelvis").transform.position = new Vector3(gameObject.transform.position.x, 0.19f, gameObject.transform.position.z);
+            foreach (Transform bones in skeletalMeshRef.transform.Find("Pelvis").GetComponentsInChildren<Transform>())
+            {
+                bones.gameObject.tag = "Untagged";
+            }
+
             totalCurrentMashes = 0;
             numToMash = numToMash * numToMashMultiplier;
             canControl = true;
@@ -479,7 +500,7 @@ public class PlayerController : MonoBehaviour {
             }
             thisRigidbody.isKinematic = false;
             GetComponentInChildren<Animator>().enabled = true;
-            GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<CapsuleCollider>().enabled = true;       
         }
     }
 
@@ -535,6 +556,7 @@ public class PlayerController : MonoBehaviour {
     {
         WeaponScript weaponScript = weapon.GetComponent<WeaponScript>();
         weaponScript.GetPickedUp(rightHand);
+        xButtonUI.enabled = false;
     }
 
     void DropWeapon()
@@ -546,6 +568,25 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void ControllerVibrate(float vibrationTime)
+    {
+        foreach (Joystick j in player.controllers.Joysticks)
+        {
+            if (!j.supportsVibration) continue;
+            if (j.vibrationMotorCount > 0) j.SetVibration(0, 1.0f);
+            StartCoroutine(Vibration(player, vibrationTime));
+        }
+    }
+
+    IEnumerator Vibration(Player player, float vibrationTime)
+    {
+        yield return new WaitForSeconds(vibrationTime);
+        foreach (Joystick j in player.controllers.Joysticks)
+        {
+            j.StopVibration();
+        }
+    }
+
     void OnTriggerStay(Collider col)
     {
         if (!isHoldingWeapon)
@@ -554,6 +595,7 @@ public class PlayerController : MonoBehaviour {
             {
                 weapon = col.transform.parent.gameObject;
                 canPickUpWeapon = true;
+                xButtonUI.enabled = true;
             }
         }
     }
@@ -564,23 +606,8 @@ public class PlayerController : MonoBehaviour {
         {
             this.weapon = null;
             canPickUpWeapon = false;
+            xButtonUI.enabled = false;
         }        
-    }
-
-    void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.layer == 11)
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.layer == 11)
-        {
-            isGrounded = false;
-        }
     }
 
     #region Getters/ Setters

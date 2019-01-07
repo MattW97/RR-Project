@@ -16,6 +16,12 @@ public class Conveyor : MonoBehaviour
             objectOnBelt.transform.position = Vector3.MoveTowards(objectOnBelt.transform.position, endOfBelt.position, conveyorSpeed * Time.deltaTime);
         }
 
+        if (objectOnBelt.tag == "PlayerRagdoll")
+        {
+
+            objectOnBelt.transform.position = Vector3.MoveTowards(objectOnBelt.transform.position, endOfBelt.position, conveyorSpeed * Time.deltaTime);
+        }
+
         if (objectOnBelt.tag == "WeaponBody")
         {
             if(objectOnBelt.transform.parent == null)

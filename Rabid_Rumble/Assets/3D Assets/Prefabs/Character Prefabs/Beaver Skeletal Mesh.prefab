@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 114975922849250964}
   m_Layer: 0
   m_Name: Beaver Skeletal Mesh
-  m_TagString: Untagged
+  m_TagString: SkeletalMesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
