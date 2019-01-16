@@ -145,7 +145,7 @@ MonoBehaviour:
   zoneSelection: 4
   damageFromTrap: 0
   grinder: 0
-  pipeTransforms: []
+  goreSpawner: {fileID: 0}
 --- !u!1001 &5171040
 Prefab:
   m_ObjectHideFlags: 0
@@ -842,8 +842,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 36571848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 567, y: 319, z: 0}
-  m_LocalScale: {x: 0.59068286, y: 0.59068286, z: 0.59068286}
+  m_LocalPosition: {x: 478, y: 269, z: 0}
+  m_LocalScale: {x: 0.49803242, y: 0.49803242, z: 0.49803242}
   m_Children:
   - {fileID: 143571680}
   - {fileID: 1407632967}
@@ -1090,7 +1090,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 58903278}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00012207031, y: -100.02142, z: 0}
+  m_LocalPosition: {x: 0.00012207031, y: -202.39624, z: 0}
   m_LocalScale: {x: 1.0000017, y: 1.0000017, z: 1.0000017}
   m_Children:
   - {fileID: 2054024220}
@@ -1102,8 +1102,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.8167782}
-  m_AnchoredPosition: {x: 0.00012207031, y: -1.0719604}
-  m_SizeDelta: {x: 0, y: -2.4100342}
+  m_AnchoredPosition: {x: 0.00012207031, y: -103.43347}
+  m_SizeDelta: {x: 0, y: -207.13306}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &58903280
 MonoBehaviour:
@@ -1263,7 +1263,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 59543535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 593.84845, z: 0}
+  m_LocalPosition: {x: 0, y: 491.54623, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 813624488}
@@ -2907,7 +2907,7 @@ MonoBehaviour:
   zoneSelection: 4
   damageFromTrap: 0
   grinder: 0
-  pipeTransforms: []
+  goreSpawner: {fileID: 0}
 --- !u!4 &228282344 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: e0f57af57ef02114aad8da6104755c56, type: 3}
@@ -4006,7 +4006,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 404060827}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 540.14844, z: 0}
+  m_LocalPosition: {x: 0, y: 437.84622, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 813624488}
@@ -4370,7 +4370,7 @@ MonoBehaviour:
   zoneSelection: 4
   damageFromTrap: 0
   grinder: 0
-  pipeTransforms: []
+  goreSpawner: {fileID: 0}
 --- !u!1001 &439340636
 Prefab:
   m_ObjectHideFlags: 0
@@ -5275,7 +5275,7 @@ MonoBehaviour:
   zoneSelection: 3
   damageFromTrap: 0
   grinder: 0
-  pipeTransforms: []
+  goreSpawner: {fileID: 0}
 --- !u!65 &545369985
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6936,7 +6936,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 755721515}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 647.5484, z: 0}
+  m_LocalPosition: {x: 0, y: 545.2462, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 813624488}
@@ -7496,7 +7496,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 813624487}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00012207031, y: -100.02142, z: 0}
+  m_LocalPosition: {x: 0.00012207031, y: -202.39621, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 940790210}
@@ -7508,8 +7508,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.8167782}
-  m_AnchoredPosition: {x: 0.00012206999, y: -1.071991}
-  m_SizeDelta: {x: 0, y: -2.4100037}
+  m_AnchoredPosition: {x: 0.00012206999, y: -103.433495}
+  m_SizeDelta: {x: 0, y: -207.13301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &813624489
 MonoBehaviour:
@@ -7983,7 +7983,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 848254452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -341.45602, y: 0.06286621, z: 0}
+  m_LocalPosition: {x: -341.32687, y: 0.13543701, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1173230580}
@@ -8980,7 +8980,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 940790206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 647.5484, z: 0}
+  m_LocalPosition: {x: 0, y: 545.2462, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 813624488}
@@ -10173,7 +10173,7 @@ MonoBehaviour:
   zoneSelection: 2
   damageFromTrap: 0
   grinder: 0
-  pipeTransforms: []
+  goreSpawner: {fileID: 0}
 --- !u!65 &1080161669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10601,7 +10601,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1145061231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 341.59406, y: -0.017089844, z: 0}
+  m_LocalPosition: {x: 341.72314, y: 0.055480957, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2035712854}
@@ -10773,7 +10773,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1147016685}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 647.5484, z: 0}
+  m_LocalPosition: {x: 0, y: 545.24615, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 58903279}
@@ -11123,7 +11123,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1185609150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000061035156, y: 400.38293, z: 0}
+  m_LocalPosition: {x: 48, y: 322.1255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 143571680}
@@ -11131,8 +11131,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -139.67}
-  m_SizeDelta: {x: 1475, y: 216}
+  m_AnchoredPosition: {x: 48, y: -218}
+  m_SizeDelta: {x: 927.6, y: 401.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185609152
 MonoBehaviour:
@@ -11153,7 +11153,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 38dd013173af5f74ab8d5d68d176946f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f9d031c317b2304d85a65f6d0eeaa64, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11633,7 +11633,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1263386128}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000061035156, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1348473526}
@@ -11978,7 +11978,7 @@ MonoBehaviour:
   zoneSelection: 4
   damageFromTrap: 0
   grinder: 0
-  pipeTransforms: []
+  goreSpawner: {fileID: 0}
 --- !u!1 &1309270818 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: e0f57af57ef02114aad8da6104755c56, type: 3}
@@ -12579,7 +12579,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1348473524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -752.806, y: 0.03289795, z: 0}
+  m_LocalPosition: {x: -752.6769, y: 0.10546875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1921693968}
@@ -13146,7 +13146,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407632966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000061035156, y: 0.000061035156, z: 0}
+  m_LocalPosition: {x: 0.000061035156, y: 0, z: 0}
   m_LocalScale: {x: 1.0000017, y: 1.0000017, z: 1.0000017}
   m_Children:
   - {fileID: 773143604}
@@ -13412,7 +13412,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1433390641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 752.994, y: 0.07293701, z: 0}
+  m_LocalPosition: {x: 753.12317, y: 0.14550781, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 418207240}
@@ -14529,10 +14529,7 @@ MonoBehaviour:
   zoneSelection: 1
   damageFromTrap: 0
   grinder: 1
-  pipeTransforms:
-  - {fileID: 144829905}
-  - {fileID: 402738013}
-  - {fileID: 609209999}
+  goreSpawner: {fileID: 0}
 --- !u!65 &1518461192
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15294,7 +15291,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1584714524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00012207031, y: 0.000061035156, z: 0}
+  m_LocalPosition: {x: 0.00012207031, y: 0, z: 0}
   m_LocalScale: {x: 1.0000017, y: 1.0000017, z: 1.0000017}
   m_Children:
   - {fileID: 2035564414}
@@ -15514,7 +15511,7 @@ MonoBehaviour:
   zoneSelection: 4
   damageFromTrap: 0
   grinder: 0
-  pipeTransforms: []
+  goreSpawner: {fileID: 0}
 --- !u!1001 &1626934550
 Prefab:
   m_ObjectHideFlags: 0
@@ -15809,7 +15806,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1640160721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.074035645, y: 0.07293701, z: 0}
+  m_LocalPosition: {x: 0.203125, y: 0.14550781, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1652491060}
@@ -16270,7 +16267,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1679217268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 540.14844, z: 0}
+  m_LocalPosition: {x: 0, y: 437.8462, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 58903279}
@@ -17919,7 +17916,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1900240530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -825.906, y: -436.55292, z: 0}
+  m_LocalPosition: {x: -825.7769, y: -436.6255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 699667257}
@@ -18665,7 +18662,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1942560190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 593.84845, z: 0}
+  m_LocalPosition: {x: 0, y: 491.5462, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 58903279}
@@ -18895,7 +18892,7 @@ MonoBehaviour:
   zoneSelection: 2
   damageFromTrap: 0
   grinder: 0
-  pipeTransforms: []
+  goreSpawner: {fileID: 0}
 --- !u!65 &1988677323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19199,7 +19196,7 @@ MonoBehaviour:
   zoneSelection: 4
   damageFromTrap: 0
   grinder: 0
-  pipeTransforms: []
+  goreSpawner: {fileID: 0}
 --- !u!1001 &2014443216
 Prefab:
   m_ObjectHideFlags: 0
@@ -19512,7 +19509,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2031180572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -825.90594, y: -436.55292, z: 0}
+  m_LocalPosition: {x: -825.77686, y: -436.6255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 630367114}
@@ -19824,7 +19821,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2054024216}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 647.5484, z: 0}
+  m_LocalPosition: {x: 0, y: 545.24615, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 58903279}
@@ -20899,7 +20896,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 5
+        _actionId: 8
         _elementType: 1
         _elementIdentifierId: 4
         _axisRange: 0
@@ -20910,7 +20907,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 9
+        _actionId: 7
         _elementType: 1
         _elementIdentifierId: 5
         _axisRange: 0
@@ -20932,7 +20929,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 7
+        _actionId: -1
         _elementType: 1
         _elementIdentifierId: 7
         _axisRange: 0
@@ -20943,7 +20940,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 6
+        _actionId: -1
         _elementType: 1
         _elementIdentifierId: 8
         _axisRange: 0

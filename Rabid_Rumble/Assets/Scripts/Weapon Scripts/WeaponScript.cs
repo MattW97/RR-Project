@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using Obi;
 
-public class WeaponScript : MonoBehaviour {
+public class WeaponScript : MonoBehaviour
+{
 
     public Vector3 position;
     public Vector3 rotation;
@@ -20,14 +21,17 @@ public class WeaponScript : MonoBehaviour {
     private float reloadTime = 1;
     public float ammoAmount;
     public float impactAmount;
-    [HideInInspector] public float initAmmoAmount = 4;
+    [HideInInspector]
+    public float initAmmoAmount = 4;
 
-    private int meleeDamage;
+    [HideInInspector]
+    public float maxMeleeDamage;
+    [HideInInspector]
+    public float meleeDamage;
 
     private bool canShoot;
     private bool reloading;
     //public bool initialPickup;
-
     public bool canDealDamage;
 
     public Rigidbody thisRigidbody;
@@ -68,34 +72,34 @@ public class WeaponScript : MonoBehaviour {
 
         despawnTimer = initDespawnTime;
 
-        if(weaponSelection == WeaponType.BaseballBat)
+        if (weaponSelection == WeaponType.BaseballBat)
         {
-            meleeDamage = 12;
+            maxMeleeDamage = 12;
         }
         if (weaponSelection == WeaponType.Mallet)
         {
-            meleeDamage = 18;
+            maxMeleeDamage = 18;
         }
         if (weaponSelection == WeaponType.Machete)
         {
-            meleeDamage = 10;
+            maxMeleeDamage = 10;
         }
     }
 
     void Update()
     {
-        if(transform.parent == null)
+        if (transform.parent == null)
         {
             despawnTimer -= Time.deltaTime;
 
-            if(despawnTimer <= 0)
+            if (despawnTimer <= 0)
             {
                 Destroy(this.gameObject);
             }
         }
     }
 
-    public void GetPickedUp (Rigidbody rightPalm)
+    public void GetPickedUp(Rigidbody rightPalm)
     {
         player = rightPalm.transform.root.gameObject;
 
@@ -119,7 +123,7 @@ public class WeaponScript : MonoBehaviour {
         //initialPickup = true;
     }
 
-    public void GetDropped ()
+    public void GetDropped()
     {
         gameObject.transform.parent = null;
 
@@ -138,7 +142,7 @@ public class WeaponScript : MonoBehaviour {
         //PlayerController playerController = player.GetComponent<PlayerController>();
 
         // If right trigger is pressed...
-        if(weaponSelection == WeaponType.Shotgun)
+        if (weaponSelection == WeaponType.Shotgun)
         {
             if (initAmmoAmount > 0)
             {
@@ -203,19 +207,17 @@ public class WeaponScript : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter (Collider collider)
+    void OnTriggerEnter(Collider collider)
     {
-        if(player != null)
+        if (player != null)
         {
-            
             if (collider.gameObject.tag == "Player" && collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
             {
                 collider.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(meleeDamage);
-                Physics.IgnoreCollision(thisTransform.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
 
-                //Transform bloodParticleObject = collider.gameObject.transform.Find("BloodSplatterParticle");
-                //bloodParticleObject.rotation = Quaternion.LookRotation(thisTransform.forward);
-                //bloodParticleObject.GetComponent<ParticleSystem>().Play();
+                Transform bloodParticleObject = collider.gameObject.transform.Find("BloodSplatterParticle");
+                bloodParticleObject.rotation = Quaternion.LookRotation(thisTransform.forward);
+                bloodParticleObject.GetComponent<ParticleSystem>().Play();
 
                 Transform obiBloodObject = collider.gameObject.transform.Find("ObiBloodEmitter");
                 obiBloodObject.rotation = Quaternion.LookRotation(thisTransform.forward);
@@ -223,6 +225,11 @@ public class WeaponScript : MonoBehaviour {
 
                 player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f);
                 collider.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.2f);
+
+                Vector3 moveDirection = collider.transform.position - thisTransform.position;
+
+                collider.GetComponent<PlayerController>().pushbackDirection = moveDirection;
+                collider.GetComponent<PlayerController>().isPushed = true;
 
                 // Impact sounds
                 if (weaponSelection == WeaponType.BaseballBat)
@@ -241,17 +248,17 @@ public class WeaponScript : MonoBehaviour {
                     collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Machete";
                 }
             }
-        }    
-    }
-    void OnTriggerStay(Collider collider)
-    {
-        if (player != null)
-        {
-            if (collider.gameObject.tag == "Player" && collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
-            {
-                Vector3 moveDirection = collider.transform.position - thisTransform.position;
-                collider.GetComponent<Rigidbody>().AddForce(moveDirection * impactAmount, ForceMode.Impulse);
-            }
         }
+    }
+
+    public void FlashOn()
+    {
+        gameObject.GetComponent<Outline>().enabled = true;
+        Invoke("FlashOff", 0.2f);
+    }
+
+    public void FlashOff()
+    {
+        gameObject.GetComponent<Outline>().enabled = false;
     }
 }

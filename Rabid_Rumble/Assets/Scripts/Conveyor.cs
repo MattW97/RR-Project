@@ -12,13 +12,19 @@ public class Conveyor : MonoBehaviour
     {
         if(objectOnBelt.tag == "Player")
         {
-
-            objectOnBelt.transform.position = Vector3.MoveTowards(objectOnBelt.transform.position, endOfBelt.position, conveyorSpeed * Time.deltaTime);
+            if(objectOnBelt.GetComponent<PlayerController>().isDead == false)
+            {
+                objectOnBelt.transform.position = Vector3.MoveTowards(objectOnBelt.transform.position, endOfBelt.position, conveyorSpeed * Time.deltaTime);
+            }
         }
 
         if (objectOnBelt.tag == "PlayerRagdoll")
         {
+            objectOnBelt.transform.position = Vector3.MoveTowards(objectOnBelt.transform.position, endOfBelt.position, conveyorSpeed * Time.deltaTime);
+        }
 
+        if (objectOnBelt.tag == "Gore")
+        {
             objectOnBelt.transform.position = Vector3.MoveTowards(objectOnBelt.transform.position, endOfBelt.position, conveyorSpeed * Time.deltaTime);
         }
 

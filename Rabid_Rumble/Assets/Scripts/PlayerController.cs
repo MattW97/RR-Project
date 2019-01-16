@@ -5,71 +5,102 @@ using UnityEngine.UI;
 using Rewired;
 using Obi;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     #region floats
     [Header("Variables")]
-    [HideInInspector] public float movementSpeed = 4;
-    [HideInInspector] public float jumpForce = 3.0f;
-    [HideInInspector] public float numToMash = 5;
+    [HideInInspector]
+    public float movementSpeed = 4;
+    [HideInInspector]
+    public float jumpForce = 3.0f;
+    [HideInInspector]
+    public float numToMash = 5;
 
-    [HideInInspector] public float playerNum;
-    [HideInInspector] public float distanceCheck;
-    [HideInInspector] public float forwardBackward;
-    [HideInInspector] public float rightLeft;
+    [HideInInspector]
+    public float playerNum;
+    [HideInInspector]
+    public float distanceCheck;
+    [HideInInspector]
+    public float forwardBackward;
+    [HideInInspector]
+    public float rightLeft;
 
     private float playerTurnSpeed = 20;
     //private float mashTimer;
     private float numToMashMultiplier = 2.0f;
-    private float joystickAxisValue;  
+    private float joystickAxisValue;
     private float verticalVelocity;
     private float respawnTimer;
     private float respawnTimerReset = 3;
+    public float knockbackTimer;
+    public float knockbackTimerReset = 0.05f;
     #endregion
 
     #region ints
-    [HideInInspector] public int totalCurrentMashes = 0;
+    [HideInInspector]
+    public int totalCurrentMashes = 0;
     private int deathCount = 0;
     private int goreAmmount = 0;
     #endregion
 
     #region bools 
 
-    [HideInInspector] public bool canControl;
+    [HideInInspector]
+    public bool canControl;
     public bool isDead;
     public bool ragdolling;
-    [HideInInspector] public bool canPickUpWeapon;
-    [HideInInspector] public bool isHoldingWeapon;
-    [HideInInspector] public bool beenDragged;
-    [HideInInspector] public bool draggingPlayer;
-    [HideInInspector] public bool pickUpMode;
-    [HideInInspector] public bool inCountdown;
+    [HideInInspector]
+    public bool canPickUpWeapon;
+    [HideInInspector]
+    public bool isHoldingWeapon;
+    [HideInInspector]
+    public bool beenDragged;
+    [HideInInspector]
+    public bool draggingPlayer;
+    [HideInInspector]
+    public bool pickUpMode;
+    [HideInInspector]
+    public bool inCountdown;
 
     private bool playerInGame;
     private bool inRange;
     private bool deathVibrate;
     public bool spawnGore;
+    public bool isPushed;
 
     [Space]
     #endregion
 
     #region Inputs
-    [HideInInspector] public string leftStickHorizontal;
-    [HideInInspector] public string leftStickVertical;
-    [HideInInspector] public string rightStickHorizontal;
-    [HideInInspector] public string rightStickVertical;
-    [HideInInspector] public string fireButton;
-    [HideInInspector] public string aimButton;
-    [HideInInspector] public string pickUp;
-    [HideInInspector] public string reload;
-    [HideInInspector] public string mashButton;
-    [HideInInspector] public string bButton;
-    [HideInInspector] public string jumpButton;
-    [HideInInspector] public string interactButton;
+    [HideInInspector]
+    public string leftStickHorizontal;
+    [HideInInspector]
+    public string leftStickVertical;
+    [HideInInspector]
+    public string rightStickHorizontal;
+    [HideInInspector]
+    public string rightStickVertical;
+    [HideInInspector]
+    public string fireButton;
+    [HideInInspector]
+    public string aimButton;
+    [HideInInspector]
+    public string pickUp;
+    [HideInInspector]
+    public string reload;
+    [HideInInspector]
+    public string mashButton;
+    [HideInInspector]
+    public string bButton;
+    [HideInInspector]
+    public string jumpButton;
+    [HideInInspector]
+    public string interactButton;
     #endregion
 
     #region GameObjects
-    [HideInInspector] public GameObject weapon;
+    public GameObject weapon;
     private GameObject closestPlayer;
     private GameObject pelvisGameObj;
     public GameObject gorePackage;
@@ -86,18 +117,24 @@ public class PlayerController : MonoBehaviour {
 
     #region Vector3s
     private Vector3 movementInput;
-    [HideInInspector] public Vector3 movementVelocity;
-    [HideInInspector] public Vector3 playerDirection;
+    [HideInInspector]
+    public Vector3 movementVelocity;
+    [HideInInspector]
+    public Vector3 playerDirection;
     public Vector3 startingPosition;
+    public Vector3 pushbackDirection;
     #endregion
 
-    [HideInInspector] public string playerTag;
+    public string playerTag;
 
     private Transform thisTransform;
     private Rigidbody thisRigidbody;
-    [HideInInspector] public Rigidbody rightHand;
-    [HideInInspector] public PickUp pickUpScript;
-    [HideInInspector] public PlayerHealthManager healthManager;
+    [HideInInspector]
+    public Rigidbody rightHand;
+    [HideInInspector]
+    public PickUp pickUpScript;
+    [HideInInspector]
+    public PlayerHealthManager healthManager;
 
     [Header("Change These For Each Player")]
     public GameObject playerSkeletalMesh;
@@ -105,7 +142,7 @@ public class PlayerController : MonoBehaviour {
     public List<Transform> otherPlayersOrigin;
     public Transform thisPlayersOrigin;
     public Text deathCounterText;
-    
+
     public int playerId = 0; // The Rewired player id of this character
     private Player player; // The Rewired Player
 
@@ -138,7 +175,7 @@ public class PlayerController : MonoBehaviour {
     {
         // Set the game to active in the Game Manager
         deathCounterText.gameObject.SetActive(false);
-        
+
         healthManager = GetComponent<PlayerHealthManager>();
         //canControl = false;
         isDead = false;
@@ -148,6 +185,7 @@ public class PlayerController : MonoBehaviour {
         startingPosition = transform.position + new Vector3(0, 0.01f, 0);
         RagdollSetup();
         playerTag = tagSetter.tag;
+        knockbackTimer = knockbackTimerReset;
 
         // Recursivly searches all children to find the right hand
         Transform[] allChildren = GetComponentsInChildren<Transform>();
@@ -214,7 +252,7 @@ public class PlayerController : MonoBehaviour {
         {
             canControl = false;
             deathCounterText.gameObject.SetActive(true);
-            thisRigidbody.velocity = new Vector3(0,0,0);
+            thisRigidbody.velocity = new Vector3(0, 0, 0);
             forwardBackward = 0;
             rightLeft = 0;
         }
@@ -225,11 +263,11 @@ public class PlayerController : MonoBehaviour {
         {
             if (canControl)
             {
-                if(GameObject.Find("GameManager").GetComponent<UtilityManager>().activeGame != true)
+                if (GameObject.Find("GameManager").GetComponent<UtilityManager>().activeGame != true)
                 {
                     GameObject.Find("GameManager").GetComponent<UtilityManager>().activeGame = true;
                     GameObject.Find("GameManager").GetComponent<UtilityManager>().countdownTimerActive = true;
-                }          
+                }
 
                 // Only get values if moving
                 if (thisRigidbody.velocity.x > 0 || thisRigidbody.velocity.x < 0 || thisRigidbody.velocity.z > 0 || thisRigidbody.velocity.z < 0)
@@ -278,7 +316,7 @@ public class PlayerController : MonoBehaviour {
             {
                 ButtonMashing();
                 //thisPlayersOrigin.position = rightHand.transform.position;
-                transform.position = new Vector3 (skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z);
+                transform.position = new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z);
                 //new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z)
 
                 yButtonUI.SetActive(true);
@@ -304,7 +342,7 @@ public class PlayerController : MonoBehaviour {
                 child.enabled = false;
             }
 
-            if(goreAmmount == 1)
+            if (goreAmmount == 1)
             {
                 Instantiate(gorePackage, thisPlayersOrigin.position, thisPlayersOrigin.rotation);
                 GetComponentInChildren<ObiGoreScript>().bloodTriggered = true;
@@ -354,6 +392,23 @@ public class PlayerController : MonoBehaviour {
         deathCounterText.text = "Player " + (playerId + 1).ToString() + " Deaths: " + deathCount.ToString();
     }
 
+    private void FixedUpdate()
+    {
+        if (isPushed)
+        {
+            if (knockbackTimer > 0)
+            {
+                Pushback(pushbackDirection);
+                knockbackTimer -= Time.deltaTime;
+            }
+            if (knockbackTimer <= 0)
+            {
+                isPushed = false;
+                knockbackTimer = knockbackTimerReset;
+            }
+        }
+    }
+
     void CharMovement()
     {
         #region Character Movement
@@ -361,7 +416,7 @@ public class PlayerController : MonoBehaviour {
         movementInput = new Vector3(Player.GetAxis("LeftHoz") * movementSpeed, 0, Player.GetAxis("LeftVert") * movementSpeed);
         movementVelocity = movementInput;
 
-        thisRigidbody.velocity = new Vector3(movementVelocity.x, -9.81f, movementVelocity.z);
+        thisRigidbody.velocity = new Vector3(movementVelocity.x, 0, movementVelocity.z);
 
         // When Left Trigger is pressed...
         if (Player.GetAxis("Aim") > 0)
@@ -396,7 +451,7 @@ public class PlayerController : MonoBehaviour {
     {
         #region Button Mashing 
         // Button mashing if the player is just ragdolling
-        if (!beenDragged && player.GetButtonDown("Mash") || beenDragged && player.GetButtonDown("Mash"))
+        if (!beenDragged && player.GetButtonDown("Interact") || beenDragged && player.GetButtonDown("Interact"))
         {
             if (totalCurrentMashes >= (numToMash - 1))
             {
@@ -415,7 +470,7 @@ public class PlayerController : MonoBehaviour {
 
     //Used to calculate player directions for animation blend trees
     void GetCharDirections()
-    {   
+    {
         forwardBackward = Vector3.Dot(movementVelocity.normalized, thisTransform.forward.normalized) * joystickAxisValue;
         rightLeft = Vector3.Dot(-movementVelocity.normalized, Vector3.Cross(thisTransform.forward, thisTransform.up).normalized) * joystickAxisValue;
     }
@@ -500,7 +555,7 @@ public class PlayerController : MonoBehaviour {
             }
             thisRigidbody.isKinematic = false;
             GetComponentInChildren<Animator>().enabled = true;
-            GetComponent<CapsuleCollider>().enabled = true;       
+            GetComponent<CapsuleCollider>().enabled = true;
         }
     }
 
@@ -512,8 +567,8 @@ public class PlayerController : MonoBehaviour {
         foreach (Transform otherPlayertrans in otherPlayersOrigin)
         {
             float dist = Vector3.Distance(otherPlayertrans.position, transform.position);
-            
-            if (dist < distanceCheck  && otherPlayertrans.root.GetComponent<PlayerController>().PlayerInGame)
+
+            if (dist < distanceCheck && otherPlayertrans.root.GetComponent<PlayerController>().PlayerInGame)
             {
                 inRange = true;
                 ClosestPlayer = otherPlayertrans.gameObject;
@@ -523,19 +578,19 @@ public class PlayerController : MonoBehaviour {
             {
                 inRange = false;
             }
-        }   
+        }
     }
 
     void GrabAndDrag()
     {
         #region Grabbing and Dragging
         // Left Bumper picks up player when held
-        if (player.GetButton("Grab") && !pickUpMode && inRange && !ragdolling)
+        if (player.GetButton("Interact") && !pickUpMode && inRange && !ragdolling)
         {
             pickUpMode = true;
             draggingPlayer = true;
         }
-        else if (!player.GetButton("Grab") && pickUpMode)
+        else if (!player.GetButton("Interact") && pickUpMode)
         {
             draggingPlayer = false;
             pickUpScript.join = false;
@@ -552,20 +607,25 @@ public class PlayerController : MonoBehaviour {
         #endregion
     }
 
-    void PickUpWeapon ()
+    void PickUpWeapon()
     {
         WeaponScript weaponScript = weapon.GetComponent<WeaponScript>();
         weaponScript.GetPickedUp(rightHand);
-        xButtonUI.enabled = false;
+        bButtonUI.enabled = false;
     }
 
     void DropWeapon()
     {
-        if(weapon != null)
+        if (weapon != null)
         {
             WeaponScript weaponScript = weapon.GetComponent<WeaponScript>();
             weaponScript.GetDropped();
         }
+    }
+
+    void Pushback(Vector3 direction)
+    {
+        GetComponent<Rigidbody>().AddForce(direction * 10, ForceMode.Impulse);
     }
 
     public void ControllerVibrate(float vibrationTime)
@@ -595,19 +655,19 @@ public class PlayerController : MonoBehaviour {
             {
                 weapon = col.transform.parent.gameObject;
                 canPickUpWeapon = true;
-                xButtonUI.enabled = true;
+                bButtonUI.enabled = true;
             }
         }
     }
 
-    void OnTriggerExit (Collider col)
+    void OnTriggerExit(Collider col)
     {
-        if(!isHoldingWeapon)
+        if (!isHoldingWeapon)
         {
             this.weapon = null;
             canPickUpWeapon = false;
-            xButtonUI.enabled = false;
-        }        
+            bButtonUI.enabled = false;
+        }
     }
 
     #region Getters/ Setters

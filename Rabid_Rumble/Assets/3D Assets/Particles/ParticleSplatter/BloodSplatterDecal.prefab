@@ -26,8 +26,8 @@ GameObject:
   m_Component:
   - component: {fileID: 475348}
   - component: {fileID: 11475346}
-  - component: {fileID: 95334234365134772}
   - component: {fileID: 114849178746767726}
+  - component: {fileID: 95334234365134772}
   m_Layer: 0
   m_Name: BloodSplatterDecal
   m_TagString: Untagged
@@ -137,7 +137,7 @@ MonoBehaviour:
   skinningQuality: 0
   material: {fileID: 2100000, guid: 17cb8513bdf70f040badac2c171ec2a6, type: 2}
   atlas: {fileID: 11400000, guid: 5c6f8155d16e0714fa5165767166a0fe, type: 2}
-  atlasRegionIndex: 5
+  atlasRegionIndex: 1
   maxDistance: 0.5
   projectionDistance: 1
   smoothNormals: 0

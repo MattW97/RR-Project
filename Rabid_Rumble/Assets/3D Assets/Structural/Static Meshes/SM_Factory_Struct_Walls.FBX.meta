@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 150ac2cdb70291142ac35ded4e34980f
+timeCreated: 1547220467
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: BackWall
+    100002: SideWall001
+    100004: SM_Factory_Struct_Wall
+    100006: SM_Factory_Struct_Wall001
+    100008: SM_Factory_Struct_Wall002
+    100010: SM_Factory_Struct_Wall003
+    100012: SM_Factory_Struct_Wall004
+    100014: SM_Factory_Struct_Wall006
+    100016: SM_Factory_Struct_Wall007
+    100018: SM_Factory_Struct_Wall008
+    100020: SM_Factory_Struct_Wall009
+    100022: SM_Factory_Struct_Wall010
+    100024: SM_Factory_Struct_Wall011
+    100026: SM_Factory_Struct_Wall012
+    100028: SM_Factory_Struct_Wall013
+    100030: SM_Factory_Struct_Wall014
+    100032: SM_Factory_Struct_Wall015
+    100034: SM_Factory_Struct_Wall016
+    100036: SM_Factory_Struct_Wall018
+    100038: SM_Factory_Struct_Wall019
+    100040: SM_Factory_Struct_Wall020
+    100042: SM_Factory_Struct_Wall021
+    100044: SM_Factory_Struct_Wall022
+    100046: SM_Factory_Struct_Wall023
+    100048: //RootNode
+    100050: SM_Factory_Wall_Struct_Collision
+    400000: BackWall
+    400002: SideWall001
+    400004: SM_Factory_Struct_Wall
+    400006: SM_Factory_Struct_Wall001
+    400008: SM_Factory_Struct_Wall002
+    400010: SM_Factory_Struct_Wall003
+    400012: SM_Factory_Struct_Wall004
+    400014: SM_Factory_Struct_Wall006
+    400016: SM_Factory_Struct_Wall007
+    400018: SM_Factory_Struct_Wall008
+    400020: SM_Factory_Struct_Wall009
+    400022: SM_Factory_Struct_Wall010
+    400024: SM_Factory_Struct_Wall011
+    400026: SM_Factory_Struct_Wall012
+    400028: SM_Factory_Struct_Wall013
+    400030: SM_Factory_Struct_Wall014
+    400032: SM_Factory_Struct_Wall015
+    400034: SM_Factory_Struct_Wall016
+    400036: SM_Factory_Struct_Wall018
+    400038: SM_Factory_Struct_Wall019
+    400040: SM_Factory_Struct_Wall020
+    400042: SM_Factory_Struct_Wall021
+    400044: SM_Factory_Struct_Wall022
+    400046: SM_Factory_Struct_Wall023
+    400048: //RootNode
+    400050: SM_Factory_Wall_Struct_Collision
+    2300000: SM_Factory_Struct_Wall
+    2300002: SM_Factory_Struct_Wall001
+    2300004: SM_Factory_Struct_Wall002
+    2300006: SM_Factory_Struct_Wall003
+    2300008: SM_Factory_Struct_Wall004
+    2300010: SM_Factory_Struct_Wall006
+    2300012: SM_Factory_Struct_Wall007
+    2300014: SM_Factory_Struct_Wall008
+    2300016: SM_Factory_Struct_Wall009
+    2300018: SM_Factory_Struct_Wall010
+    2300020: SM_Factory_Struct_Wall011
+    2300022: SM_Factory_Struct_Wall012
+    2300024: SM_Factory_Struct_Wall013
+    2300026: SM_Factory_Struct_Wall014
+    2300028: SM_Factory_Struct_Wall015
+    2300030: SM_Factory_Struct_Wall016
+    2300032: SM_Factory_Struct_Wall018
+    2300034: SM_Factory_Struct_Wall019
+    2300036: SM_Factory_Struct_Wall020
+    2300038: SM_Factory_Struct_Wall021
+    2300040: SM_Factory_Struct_Wall022
+    2300042: SM_Factory_Struct_Wall023
+    2300044: SM_Factory_Wall_Struct_Collision
+    3300000: SM_Factory_Struct_Wall
+    3300002: SM_Factory_Struct_Wall001
+    3300004: SM_Factory_Struct_Wall002
+    3300006: SM_Factory_Struct_Wall003
+    3300008: SM_Factory_Struct_Wall004
+    3300010: SM_Factory_Struct_Wall006
+    3300012: SM_Factory_Struct_Wall007
+    3300014: SM_Factory_Struct_Wall008
+    3300016: SM_Factory_Struct_Wall009
+    3300018: SM_Factory_Struct_Wall010
+    3300020: SM_Factory_Struct_Wall011
+    3300022: SM_Factory_Struct_Wall012
+    3300024: SM_Factory_Struct_Wall013
+    3300026: SM_Factory_Struct_Wall014
+    3300028: SM_Factory_Struct_Wall015
+    3300030: SM_Factory_Struct_Wall016
+    3300032: SM_Factory_Struct_Wall018
+    3300034: SM_Factory_Struct_Wall019
+    3300036: SM_Factory_Struct_Wall020
+    3300038: SM_Factory_Struct_Wall021
+    3300040: SM_Factory_Struct_Wall022
+    3300042: SM_Factory_Struct_Wall023
+    3300044: SM_Factory_Wall_Struct_Collision
+    4300000: SM_Factory_Struct_Wall007
+    4300002: SM_Factory_Struct_Wall008
+    4300004: SM_Factory_Struct_Wall006
+    4300006: SM_Factory_Struct_Wall009
+    4300008: SM_Factory_Struct_Wall010
+    4300010: SM_Factory_Struct_Wall011
+    4300012: SM_Factory_Struct_Wall
+    4300014: SM_Factory_Struct_Wall001
+    4300016: SM_Factory_Struct_Wall002
+    4300018: SM_Factory_Struct_Wall003
+    4300020: SM_Factory_Struct_Wall004
+    4300022: SM_Factory_Struct_Wall012
+    4300024: SM_Factory_Struct_Wall013
+    4300026: SM_Factory_Struct_Wall014
+    4300028: SM_Factory_Struct_Wall015
+    4300030: SM_Factory_Struct_Wall016
+    4300032: SM_Factory_Struct_Wall018
+    4300034: SM_Factory_Struct_Wall019
+    4300036: SM_Factory_Struct_Wall020
+    4300038: SM_Factory_Struct_Wall021
+    4300040: SM_Factory_Struct_Wall022
+    4300042: SM_Factory_Struct_Wall023
+    4300044: SM_Factory_Wall_Struct_Collision
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01 - Default
+    second: {fileID: 2100000, guid: 97fca1664b7193a4faa7e5fb1c6992f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 19 - Default
+    second: {fileID: 2100000, guid: e82081fdc7a6bb44f8ebbf6a7c6a1dec, type: 2}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

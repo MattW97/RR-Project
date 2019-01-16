@@ -66,7 +66,7 @@ public class PlayerHealthManager : MonoBehaviour {
         healthBar.fillAmount = currentHealth / 100;
     }
 
-    public void DamagePlayer(int damageAmount)
+    public void DamagePlayer(float damageAmount)
     {
         currentHealth = currentHealth - damageAmount;
     }

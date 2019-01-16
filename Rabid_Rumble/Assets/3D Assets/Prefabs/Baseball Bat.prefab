@@ -305,7 +305,8 @@ MonoBehaviour:
   ammoAmount: 0
   impactAmount: 0
   initAmmoAmount: 4
-  initialPickup: 0
+  maxMeleeDamage: 0
+  meleeDamage: 0
   canDealDamage: 0
   thisRigidbody: {fileID: 0}
   muzzleFlash: {fileID: 0}
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 0.9411765, g: 0.877795, b: 0.366782, a: 1}
+  outlineColor: {r: 0.366782, g: 0.9411765, b: 0.48958355, a: 1}
   outlineWidth: 2.5
   precomputeOutline: 0
   bakeKeys: []

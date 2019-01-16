@@ -18,8 +18,9 @@ public class KillZone : MonoBehaviour
     public ZoneType zoneSelection;
     public int damageFromTrap;
     public bool grinder;
-    public List<Transform> pipeTransforms;
     private int goreTimer;
+    public GameObject goreSpawner;
+    private bool goreSpawned;
 
     private void Start()
     {
@@ -43,6 +44,8 @@ public class KillZone : MonoBehaviour
             {
                 other.gameObject.GetComponentInParent<PlayerController>().isDead = true;
                 other.gameObject.SetActive(false);
+
+                goreSpawner.GetComponent<TrapGoreSpawner>().SpawnGore();
             }
             else if (zoneSelection == ZoneType.both)
             {
@@ -54,16 +57,8 @@ public class KillZone : MonoBehaviour
                 other.gameObject.GetComponentInParent<PlayerController>().isDead = true;
                 //other.gameObject.SetActive(false);
 
-                //if (grinder && goreTimer == 1)
-                //{
-                //    int pipeNumber = Random.Range(0, pipeTransforms.Count);
-                //    Instantiate(other.gameObject.GetComponentInParent<PlayerController>().gorePackage, pipeTransforms[pipeNumber].position, pipeTransforms[pipeNumber].rotation);
-                //    goreTimer++;
-                //}
-                //else
-                //{
-                //    goreTimer++;
-                //}
+                goreSpawner.GetComponent<TrapGoreSpawner>().SpawnGore();
+
             }
             else if (zoneSelection == ZoneType.removeCollisions)
             {

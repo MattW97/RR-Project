@@ -16,6 +16,8 @@ TagManager:
   - WeaponBody
   - SkeletalMesh
   - PlayerRagdoll
+  - Ramp
+  - Gore
   layers:
   - Default
   - TransparentFX

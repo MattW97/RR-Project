@@ -6,6 +6,12 @@ public class PlayerAnimationScript : MonoBehaviour {
     PlayerController playerController;
 
     [HideInInspector] public WeaponScript weapon;
+    [HideInInspector] public float damageMultiplier;
+    private float heavyChargeTime;
+    private float currentHeavyChargeTime;
+
+    private bool weaponCharged;
+    
 
     private AudioSource audioSource;
     //public AudioClip shotgunFire;
@@ -19,7 +25,9 @@ public class PlayerAnimationScript : MonoBehaviour {
         animator = GetComponent<Animator>();
         playerController = GetComponentInParent<PlayerController>();
         audioSource = GetComponentInParent<AudioSource>();
-	}
+
+        currentHeavyChargeTime = 0;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -34,6 +42,14 @@ public class PlayerAnimationScript : MonoBehaviour {
         {
             weapon = playerController.weapon.GetComponent<WeaponScript>();
         }
+
+        if (weaponCharged)
+        {
+            if (currentHeavyChargeTime > heavyChargeTime)
+            {
+                weapon.FlashOn();
+            }
+        }
         
         if (!playerController.isHoldingWeapon)
         {
@@ -45,8 +61,8 @@ public class PlayerAnimationScript : MonoBehaviour {
 
             if (playerController.Player.GetAxis("Attack") > 0 && animator.GetCurrentAnimatorStateInfo(0).IsName("MasterMovementBlendTree"))
             {
-                animator.ResetTrigger("AttackTrigger");
-                animator.SetTrigger("AttackTrigger");
+                animator.ResetTrigger("LightAttackTrigger");
+                animator.SetTrigger("LightAttackTrigger");
             }
         }
         else
@@ -61,10 +77,11 @@ public class PlayerAnimationScript : MonoBehaviour {
                 if (playerController.Player.GetAxis("Attack") > 0 && animator.GetCurrentAnimatorStateInfo(1).IsName("ShotgunMovementBlendTree") &&
                     playerController.weapon.GetComponent<WeaponScript>().initAmmoAmount > 0)
                 {
-                    animator.ResetTrigger("AttackTrigger");
-                    animator.SetTrigger("AttackTrigger");
+                    animator.ResetTrigger("LightAttackTrigger");
+                    animator.SetTrigger("LightAttackTrigger");
                 }
             }
+
             if (weapon.weaponSelection == WeaponScript.WeaponType.BaseballBat)
             {
                 animator.SetLayerWeight(1, 0);
@@ -72,15 +89,51 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 0);
                 animator.SetLayerWeight(4, 0);
 
-                if (playerController.Player.GetAxis("Attack") > 0 && animator.GetCurrentAnimatorStateInfo(2).IsName("BaseballBatMovementBlendTree"))
-                {
-                    animator.ResetTrigger("AttackTrigger");
-                    animator.SetTrigger("AttackTrigger");
+                heavyChargeTime = 1;
 
-                    audioSource.PlayOneShot(swingClip, 1.0f);
+                if (playerController.Player.GetAxis("Attack") > 0)
+                {
+                    if(currentHeavyChargeTime < heavyChargeTime)
+                    {
+                        currentHeavyChargeTime += Time.deltaTime;
+                    }
                 }
 
+                if (playerController.Player.GetAxis("Attack") == 0 && currentHeavyChargeTime > 0 && animator.GetCurrentAnimatorStateInfo(2).IsName("BaseballBatMovementBlendTree"))
+                {
+                    if (currentHeavyChargeTime < heavyChargeTime)
+                    {
+                        // Light Attack
+                        animator.ResetTrigger("LightAttackTrigger");
+                        animator.SetTrigger("LightAttackTrigger");
+
+                        audioSource.PlayOneShot(swingClip, 1.0f);
+
+                        // Applies a damage multiplier to weapon damage for light attacks
+
+                        // Rounds damage multiplier to 2 decimal places
+                        damageMultiplier = Mathf.Round((currentHeavyChargeTime / heavyChargeTime) * 100) / 100;
+
+                        currentHeavyChargeTime = 0;
+
+                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * ((damageMultiplier / 2) + 0.5f);
+                    }
+
+                    if (currentHeavyChargeTime > heavyChargeTime)
+                    {
+                        // Heavy Attack
+                        animator.ResetTrigger("HeavyAttackTrigger");
+                        animator.SetTrigger("HeavyAttackTrigger");
+
+                        audioSource.PlayOneShot(swingClip, 1.0f);
+
+                        currentHeavyChargeTime = 0;
+
+                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage;
+                    }
+                }
             }
+
             if (weapon.weaponSelection == WeaponScript.WeaponType.Mallet)
             {
                 animator.SetLayerWeight(1, 0);
@@ -88,12 +141,47 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 1);
                 animator.SetLayerWeight(4, 0);
 
-                if (playerController.Player.GetAxis("Attack") > 0 && animator.GetCurrentAnimatorStateInfo(3).IsName("MalletMovementBlendTree"))
-                {
-                    animator.ResetTrigger("AttackTrigger");
-                    animator.SetTrigger("AttackTrigger");
+                heavyChargeTime = 2;
 
-                    audioSource.PlayOneShot(swingClip, 1.0f);
+                if (playerController.Player.GetAxis("Attack") > 0)
+                {
+                    if (currentHeavyChargeTime < heavyChargeTime)
+                    {
+                        currentHeavyChargeTime += Time.deltaTime;
+                    }
+                }
+
+                if (playerController.Player.GetAxis("Attack") == 0 && currentHeavyChargeTime > 0 && animator.GetCurrentAnimatorStateInfo(3).IsName("MalletMovementBlendTree"))
+                {
+                    if (currentHeavyChargeTime < heavyChargeTime)
+                    {
+                        // Light Attack
+                        animator.ResetTrigger("LightAttackTrigger");
+                        animator.SetTrigger("LightAttackTrigger");
+
+                        audioSource.PlayOneShot(swingClip, 1.0f);
+                      
+                        // Rounds damage multiplier to 2 decimal places
+                        damageMultiplier = Mathf.Round((currentHeavyChargeTime / heavyChargeTime) * 100) / 100;
+
+                        currentHeavyChargeTime = 0;
+
+                        // Applies a damage multiplier to weapon damage for light attacks
+                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * ((damageMultiplier / 2) + 0.5f);
+                    }
+
+                    if (currentHeavyChargeTime > heavyChargeTime)
+                    {
+                        // Heavy Attack
+                        animator.ResetTrigger("HeavyAttackTrigger");
+                        animator.SetTrigger("HeavyAttackTrigger");
+
+                        audioSource.PlayOneShot(swingClip, 1.0f);
+
+                        currentHeavyChargeTime = 0;
+
+                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * 2;
+                    }
                 }
             }
             if (weapon.weaponSelection == WeaponScript.WeaponType.Machete)
@@ -103,12 +191,48 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 0);
                 animator.SetLayerWeight(4, 1);
 
-                if (playerController.Player.GetAxis("Attack") > 0 && animator.GetCurrentAnimatorStateInfo(4).IsName("MacheteMovementBlendTree"))
-                {
-                    animator.ResetTrigger("AttackTrigger");
-                    animator.SetTrigger("AttackTrigger");
+                heavyChargeTime = 1;
 
-                    audioSource.PlayOneShot(swingClip, 1.0f);
+                if (playerController.Player.GetAxis("Attack") > 0)
+                {
+                    if(currentHeavyChargeTime < heavyChargeTime)
+                    {
+                        currentHeavyChargeTime += Time.deltaTime;
+                    }
+                }
+
+                if (playerController.Player.GetAxis("Attack") == 0 && currentHeavyChargeTime > 0 && animator.GetCurrentAnimatorStateInfo(4).IsName("MacheteMovementBlendTree"))
+                {
+                    if (currentHeavyChargeTime < heavyChargeTime)
+                    {
+                        // Light Attack
+                        animator.ResetTrigger("LightAttackTrigger");
+                        animator.SetTrigger("LightAttackTrigger");
+
+                        audioSource.PlayOneShot(swingClip, 1.0f);
+
+                        // Applies a damage multiplier to weapon damage for light attacks
+
+                        // Rounds damage multiplier to 2 decimal places
+                        damageMultiplier = Mathf.Round((currentHeavyChargeTime / heavyChargeTime) * 100) / 100;
+
+                        currentHeavyChargeTime = 0;
+
+                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * ((damageMultiplier / 2) + 0.5f);
+                    }
+
+                    if (currentHeavyChargeTime > heavyChargeTime)
+                    {
+                        // Heavy Attack
+                        animator.ResetTrigger("HeavyAttackTrigger");
+                        animator.SetTrigger("HeavyAttackTrigger");
+
+                        audioSource.PlayOneShot(swingClip, 1.0f);
+
+                        currentHeavyChargeTime = 0;
+
+                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage;
+                    }
                 }
             }
         }      
