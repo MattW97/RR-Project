@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private float respawnTimerReset = 3;
     public float knockbackTimer;
     public float knockbackTimerReset = 0.05f;
+    public float groundDistance = 0.3f;
     #endregion
 
     #region ints
@@ -68,6 +69,7 @@ public class PlayerController : MonoBehaviour
     private bool deathVibrate;
     public bool spawnGore;
     public bool isPushed;
+    public bool isGrounded;
 
     [Space]
     #endregion
@@ -407,6 +409,15 @@ public class PlayerController : MonoBehaviour
                 knockbackTimer = knockbackTimerReset;
             }
         }
+
+        if (!Physics.Raycast(thisPlayersOrigin.transform.position, -Vector3.up, groundDistance))
+        {
+            isGrounded = false;
+        }
+        else
+        {
+            isGrounded = true;
+        }
     }
 
     void CharMovement()
@@ -416,7 +427,14 @@ public class PlayerController : MonoBehaviour
         movementInput = new Vector3(Player.GetAxis("LeftHoz") * movementSpeed, 0, Player.GetAxis("LeftVert") * movementSpeed);
         movementVelocity = movementInput;
 
-        thisRigidbody.velocity = new Vector3(movementVelocity.x, 0, movementVelocity.z);
+        if (isGrounded)
+        {
+            thisRigidbody.velocity = new Vector3(movementVelocity.x, 0, movementVelocity.z);
+        }
+        else
+        {
+            thisRigidbody.velocity = new Vector3(movementVelocity.x, -6, movementVelocity.z);
+        }
 
         // When Left Trigger is pressed...
         if (Player.GetAxis("Aim") > 0)
