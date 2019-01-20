@@ -96,7 +96,7 @@ public class StartMenu : MonoBehaviour
             {
                 for (int j = 0; j < ReInput.players.playerCount; j++)
                 {
-                    if (ReInput.players.GetPlayer(j).GetButtonDown("Mash"))
+                    if (ReInput.players.GetPlayer(j).GetButtonDown("Jump"))
                     {
                         SceneManager.LoadScene("TESTLEVEL");
                         //menuFlyCamera.gameObject.SetActive(false);

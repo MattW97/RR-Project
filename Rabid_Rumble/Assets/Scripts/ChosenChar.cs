@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChosenChar : MonoBehaviour {
+public class ChosenChar : MonoBehaviour
+{
 
     public GameObject p1ChosenCharacter;
     public GameObject p2ChosenCharacter;
@@ -16,6 +17,9 @@ public class ChosenChar : MonoBehaviour {
 
     public int playerPickNum;
     public List<int> existingConNums;
+    public List<GameObject> charOptions;
+    public List<GameObject> currentSelectedChars;
+
 
     private void Awake()
     {
@@ -24,7 +28,7 @@ public class ChosenChar : MonoBehaviour {
 
     public GameObject SelectedCharacter(int id)
     {
-        if(id == 0)
+        if (id == 0)
         {
             return p1ChosenCharacter;
         }

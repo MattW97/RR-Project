@@ -506,6 +506,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4706469026983156}
+  - component: {fileID: 114884392954884460}
   m_Layer: 0
   m_Name: Menu Goat Skeletal Mesh
   m_TagString: Untagged
@@ -1440,6 +1441,21 @@ MonoBehaviour:
   rb: {fileID: 0}
   join: 0
   playerToJoinTo: {fileID: 0}
+--- !u!114 &114884392954884460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1943729992593944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc2a71dc6d86484683869f512d75afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Goat
+  characterPrefab: {fileID: 1943729992593944, guid: b9451a756057aca45b38b48bd6950d80,
+    type: 2}
+  selected: 0
 --- !u!135 &135769309700913790
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -315,6 +315,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4199379903872212}
+  - component: {fileID: 114601116006192714}
   m_Layer: 0
   m_Name: Menu Pig Skeletal Mesh
   m_TagString: Untagged
@@ -1425,6 +1426,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24850722, y: 0.13026191, z: 0.1302786}
   m_Center: {x: -0.03350415, y: -0.00939884, z: 0.06513929}
+--- !u!114 &114601116006192714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650274846682064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc2a71dc6d86484683869f512d75afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Pig
+  characterPrefab: {fileID: 1650274846682064, guid: 6878e163979107b4d85096f33064c5fb,
+    type: 2}
+  selected: 0
 --- !u!114 &114703901466191356
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -222,6 +222,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4551021149352260}
+  - component: {fileID: 114689371553232852}
   m_Layer: 0
   m_Name: Menu Skunk Skeletal Mesh
   m_TagString: Untagged
@@ -1440,6 +1441,21 @@ MonoBehaviour:
   rb: {fileID: 0}
   join: 0
   playerToJoinTo: {fileID: 0}
+--- !u!114 &114689371553232852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419056377953824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc2a71dc6d86484683869f512d75afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: Skunk
+  characterPrefab: {fileID: 1419056377953824, guid: 61408ef0098da74449808cf875c48687,
+    type: 2}
+  selected: 0
 --- !u!135 &135633453005049448
 SphereCollider:
   m_ObjectHideFlags: 1
