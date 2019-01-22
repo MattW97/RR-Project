@@ -51,9 +51,7 @@ public class WeaponScript : MonoBehaviour
         Shotgun,
         BaseballBat,
         Mallet,
-        Machete,
-        Flyswatter,
-        Chainsaw
+        Machete
     }
 
     public WeaponType weaponSelection;
@@ -83,14 +81,6 @@ public class WeaponScript : MonoBehaviour
             maxMeleeDamage = 18;
         }
         if (weaponSelection == WeaponType.Machete)
-        {
-            maxMeleeDamage = 10;
-        }
-        if (weaponSelection == WeaponType.Flyswatter)
-        {
-            maxMeleeDamage = 10;
-        }
-        if (weaponSelection == WeaponType.Chainsaw)
         {
             maxMeleeDamage = 10;
         }
@@ -256,16 +246,6 @@ public class WeaponScript : MonoBehaviour
                 {
                     audioSource.PlayOneShot(macheteImpact, 1.0f);
                     collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Machete";
-                }
-                if (weaponSelection == WeaponType.Flyswatter)
-                {
-                    audioSource.PlayOneShot(macheteImpact, 1.0f);
-                    collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Flyswatter";
-                }
-                if (weaponSelection == WeaponType.Chainsaw)
-                {
-                    audioSource.PlayOneShot(macheteImpact, 1.0f);
-                    collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Chainsaw";
                 }
             }
         }

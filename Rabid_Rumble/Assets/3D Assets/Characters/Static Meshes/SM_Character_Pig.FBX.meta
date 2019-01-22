@@ -9,19 +9,24 @@ ModelImporter:
     100002: NEWPig
     100004: //RootNode
     100006: Pig
+    100008: Eyes
     400000: NEWBody
     400002: NEWPig
     400004: //RootNode
     400006: Pig
+    400008: Eyes
     2300000: NEWBody
     2300002: NEWPig
     2300004: Pig
+    2300006: Eyes
     3300000: NEWBody
     3300002: NEWPig
     3300004: Pig
+    3300006: Eyes
     4300000: NEWBody
     4300002: NEWPig
     4300004: Pig
+    4300006: Eyes
     9500000: //RootNode
   externalObjects:
   - first:

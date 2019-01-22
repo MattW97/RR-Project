@@ -311,7 +311,8 @@ public class PlayerController : MonoBehaviour
                 }
                 #endregion
 
-                yButtonUI.SetActive(false);
+                //yButtonUI.SetActive(false);
+                bButtonUI.enabled = false;
             }
 
             if (ragdolling)
@@ -321,7 +322,8 @@ public class PlayerController : MonoBehaviour
                 transform.position = new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z);
                 //new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z)
 
-                yButtonUI.SetActive(true);
+                //yButtonUI.SetActive(true);
+                bButtonUI.enabled = true;
                 xButtonUI.enabled = false;
                 yButtonUIFill.fillAmount = totalCurrentMashes / numToMash;
             }

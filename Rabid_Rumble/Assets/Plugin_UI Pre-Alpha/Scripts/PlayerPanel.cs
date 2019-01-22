@@ -73,6 +73,7 @@ public class PlayerPanel : MonoBehaviour
                 rewiredPlayer.controllers.maps.SetMapsEnabled(false, "UI");
 
                 controlAssign.existingConNums.Remove(rewiredPlayerId);
+                _chosenCharScript.existingConNums.Remove(rewiredPlayerId);
 
                 if (rewiredPlayerId == 0)
                 {
@@ -134,7 +135,7 @@ public class PlayerPanel : MonoBehaviour
                 hasControllerAssinged = false;
             }
 
-            if (rewiredPlayer.GetAxis("UILeft") < 0 && hasControllerAssinged)
+            if (rewiredPlayer.GetAxis("UILeft") < -0.5f && hasControllerAssinged)
             {
                 leftArrow.color = arrowHighlight;
                 rightArrow.color = Color.white;
@@ -144,7 +145,7 @@ public class PlayerPanel : MonoBehaviour
 
             }
 
-            if (rewiredPlayer.GetAxis("UIRight") > 0 && hasControllerAssinged)
+            if (rewiredPlayer.GetAxis("UIRight") > 0.5f && hasControllerAssinged)
             {
                 rightArrow.color = arrowHighlight;
                 leftArrow.color = Color.white;

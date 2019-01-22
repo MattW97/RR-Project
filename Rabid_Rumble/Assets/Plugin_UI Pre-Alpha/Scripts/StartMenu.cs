@@ -18,6 +18,7 @@ public class StartMenu : MonoBehaviour
     public GameObject creditMenuGameObj;
     public GameObject optionMenuGameObj;
     public GameObject playerSelectionGameObj;
+    public GameObject mapSelectionGameObj;
     public GameObject startGameInfo;
     public GameObject parentObject;
     public GameObject overrideButton;
@@ -65,13 +66,13 @@ public class StartMenu : MonoBehaviour
         playerSelectionGameObj.SetActive(false);
         optionMenuGameObj.SetActive(false);
         creditMenuGameObj.SetActive(false);
+        mapSelectionGameObj.SetActive(false);
         countdownScreen.SetActive(false);
 
         foreach (PlayerController player in players)
         {
             if (isActiveAndEnabled)
             {
-
                 player.gameObject.SetActive(false);
             }
         }
@@ -98,7 +99,12 @@ public class StartMenu : MonoBehaviour
                 {
                     if (ReInput.players.GetPlayer(j).GetButtonDown("Jump"))
                     {
-                        SceneManager.LoadScene("TESTLEVEL");
+                        playerSelectionGameObj.SetActive(false);
+                        mapSelectionGameObj.SetActive(true);
+
+                        //SceneManager.LoadScene("TESTLEVEL");
+
+
                         //menuFlyCamera.gameObject.SetActive(false);
                         //playerSelectionGameObj.SetActive(false);
 

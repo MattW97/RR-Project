@@ -177,8 +177,6 @@ MonoBehaviour:
   - {fileID: 1909462761593118, guid: 9909f2521694a5447817ec050e51bc72, type: 2}
   - {fileID: 1014203658083364, guid: 65e0a5962e556eb46b32a22e0df21ccf, type: 2}
   - {fileID: 1282994070294796, guid: 2d7fe8e0dc64a9f4da9d91a135a25c4a, type: 2}
-  - {fileID: 1206889961930536, guid: 6bf98397c10cbef4db3b493c16dc2581, type: 2}
-  - {fileID: 1399941523357224, guid: abb8d40953f70d1409d3082af4677d37, type: 2}
   lightObject: {fileID: 0}
   confetti: {fileID: 198989176195579218}
 --- !u!198 &198989176195579218

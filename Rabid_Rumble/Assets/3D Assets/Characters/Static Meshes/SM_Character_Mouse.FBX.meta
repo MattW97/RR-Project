@@ -9,19 +9,24 @@ ModelImporter:
     100002: NEWMouse
     100004: //RootNode
     100006: Mouse
+    100008: Eyes
     400000: NEWBody
     400002: NEWMouse
     400004: //RootNode
     400006: Mouse
+    400008: Eyes
     2300000: NEWBody
     2300002: NEWMouse
     2300004: Mouse
+    2300006: Eyes
     3300000: NEWBody
     3300002: NEWMouse
     3300004: Mouse
+    3300006: Eyes
     4300000: NEWBody
     4300002: NEWMouse
     4300004: Mouse
+    4300006: Eyes
     9500000: //RootNode
   externalObjects:
   - first:
