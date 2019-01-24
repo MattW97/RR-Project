@@ -79,37 +79,9 @@ public class KillZone : MonoBehaviour
             {
                 if (!collision.gameObject.GetComponentInParent<PlayerController>().ragdolling)
                 {
-                    collision.gameObject.GetComponentInParent<PlayerController>().Ragdoll(true);
+                    collision.gameObject.GetComponentInParent<PlayerHealthManager>().DamagePlayer(25);
                 }
             }
         }
     }
 }
-
-////Custom inspector starts here
-//#if UNITY_EDITOR
-
-//[CustomEditor(typeof(KillZone))]
-//public class KillzoneInspectorEditor : Editor
-//{
-//    public override void OnInspectorGUI()
-//    {
-//        //cast target
-//        var killzoneScript = target as KillZone;
-
-//        //Enum drop down
-//        killzoneScript.zoneSelection = (KillZone.ZoneType)EditorGUILayout.EnumPopup(killzoneScript.zoneSelection);
-
-//        switch (killzoneScript.zoneSelection)
-//        {
-//            //TrapDamage Zone
-//            case KillZone.ZoneType.trapDamage:
-//                killzoneScript.damageFromTrap = EditorGUILayout.IntField("Damage To Player", killzoneScript.damageFromTrap);
-//                break;
-
-//        }//end switch
-
-//    }
-//} //end KillzoneInspectorEditor
-
-//#endif

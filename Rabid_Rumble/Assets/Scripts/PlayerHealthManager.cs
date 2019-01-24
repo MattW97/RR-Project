@@ -29,8 +29,6 @@ public class PlayerHealthManager : MonoBehaviour {
             }
         }
 
-        worldSpaceUICanvas.gameObject.SetActive(false);
-
         mainCam = Camera.main;
     }
 
@@ -43,7 +41,6 @@ public class PlayerHealthManager : MonoBehaviour {
             if (!GetComponent<PlayerController>().ragdolling)
             {
                 GetComponent<PlayerController>().Ragdoll(true);
-                worldSpaceUICanvas.gameObject.SetActive(false);
             }
         }
 
@@ -51,15 +48,14 @@ public class PlayerHealthManager : MonoBehaviour {
         {
             worldSpaceUICanvas.gameObject.SetActive(false);
         }
+        else
+        {
+            worldSpaceUICanvas.gameObject.SetActive(true);
+        }
 
         if(currentHealth > startingHealth)
         {
             currentHealth = startingHealth;
-        }
-
-        if(gameObject.GetComponent<PlayerController>().canControl && !worldSpaceUICanvas.isActiveAndEnabled)
-        {
-            worldSpaceUICanvas.gameObject.SetActive(true);
         }
 
         worldSpaceUICanvas.transform.LookAt(transform.position + mainCam.transform.rotation * Vector3.forward, mainCam.transform.rotation * Vector3.up);

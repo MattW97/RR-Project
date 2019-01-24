@@ -28,7 +28,7 @@ public class PlayerAnimationScript : MonoBehaviour {
 
         currentHeavyChargeTime = 0;
     }
-	
+    
 	// Update is called once per frame
 	void Update ()
     {
@@ -50,16 +50,16 @@ public class PlayerAnimationScript : MonoBehaviour {
                 weapon.FlashOn();
             }
         }
-        
+
+        // If unarmed
         if (!playerController.isHoldingWeapon)
         {
-            // If unarmed
             animator.SetLayerWeight(1, 0);
             animator.SetLayerWeight(2, 0);
             animator.SetLayerWeight(3, 0);
             animator.SetLayerWeight(4, 0);
 
-            if (playerController.Player.GetAxis("Attack") > 0 && animator.GetCurrentAnimatorStateInfo(0).IsName("MasterMovementBlendTree"))
+            if (playerController.Player.GetButtonDown("Attack") && animator.GetCurrentAnimatorStateInfo(0).IsName("MasterMovementBlendTree"))
             {
                 animator.ResetTrigger("LightAttackTrigger");
                 animator.SetTrigger("LightAttackTrigger");
@@ -74,7 +74,7 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 0);
                 animator.SetLayerWeight(4, 0);
 
-                if (playerController.Player.GetAxis("Attack") > 0 && animator.GetCurrentAnimatorStateInfo(1).IsName("ShotgunMovementBlendTree") &&
+                if (playerController.Player.GetButtonDown("Attack") && animator.GetCurrentAnimatorStateInfo(1).IsName("ShotgunMovementBlendTree") &&
                     playerController.weapon.GetComponent<WeaponScript>().initAmmoAmount > 0)
                 {
                     animator.ResetTrigger("LightAttackTrigger");
@@ -89,49 +89,7 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 0);
                 animator.SetLayerWeight(4, 0);
 
-                heavyChargeTime = 1;
-
-                if (playerController.Player.GetAxis("Attack") > 0)
-                {
-                    if(currentHeavyChargeTime < heavyChargeTime)
-                    {
-                        currentHeavyChargeTime += Time.deltaTime;
-                    }
-                }
-
-                if (playerController.Player.GetAxis("Attack") == 0 && currentHeavyChargeTime > 0 && animator.GetCurrentAnimatorStateInfo(2).IsName("BaseballBatMovementBlendTree"))
-                {
-                    if (currentHeavyChargeTime < heavyChargeTime)
-                    {
-                        // Light Attack
-                        animator.ResetTrigger("LightAttackTrigger");
-                        animator.SetTrigger("LightAttackTrigger");
-
-                        audioSource.PlayOneShot(swingClip, 1.0f);
-
-                        // Applies a damage multiplier to weapon damage for light attacks
-
-                        // Rounds damage multiplier to 2 decimal places
-                        damageMultiplier = Mathf.Round((currentHeavyChargeTime / heavyChargeTime) * 100) / 100;
-
-                        currentHeavyChargeTime = 0;
-
-                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * ((damageMultiplier / 2) + 0.5f);
-                    }
-
-                    if (currentHeavyChargeTime > heavyChargeTime)
-                    {
-                        // Heavy Attack
-                        animator.ResetTrigger("HeavyAttackTrigger");
-                        animator.SetTrigger("HeavyAttackTrigger");
-
-                        audioSource.PlayOneShot(swingClip, 1.0f);
-
-                        currentHeavyChargeTime = 0;
-
-                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage;
-                    }
-                }
+                Attack(1.0f, 2, "BaseballBatMovementBlendTree", swingClip, 2.0f);
             }
 
             if (weapon.weaponSelection == WeaponScript.WeaponType.Mallet)
@@ -141,49 +99,9 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 1);
                 animator.SetLayerWeight(4, 0);
 
-                heavyChargeTime = 2;
-
-                if (playerController.Player.GetAxis("Attack") > 0)
-                {
-                    if (currentHeavyChargeTime < heavyChargeTime)
-                    {
-                        currentHeavyChargeTime += Time.deltaTime;
-                    }
-                }
-
-                if (playerController.Player.GetAxis("Attack") == 0 && currentHeavyChargeTime > 0 && animator.GetCurrentAnimatorStateInfo(3).IsName("MalletMovementBlendTree"))
-                {
-                    if (currentHeavyChargeTime < heavyChargeTime)
-                    {
-                        // Light Attack
-                        animator.ResetTrigger("LightAttackTrigger");
-                        animator.SetTrigger("LightAttackTrigger");
-
-                        audioSource.PlayOneShot(swingClip, 1.0f);
-                      
-                        // Rounds damage multiplier to 2 decimal places
-                        damageMultiplier = Mathf.Round((currentHeavyChargeTime / heavyChargeTime) * 100) / 100;
-
-                        currentHeavyChargeTime = 0;
-
-                        // Applies a damage multiplier to weapon damage for light attacks
-                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * ((damageMultiplier / 2) + 0.5f);
-                    }
-
-                    if (currentHeavyChargeTime > heavyChargeTime)
-                    {
-                        // Heavy Attack
-                        animator.ResetTrigger("HeavyAttackTrigger");
-                        animator.SetTrigger("HeavyAttackTrigger");
-
-                        audioSource.PlayOneShot(swingClip, 1.0f);
-
-                        currentHeavyChargeTime = 0;
-
-                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * 2;
-                    }
-                }
+                Attack(1.5f, 3, "MalletMovementBlendTree", swingClip, 2.5f);
             }
+
             if (weapon.weaponSelection == WeaponScript.WeaponType.Machete)
             {               
                 animator.SetLayerWeight(1, 0);
@@ -191,49 +109,7 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 0);
                 animator.SetLayerWeight(4, 1);
 
-                heavyChargeTime = 1;
-
-                if (playerController.Player.GetAxis("Attack") > 0)
-                {
-                    if(currentHeavyChargeTime < heavyChargeTime)
-                    {
-                        currentHeavyChargeTime += Time.deltaTime;
-                    }
-                }
-
-                if (playerController.Player.GetAxis("Attack") == 0 && currentHeavyChargeTime > 0 && animator.GetCurrentAnimatorStateInfo(4).IsName("MacheteMovementBlendTree"))
-                {
-                    if (currentHeavyChargeTime < heavyChargeTime)
-                    {
-                        // Light Attack
-                        animator.ResetTrigger("LightAttackTrigger");
-                        animator.SetTrigger("LightAttackTrigger");
-
-                        audioSource.PlayOneShot(swingClip, 1.0f);
-
-                        // Applies a damage multiplier to weapon damage for light attacks
-
-                        // Rounds damage multiplier to 2 decimal places
-                        damageMultiplier = Mathf.Round((currentHeavyChargeTime / heavyChargeTime) * 100) / 100;
-
-                        currentHeavyChargeTime = 0;
-
-                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * ((damageMultiplier / 2) + 0.5f);
-                    }
-
-                    if (currentHeavyChargeTime > heavyChargeTime)
-                    {
-                        // Heavy Attack
-                        animator.ResetTrigger("HeavyAttackTrigger");
-                        animator.SetTrigger("HeavyAttackTrigger");
-
-                        audioSource.PlayOneShot(swingClip, 1.0f);
-
-                        currentHeavyChargeTime = 0;
-
-                        playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage;
-                    }
-                }
+                Attack(0.5f, 4, "MacheteMovementBlendTree", swingClip, 1.5f);
             }
         }      
     }
@@ -261,6 +137,68 @@ public class PlayerAnimationScript : MonoBehaviour {
         if (weapon.weaponSelection == WeaponScript.WeaponType.Shotgun)
         {
             playerController.weapon.GetComponent<WeaponScript>().Shoot();
+        }
+    }
+
+    void Attack(float heavyChargeTime, int animatorStateIndex, string animatorStateName, AudioClip soundFX, float heavyAttackMultiplier)
+    {
+        // Charge a heavy attack whilst holding the attack button down
+        if (playerController.Player.GetButton("Attack"))
+        {
+            if (currentHeavyChargeTime < heavyChargeTime)
+            {
+                currentHeavyChargeTime += Time.deltaTime;
+            }
+
+            // Vibrate controller when heavy attack is fully charged
+            if (currentHeavyChargeTime >= heavyChargeTime)
+            {
+                playerController.ControllerVibrate(1, 1.0f);
+            }
+        }
+
+        // Attack if current heavy charge time is more than 0
+        if (playerController.Player.GetButtonUp("Attack") && currentHeavyChargeTime > 0 && animator.GetCurrentAnimatorStateInfo(animatorStateIndex).IsName(animatorStateName))
+        {
+            // Stops vibration
+            playerController.ControllerVibrate(0f, 0f);
+
+            // Light Attack
+            // If current charge is less than the required charge, do a light attack
+            if (currentHeavyChargeTime < heavyChargeTime)
+            {
+                animator.ResetTrigger("LightAttackTrigger");
+                animator.SetTrigger("LightAttackTrigger");
+
+                // Play sound effect
+                audioSource.PlayOneShot(soundFX, 1.0f);
+
+                // Rounds damage multiplier to 2 decimal places
+                damageMultiplier = Mathf.Round((currentHeavyChargeTime / heavyChargeTime) * 100) / 100;
+
+                //Resets current heavy charge time to 0
+                currentHeavyChargeTime = 0;
+
+                // Applies a damage multiplier based on how long the attack button is held down for
+                playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * ((damageMultiplier / 2) + 0.5f);
+            }
+
+            // Heavy Attack
+            // If current charge is more than the required charge, do a heavy attack
+            if (currentHeavyChargeTime > heavyChargeTime)
+            {
+                animator.ResetTrigger("HeavyAttackTrigger");
+                animator.SetTrigger("HeavyAttackTrigger");
+
+                // Play sound effect
+                audioSource.PlayOneShot(soundFX, 1.0f);
+
+                //Resets current heavy charge time to 0
+                currentHeavyChargeTime = 0;
+
+                // Applies a heavy attack multiplier for more than usual damage
+                playerController.weapon.GetComponent<WeaponScript>().meleeDamage = playerController.weapon.GetComponent<WeaponScript>().maxMeleeDamage * heavyAttackMultiplier;
+            }
         }
     }
 }

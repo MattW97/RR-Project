@@ -21,13 +21,10 @@ public class WeaponScript : MonoBehaviour
     private float reloadTime = 1;
     public float ammoAmount;
     public float impactAmount;
-    [HideInInspector]
-    public float initAmmoAmount = 4;
 
-    [HideInInspector]
-    public float maxMeleeDamage;
-    [HideInInspector]
-    public float meleeDamage;
+    [HideInInspector] public float initAmmoAmount = 4;
+    [HideInInspector] public float maxMeleeDamage;
+    [HideInInspector] public float meleeDamage;
 
     private bool canShoot;
     private bool reloading;
@@ -45,6 +42,8 @@ public class WeaponScript : MonoBehaviour
     public AudioClip shotgunFire;
 
     private string playerTag;
+
+    public int weaponPushAmount;
 
     public enum WeaponType
     {
@@ -75,14 +74,17 @@ public class WeaponScript : MonoBehaviour
         if (weaponSelection == WeaponType.BaseballBat)
         {
             maxMeleeDamage = 12;
+            weaponPushAmount = 10;
         }
         if (weaponSelection == WeaponType.Mallet)
         {
             maxMeleeDamage = 18;
+            weaponPushAmount = 20;
         }
         if (weaponSelection == WeaponType.Machete)
         {
             maxMeleeDamage = 10;
+            weaponPushAmount = 5;
         }
     }
 
@@ -154,7 +156,7 @@ public class WeaponScript : MonoBehaviour
                 muzzleFlash.Play();
                 audioSource.PlayOneShot(shotgunFire, 1.0f);
                 initAmmoAmount = initAmmoAmount - 1;
-                player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f);
+                player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f, 1.0f);
             }
             # region OldCode
             //if (playerController.Player.GetAxis("Attack") > 0 && !reloading && !playerController.pickUpMode)
@@ -213,6 +215,8 @@ public class WeaponScript : MonoBehaviour
         {
             if (collider.gameObject.tag == "Player" && collider.gameObject.GetComponent<PlayerController>().playerTag != playerTag && canDealDamage)
             {
+                collider.gameObject.GetComponent<PlayerController>().pushAmount = weaponPushAmount;
+
                 collider.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(meleeDamage);
 
                 Transform bloodParticleObject = collider.gameObject.transform.Find("BloodSplatterParticle");
@@ -223,8 +227,8 @@ public class WeaponScript : MonoBehaviour
                 obiBloodObject.rotation = Quaternion.LookRotation(thisTransform.forward);
                 collider.gameObject.GetComponentInChildren<ObiBloodScript>().bloodTriggered = true;
 
-                player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f);
-                collider.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.2f);
+                player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f, 1.0f);
+                collider.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.2f, 1.0f);
 
                 Vector3 moveDirection = collider.transform.position - thisTransform.position;
 

@@ -18,14 +18,13 @@ public class PlayerController : MonoBehaviour
     public float numToMash = 5;
 
     [HideInInspector]
-    public float playerNum;
-    [HideInInspector]
-    public float distanceCheck;
+    public float playerNum;   
     [HideInInspector]
     public float forwardBackward;
     [HideInInspector]
     public float rightLeft;
 
+    private float distanceCheck;
     private float playerTurnSpeed = 20;
     //private float mashTimer;
     private float numToMashMultiplier = 2.0f;
@@ -43,33 +42,28 @@ public class PlayerController : MonoBehaviour
     public int totalCurrentMashes = 0;
     private int deathCount = 0;
     private int goreAmmount = 0;
+    public int pushAmount;
     #endregion
 
     #region bools 
+    [HideInInspector] public bool canControl;
+    [HideInInspector] public bool canPickUpWeapon;
+    [HideInInspector] public bool isHoldingWeapon;
+    [HideInInspector] public bool beingDragged;
+    [HideInInspector] public bool draggingPlayer;
+    [HideInInspector] public bool pickUpMode;
+    [HideInInspector] public bool inCountdown;
 
-    [HideInInspector]
-    public bool canControl;
     public bool isDead;
     public bool ragdolling;
-    [HideInInspector]
-    public bool canPickUpWeapon;
-    [HideInInspector]
-    public bool isHoldingWeapon;
-    [HideInInspector]
-    public bool beenDragged;
-    [HideInInspector]
-    public bool draggingPlayer;
-    [HideInInspector]
-    public bool pickUpMode;
-    [HideInInspector]
-    public bool inCountdown;
+    public bool spawnGore;
+    public bool isPushed;
+    public bool isGrounded;
 
     private bool playerInGame;
     private bool inRange;
     private bool deathVibrate;
-    public bool spawnGore;
-    public bool isPushed;
-    public bool isGrounded;
+    private bool isLockedOn;
 
     [Space]
     #endregion
@@ -102,27 +96,28 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region GameObjects
-    public GameObject weapon;
     private GameObject closestPlayer;
     private GameObject pelvisGameObj;
+    private GameObject characterInfo;
+    private GameObject bButtonMash;
+
+    public GameObject weapon;
     public GameObject gorePackage;
     public GameObject tagSetter;
     public GameObject playerReticle;
-    private GameObject characterInfo;
-    private GameObject yButtonUI;
-
+    public GameObject targetPlayer;
     #endregion
 
-    private Image yButtonUIFill;
-    private Image xButtonUI;
-    private Image bButtonUI;
+    private Image bButtonMashFill;
+    private Image bButtonPickUp;
+    private Image yButtonUI;
 
     #region Vector3s
     private Vector3 movementInput;
-    [HideInInspector]
-    public Vector3 movementVelocity;
-    [HideInInspector]
-    public Vector3 playerDirection;
+
+    [HideInInspector] public Vector3 movementVelocity;
+    [HideInInspector] public Vector3 playerDirection;
+
     public Vector3 startingPosition;
     public Vector3 pushbackDirection;
     #endregion
@@ -131,19 +126,19 @@ public class PlayerController : MonoBehaviour
 
     private Transform thisTransform;
     private Rigidbody thisRigidbody;
-    [HideInInspector]
-    public Rigidbody rightHand;
-    [HideInInspector]
-    public PickUp pickUpScript;
-    [HideInInspector]
-    public PlayerHealthManager healthManager;
 
+    [HideInInspector] public Rigidbody rightHand;
+    [HideInInspector] public PickUp pickUpScript;
+    [HideInInspector] public PlayerHealthManager healthManager;
+
+    #region Per-Instance Variables
     [Header("Change These For Each Player")]
     public GameObject playerSkeletalMesh;
     public GameObject skeletalMeshRef;
     public List<Transform> otherPlayersOrigin;
     public Transform thisPlayersOrigin;
     public Text deathCounterText;
+    #endregion
 
     public int playerId = 0; // The Rewired player id of this character
     private Player player; // The Rewired Player
@@ -184,6 +179,7 @@ public class PlayerController : MonoBehaviour
         //mashTimer = 0.5f;
         respawnTimer = respawnTimerReset;
         isHoldingWeapon = false;
+        isLockedOn = false;
         startingPosition = transform.position + new Vector3(0, 0.01f, 0);
         RagdollSetup();
         playerTag = tagSetter.tag;
@@ -204,26 +200,26 @@ public class PlayerController : MonoBehaviour
                 skeletalMeshRef = child.gameObject;
             }
 
+            if (child.gameObject.name == "B-ButtonMash")
+            {
+                bButtonMash = child.gameObject;
+                bButtonMashFill = bButtonMash.transform.Find("B-Colour").GetComponent<Image>();
+            }
+
+            if (child.gameObject.name == "B-ButtonPickUp")
+            {
+                bButtonPickUp = child.gameObject.GetComponent<Image>();
+            }
+
             if (child.gameObject.name == "Y-Button")
             {
-                yButtonUI = child.gameObject;
-                yButtonUIFill = yButtonUI.transform.Find("Y-Colour").GetComponent<Image>();
-            }
-
-            if (child.gameObject.name == "X-Button")
-            {
-                xButtonUI = child.gameObject.GetComponent<Image>();
-            }
-
-            if (child.gameObject.name == "B-Button")
-            {
-                bButtonUI = child.gameObject.GetComponent<Image>();
+                yButtonUI = child.gameObject.GetComponent<Image>();
             }
         }
 
-        yButtonUI.SetActive(false);
-        xButtonUI.enabled = false;
-        bButtonUI.enabled = false;
+        bButtonMash.SetActive(false);
+        bButtonPickUp.enabled = false;
+        yButtonUI.enabled = false;
 
         // Set player number for UI
         #region Player numbers
@@ -308,11 +304,14 @@ public class PlayerController : MonoBehaviour
 
                     canPickUpWeapon = false;
                     weapon.GetComponent<WeaponScript>().Reload(gameObject);
+
+                    bButtonPickUp.enabled = false;
                 }
                 #endregion
 
                 //yButtonUI.SetActive(false);
-                bButtonUI.enabled = false;
+                bButtonMash.SetActive(false);
+                yButtonUI.enabled = false;
             }
 
             if (ragdolling)
@@ -322,10 +321,7 @@ public class PlayerController : MonoBehaviour
                 transform.position = new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z);
                 //new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z)
 
-                //yButtonUI.SetActive(true);
-                bButtonUI.enabled = true;
-                xButtonUI.enabled = false;
-                yButtonUIFill.fillAmount = totalCurrentMashes / numToMash;
+                bButtonMashFill.fillAmount = totalCurrentMashes / numToMash;
             }
         }
 
@@ -336,7 +332,7 @@ public class PlayerController : MonoBehaviour
 
             if (!deathVibrate)
             {
-                ControllerVibrate(0.3f);
+                ControllerVibrate(0.3f, 1.0f);
                 deathVibrate = true;
             }
 
@@ -392,6 +388,10 @@ public class PlayerController : MonoBehaviour
         {
             DistanceToPlayer();
         }
+        else
+        {
+            bButtonPickUp.enabled = false;
+        }
 
         deathCounterText.text = "Player " + (playerId + 1).ToString() + " Deaths: " + deathCount.ToString();
     }
@@ -402,7 +402,7 @@ public class PlayerController : MonoBehaviour
         {
             if (knockbackTimer > 0)
             {
-                Pushback(pushbackDirection);
+                Pushback(pushbackDirection, pushAmount);
                 knockbackTimer -= Time.deltaTime;
             }
             if (knockbackTimer <= 0)
@@ -439,30 +439,55 @@ public class PlayerController : MonoBehaviour
         }
 
         // When Left Trigger is pressed...
+        //if (Player.GetAxis("Aim") > 0)
+        //{
+        //    movementSpeed = 3;
+
+        //    playerReticle.SetActive(true);
+
+        //    // Configure input for right analog stick
+        //    playerDirection = Vector3.right * Player.GetAxis("RightHoz") - Vector3.forward * Player.GetAxis("RightVert");
+
+        //    if (playerDirection != Vector3.zero)
+        //    {
+        //        Quaternion targetRotation = Quaternion.LookRotation(playerDirection, Vector3.up);
+        //        thisTransform.rotation = Quaternion.Lerp(thisTransform.rotation, targetRotation, playerTurnSpeed * Time.deltaTime);
+        //    }
+        //}
+        //else
+        //{
+        //    playerReticle.SetActive(false);
+
+        //    if (movementInput != Vector3.zero)
+        //    {
+        //        movementSpeed = 4;
+        //        transform.rotation = Quaternion.LookRotation(movementInput);
+        //    }
+        //}
+
         if (Player.GetAxis("Aim") > 0)
         {
-            movementSpeed = 3;
-
-            playerReticle.SetActive(true);
-
-            // Configure input for right analog stick
-            playerDirection = Vector3.right * Player.GetAxis("RightHoz") - Vector3.forward * Player.GetAxis("RightVert");
-
-            if (playerDirection != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(playerDirection, Vector3.up);
-                thisTransform.rotation = Quaternion.Lerp(thisTransform.rotation, targetRotation, playerTurnSpeed * Time.deltaTime);
-            }
+            isLockedOn = true;
         }
         else
         {
-            playerReticle.SetActive(false);
+            isLockedOn = false;
+        }
+
+        if(isLockedOn)
+        {
+            Vector3 lookPos = new Vector3(targetPlayer.transform.position.x, thisTransform.position.y, targetPlayer.transform.position.z);
+            thisTransform.LookAt(lookPos);
+        }
+        else
+        {
+            LockOnToPlayer();
 
             if (movementInput != Vector3.zero)
             {
                 movementSpeed = 4;
-                transform.rotation = Quaternion.LookRotation(movementInput);
-            }
+                thisTransform.rotation = Quaternion.LookRotation(movementInput);
+            }         
         }
         #endregion
     }
@@ -471,7 +496,7 @@ public class PlayerController : MonoBehaviour
     {
         #region Button Mashing 
         // Button mashing if the player is just ragdolling
-        if (!beenDragged && player.GetButtonDown("Interact") || beenDragged && player.GetButtonDown("Interact"))
+        if (!beingDragged && player.GetButtonDown("Interact") || beingDragged && player.GetButtonDown("Interact"))
         {
             if (totalCurrentMashes >= (numToMash - 1))
             {
@@ -482,7 +507,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 totalCurrentMashes++;
-                ControllerVibrate(0.1f);
+                ControllerVibrate(0.1f, 1.0f);
             }
         }
         #endregion
@@ -502,7 +527,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void BreakDragging()
     {
-        beenDragged = false;
+        beingDragged = false;
         healthManager.currentHealth = healthManager.startingHealth;
         rightHand.gameObject.GetComponent<PickUp>().join = false;
         Destroy(rightHand.gameObject.GetComponent<SpringJoint>());
@@ -548,6 +573,8 @@ public class PlayerController : MonoBehaviour
             GetComponent<CapsuleCollider>().enabled = false;
             skeletalMeshRef.transform.parent = null;
 
+            bButtonMash.SetActive(true);
+
             foreach (Transform bones in skeletalMeshRef.transform.Find("Pelvis").GetComponentsInChildren<Transform>())
             {
                 bones.gameObject.tag = "PlayerRagdoll";
@@ -586,7 +613,9 @@ public class PlayerController : MonoBehaviour
     {
         foreach (Transform otherPlayertrans in otherPlayersOrigin)
         {
-            float dist = Vector3.Distance(otherPlayertrans.position, transform.position);
+            float dist = Vector3.Distance(otherPlayertrans.position, thisTransform.position);
+
+            distanceCheck = 1;
 
             if (dist < distanceCheck && otherPlayertrans.root.GetComponent<PlayerController>().PlayerInGame)
             {
@@ -597,6 +626,24 @@ public class PlayerController : MonoBehaviour
             else
             {
                 inRange = false;
+            }
+        }
+    }
+
+    public void LockOnToPlayer()
+    {
+        foreach (Transform otherPlayertrans in otherPlayersOrigin)
+        {
+            float dist = Vector3.Distance(thisTransform.position, otherPlayertrans.position);
+
+            if (targetPlayer == null)
+            {
+                targetPlayer = otherPlayertrans.gameObject;
+            }
+
+            if (dist < Vector3.Distance(thisTransform.position, targetPlayer.transform.position) && otherPlayertrans.root.GetComponent<PlayerController>().PlayerInGame)
+            {
+                targetPlayer = otherPlayertrans.gameObject;
             }
         }
     }
@@ -631,7 +678,7 @@ public class PlayerController : MonoBehaviour
     {
         WeaponScript weaponScript = weapon.GetComponent<WeaponScript>();
         weaponScript.GetPickedUp(rightHand);
-        bButtonUI.enabled = false;
+        yButtonUI.enabled = false;
     }
 
     void DropWeapon()
@@ -643,17 +690,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Pushback(Vector3 direction)
+    void Pushback(Vector3 direction, int pushAmount)
     {
-        GetComponent<Rigidbody>().AddForce(direction * 10, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(direction * pushAmount, ForceMode.Impulse);
     }
 
-    public void ControllerVibrate(float vibrationTime)
+    public void ControllerVibrate(float vibrationTime, float intensity)
     {
         foreach (Joystick j in player.controllers.Joysticks)
         {
             if (!j.supportsVibration) continue;
-            if (j.vibrationMotorCount > 0) j.SetVibration(0, 1.0f);
+            if (j.vibrationMotorCount > 0) j.SetVibration(0, intensity);
             StartCoroutine(Vibration(player, vibrationTime));
         }
     }
@@ -669,13 +716,13 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (!isHoldingWeapon)
+        if (!isHoldingWeapon && canControl)
         {
             if (col.gameObject.tag == "Weapon")
             {
                 weapon = col.transform.parent.gameObject;
                 canPickUpWeapon = true;
-                bButtonUI.enabled = true;
+                bButtonPickUp.enabled = true;
             }
         }
     }
@@ -686,7 +733,7 @@ public class PlayerController : MonoBehaviour
         {
             this.weapon = null;
             canPickUpWeapon = false;
-            bButtonUI.enabled = false;
+            bButtonPickUp.enabled = false;
         }
     }
 
