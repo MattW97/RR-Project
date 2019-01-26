@@ -196,7 +196,7 @@ public class MapPopulator : MonoBehaviour
         }
         else
         {
-            loadCountdown.text = "Starting IN... " + loadIn.ToString();
+            loadCountdown.text = "IN... " + loadIn.ToString();
         }
 
         if (load)

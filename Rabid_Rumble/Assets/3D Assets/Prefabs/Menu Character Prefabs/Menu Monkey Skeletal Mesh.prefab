@@ -223,6 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4901434027291422}
   - component: {fileID: 114250149319427648}
+  - component: {fileID: 111384875585269976}
   m_Layer: 0
   m_Name: Menu Monkey Skeletal Mesh
   m_TagString: Untagged
@@ -1458,6 +1459,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24850714, y: 0.13026212, z: 0.13024569}
   m_Center: {x: -0.03350413, y: -0.009398803, z: -0.06512275}
+--- !u!111 &111384875585269976
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353961896740684}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f4e8069538187c54ba9f8436c18adc81, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f4e8069538187c54ba9f8436c18adc81, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114250149319427648
 MonoBehaviour:
   m_ObjectHideFlags: 1

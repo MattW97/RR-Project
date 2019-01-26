@@ -8,7 +8,6 @@ using System.Collections.Generic;
 /// </summary>
 public class PlayerPanel : MonoBehaviour
 {
-
     public bool hasControllerAssinged;
     private bool leftSelection = false;
     private bool rightSelection = false;
@@ -57,28 +56,106 @@ public class PlayerPanel : MonoBehaviour
         //this.GetComponent<Image>().color = Color.white;
     }
 
+    private void OnEnable()
+    {
+        foreach (Player player in ReInput.players.Players)
+        {
+            player.controllers.maps.SetMapsEnabled(true, "Assignment");
+            player.controllers.maps.SetMapsEnabled(true, "UI");
+        }
+        joinMessage.SetActive(true);
+    }
+
     private void Update()
     {
         if (rewiredPlayer != null)
         {
-            if (rewiredPlayer.GetButtonDown("UICancel") && hasControllerAssinged)
+            if (rewiredPlayer.GetButtonDown("UICancel"))
             {
-                controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
-                rewiredPlayer.controllers.RemoveController(playerController);
-
-                // Disable the Assignment map category in Player so no more JoinGame Actions return
-                rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Assignment");
-
-                // Enable UI control for this Player now that he has joined
-                rewiredPlayer.controllers.maps.SetMapsEnabled(false, "UI");
-
-                controlAssign.existingConNums.Remove(rewiredPlayerId);
-                _chosenCharScript.existingConNums.Remove(rewiredPlayerId);
-
-                if (rewiredPlayerId == 0)
+                if (hasControllerAssinged)
                 {
+                    controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
+                    rewiredPlayer.controllers.RemoveController(playerController);
+
+                    rewiredPlayer.controllers.maps.SetMapsEnabled(true, "Assignment");
+
+                    //rewiredPlayer.controllers.maps.SetMapsEnabled(false, "UI");
+
+                    controlAssign.existingConNums.Remove(rewiredPlayerId);
+                    _chosenCharScript.existingConNums.Remove(rewiredPlayerId);
+
+                    if (rewiredPlayerId == 0)
+                    {
+                        if (_chosenCharScript.p1ChosenCharacter != null)
+                        {
+                            _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p1ChosenCharacter);
+
+                            foreach (Transform child in _chosenCharScript.p1CharSpawn)
+                            {
+                                Destroy(child.gameObject);
+                            }
+                        }
+
+                    }
+
+                    if (rewiredPlayerId == 1)
+                    {
+                        if (_chosenCharScript.p2ChosenCharacter != null)
+                        {
+                            _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p2ChosenCharacter);
+
+                            foreach (Transform child in _chosenCharScript.p2CharSpawn)
+                            {
+                                Destroy(child.gameObject);
+                            }
+                        }
+
+                    }
+
+                    if (rewiredPlayerId == 2)
+                    {
+                        if (_chosenCharScript.p3ChosenCharacter != null)
+                        {
+                            _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p3ChosenCharacter);
+
+                            foreach (Transform child in _chosenCharScript.p3CharSpawn)
+                            {
+                                Destroy(child.gameObject);
+                            }
+                        }
+                    }
+
+                    if (rewiredPlayerId == 3)
+                    {
+                        if (_chosenCharScript.p4ChosenCharacter != null)
+                        {
+                            _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p4ChosenCharacter);
+
+                            foreach (Transform child in _chosenCharScript.p4CharSpawn)
+                            {
+                                Destroy(child.gameObject);
+                            }
+                        }
+                    }
+
+                    joinMessage.SetActive(true);
+                    hasControllerAssinged = false;
+                }
+                else if (!hasControllerAssinged)
+                {
+
+                    foreach (Player player in ReInput.players.Players)
+                    {
+                        player.controllers.maps.SetMapsEnabled(false, "Assignment");
+                        player.controllers.maps.SetMapsEnabled(true, "UI");
+                    }
+
                     if (_chosenCharScript.p1ChosenCharacter != null)
                     {
+                        rewiredPlayer.controllers.RemoveController(rewiredPlayer.controllers.GetController<Controller>(1));
+                        controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
+                        controlAssign.existingConNums.Remove(1);
+                        _chosenCharScript.existingConNums.Remove(1);
                         _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p1ChosenCharacter);
 
                         foreach (Transform child in _chosenCharScript.p1CharSpawn)
@@ -87,12 +164,12 @@ public class PlayerPanel : MonoBehaviour
                         }
                     }
 
-                }
-
-                if (rewiredPlayerId == 1)
-                {
                     if (_chosenCharScript.p2ChosenCharacter != null)
                     {
+                        rewiredPlayer.controllers.RemoveController(rewiredPlayer.controllers.GetController<Controller>(2));
+                        controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
+                        controlAssign.existingConNums.Remove(2);
+                        _chosenCharScript.existingConNums.Remove(2);
                         _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p2ChosenCharacter);
 
                         foreach (Transform child in _chosenCharScript.p2CharSpawn)
@@ -101,12 +178,12 @@ public class PlayerPanel : MonoBehaviour
                         }
                     }
 
-                }
-
-                if (rewiredPlayerId == 2)
-                {
                     if (_chosenCharScript.p3ChosenCharacter != null)
                     {
+                        rewiredPlayer.controllers.RemoveController(rewiredPlayer.controllers.GetController<Controller>(3));
+                        controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
+                        controlAssign.existingConNums.Remove(3);
+                        _chosenCharScript.existingConNums.Remove(3);
                         _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p3ChosenCharacter);
 
                         foreach (Transform child in _chosenCharScript.p3CharSpawn)
@@ -114,25 +191,26 @@ public class PlayerPanel : MonoBehaviour
                             Destroy(child.gameObject);
                         }
                     }
-                }
 
-                if (rewiredPlayerId == 3)
-                {
                     if (_chosenCharScript.p4ChosenCharacter != null)
                     {
+                        rewiredPlayer.controllers.RemoveController(rewiredPlayer.controllers.GetController<Controller>(4));
+                        controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
+                        controlAssign.existingConNums.Remove(4);
+                        _chosenCharScript.existingConNums.Remove(4);
                         _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p4ChosenCharacter);
-                        
+
                         foreach (Transform child in _chosenCharScript.p4CharSpawn)
                         {
                             Destroy(child.gameObject);
                         }
                     }
-                }
 
-                joinMessage.SetActive(true);
-                //startGameMessage.SetActive(false);
-                //this.GetComponent<Image>().color = Color.white;
-                hasControllerAssinged = false;
+                    joinMessage.SetActive(true);
+                    hasControllerAssinged = false;
+                    controlAssign._startMenu.ClosePlayerSelection();
+                    controlAssign._startMenu.closeCharSelection = false;
+                }
             }
 
             if (rewiredPlayer.GetAxis("UILeft") < -0.5f && hasControllerAssinged)
@@ -478,8 +556,88 @@ public class PlayerPanel : MonoBehaviour
                     test4 = true;
                 }
             }
+        } 
+        /// This Needs reworking potentially so that it doesnt auto back out from menu
+        else if (rewiredPlayer == null)
+        {
+            for (int i = 0; i < ReInput.players.playerCount; i++)
+            {
+                if (ReInput.players.GetPlayer(i).GetButtonDown("UICancel"))
+                {
+                    if (!hasControllerAssinged)
+                    {
+                        foreach (Player player in ReInput.players.Players)
+                        {
+                            player.controllers.maps.SetMapsEnabled(false, "Assignment");
+                            player.controllers.maps.SetMapsEnabled(true, "UI");
 
-        }
+                            player.controllers.RemoveController(player.controllers.GetController<Controller>(1));
+                            player.controllers.RemoveController(player.controllers.GetController<Controller>(2));
+                            player.controllers.RemoveController(player.controllers.GetController<Controller>(3));
+                            player.controllers.RemoveController(player.controllers.GetController<Controller>(4));
+                        }
+
+                        if (_chosenCharScript.p1ChosenCharacter != null)
+                        {
+                            // Error thrown cus it cant find Rewired need to find solution to this!!!
+                            controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
+                            controlAssign.existingConNums.Remove(1);
+                            _chosenCharScript.existingConNums.Remove(1);
+                            _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p1ChosenCharacter);
+
+                            foreach (Transform child in _chosenCharScript.p1CharSpawn)
+                            {
+                                Destroy(child.gameObject);
+                            }
+                        }
+
+                        if (_chosenCharScript.p2ChosenCharacter != null)
+                        {
+                            controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
+                            controlAssign.existingConNums.Remove(2);
+                            _chosenCharScript.existingConNums.Remove(2);
+                            _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p2ChosenCharacter);
+
+                            foreach (Transform child in _chosenCharScript.p2CharSpawn)
+                            {
+                                Destroy(child.gameObject);
+                            }
+                        }
+
+                        if (_chosenCharScript.p3ChosenCharacter != null)
+                        {
+                            controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
+                            controlAssign.existingConNums.Remove(3);
+                            _chosenCharScript.existingConNums.Remove(3);
+                            _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p3ChosenCharacter);
+
+                            foreach (Transform child in _chosenCharScript.p3CharSpawn)
+                            {
+                                Destroy(child.gameObject);
+                            }
+                        }
+
+                        if (_chosenCharScript.p4ChosenCharacter != null)
+                        {
+                            controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
+                            controlAssign.existingConNums.Remove(4);
+                            _chosenCharScript.existingConNums.Remove(4);
+                            _chosenCharScript.currentSelectedChars.Remove(_chosenCharScript.p4ChosenCharacter);
+
+                            foreach (Transform child in _chosenCharScript.p4CharSpawn)
+                            {
+                                Destroy(child.gameObject);
+                            }
+                        }
+
+                        joinMessage.SetActive(true);
+                        hasControllerAssinged = false;
+                        controlAssign._startMenu.ClosePlayerSelection();
+                        controlAssign._startMenu.closeCharSelection = false;
+                    }
+                }
+            }
+        } 
     }
 
     private void LeftArrowSelection()

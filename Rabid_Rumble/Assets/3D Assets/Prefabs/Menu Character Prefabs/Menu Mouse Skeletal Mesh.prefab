@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4072999534248444}
   - component: {fileID: 114508963448980514}
+  - component: {fileID: 111052378088886822}
   m_Layer: 0
   m_Name: Menu Mouse Skeletal Mesh
   m_TagString: Untagged
@@ -1426,6 +1427,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25182205, y: 0.1302619, z: 0.13024521}
   m_Center: {x: -0.12591103, y: -0.017565385, z: -0.065122604}
+--- !u!111 &111052378088886822
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063717660676408}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f4e8069538187c54ba9f8436c18adc81, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f4e8069538187c54ba9f8436c18adc81, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114508963448980514
 MonoBehaviour:
   m_ObjectHideFlags: 1

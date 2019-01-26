@@ -71,6 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4040770211611016}
   - component: {fileID: 114428356011016058}
+  - component: {fileID: 111414220899372014}
   m_Layer: 0
   m_Name: Menu Fox Skeletal Mesh
   m_TagString: Untagged
@@ -1462,6 +1463,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.251822, y: 0.13026191, z: 0.1302452}
   m_Center: {x: -0.125911, y: -0.017565444, z: -0.06512255}
+--- !u!111 &111414220899372014
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086067050915478}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f4e8069538187c54ba9f8436c18adc81, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f4e8069538187c54ba9f8436c18adc81, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114043104571352272
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -20,6 +20,7 @@ public class ControllerAssigner : MonoBehaviour
     public List<int> existingConNums;
 
     public ChosenChar _chosenCharLink;
+    public StartMenu _startMenu;
 
     void Awake()
     {

@@ -23,8 +23,9 @@ public class StartMenu : MonoBehaviour
     public GameObject parentObject;
     public GameObject overrideButton;
     public GameObject fightButton;
-    public GameObject fox;
     public GameObject closeOptionsButton;
+
+    public string currentMenu;
 
     public List<Sprite> countdownSprites;
     private int spritenumber;
@@ -35,6 +36,7 @@ public class StartMenu : MonoBehaviour
     public Camera menuFlyCamera;
     public Camera countdownCamera;
 
+    public bool closeCharSelection;
     private bool playerOverride;
     private bool countdown;
     private EventSystem es;
@@ -49,12 +51,16 @@ public class StartMenu : MonoBehaviour
 
     void Start()
     {
+        currentMenu = "MainMenu";
         mainCamera.rect = new Rect(0, 0, 0, 0);
 
         playersInGame = new List<PlayerController>();
 
         es = EventSystem.current;
-        es.SetSelectedGameObject(fightButton);
+        es.SetSelectedGameObject(null);
+
+        
+
 
         menuFlyCamera.gameObject.SetActive(true);
         countdownCamera.gameObject.SetActive(false);
@@ -76,6 +82,9 @@ public class StartMenu : MonoBehaviour
                 player.gameObject.SetActive(false);
             }
         }
+
+
+        es.SetSelectedGameObject(fightButton);
     }
 
     private void Update()
@@ -207,6 +216,31 @@ public class StartMenu : MonoBehaviour
         }
         #endregion
 
+        #region Current Menu Switch
+
+        for (int i = 0; i < ReInput.players.playerCount; i++)
+        {
+            if (ReInput.players.GetPlayer(i).GetButtonDown("UICancel"))
+            {
+                switch (currentMenu)
+                {
+                    case "MainMenu":
+                        break;
+                    case "PlayerSelection":                        
+                        break;
+                    case "Options":
+                        CloseOptions();
+                        break;
+                    case "Credits":
+                        CloseCredits();
+                        break;
+                }
+            }
+        }      
+
+
+        #endregion
+
     }
 
     private bool turnCountCamOff;
@@ -265,13 +299,39 @@ public class StartMenu : MonoBehaviour
 
     public void OpenPlayerSelection()
     {
+        currentMenu = "PlayerSelection";
         startMenuGameObj.SetActive(false);
         playerSelectionGameObj.SetActive(true);
-        es.SetSelectedGameObject(fox);
+    }
+    public void ClosePlayerSelection()
+    {
+        currentMenu = "MainMenu";
+        startMenuGameObj.SetActive(true);
+        playerSelectionGameObj.SetActive(false);
+
+        es.SetSelectedGameObject(null);
+        es.SetSelectedGameObject(fightButton);
+    }
+
+    public void Credits()
+    {
+        currentMenu = "Credits";
+        startMenuGameObj.SetActive(false);
+        creditMenuGameObj.SetActive(true);
+    }
+    public void CloseCredits()
+    {
+        currentMenu = "MainMenu";
+        startMenuGameObj.SetActive(true);
+        creditMenuGameObj.SetActive(false);
+        
+        es.SetSelectedGameObject(null);
+        es.SetSelectedGameObject(fightButton);
     }
 
     public void Options()
     {
+        currentMenu = "Options";
         startMenuGameObj.SetActive(false);
         optionMenuGameObj.SetActive(true);
 
@@ -279,15 +339,9 @@ public class StartMenu : MonoBehaviour
         es.SetSelectedGameObject(null);
         es.SetSelectedGameObject(closeOptionsButton);
     }
-
-    public void Credits()
-    {
-        startMenuGameObj.SetActive(false);
-        creditMenuGameObj.SetActive(true);
-    }
-
     public void CloseOptions()
     {
+        currentMenu = "MainMenu";
         startMenuGameObj.SetActive(true);
         optionMenuGameObj.SetActive(false);
 
