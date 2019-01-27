@@ -1473,7 +1473,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
-  swingClip: {fileID: 8300000, guid: 7a665fec191789347bb803db0ce55217, type: 3}
+  damageMultiplier: 0
+  randomSwingAudio:
+  - {fileID: 8300000, guid: 3524b0365c877e44fae4c878cf0783c3, type: 3}
+  - {fileID: 8300000, guid: 5e3a85d6affced3419347c308ebd7ca4, type: 3}
+  - {fileID: 8300000, guid: 679bb4f04befa4048aa102479c073eda, type: 3}
+  - {fileID: 8300000, guid: cf6e4595ce161f54db0abb8a15196834, type: 3}
+  - {fileID: 8300000, guid: 342027780f6b5fa499c4567a3249e8a5, type: 3}
+  - {fileID: 8300000, guid: 35032bd4581bca64b985284ea603cf22, type: 3}
 --- !u!114 &114635070950621066
 MonoBehaviour:
   m_ObjectHideFlags: 1

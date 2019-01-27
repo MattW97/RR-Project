@@ -6,7 +6,7 @@ public class OrganExplosionScript : MonoBehaviour
 {
     private Rigidbody rigidBody;
 
-    private float force;
+    public float force;
     private float despawnTimer;
     private float minDespawnTime = 5;
     private float maxDespawnTime = 10;

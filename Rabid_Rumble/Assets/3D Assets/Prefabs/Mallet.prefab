@@ -353,10 +353,16 @@ MonoBehaviour:
   canDealDamage: 0
   thisRigidbody: {fileID: 0}
   muzzleFlash: {fileID: 0}
-  baseballBatImpact: {fileID: 8300000, guid: 6ab68cd4155175b499d2a613df379d88, type: 3}
-  malletImpact: {fileID: 8300000, guid: 8e247d5f07b45184ba993c546a7af24a, type: 3}
-  macheteImpact: {fileID: 8300000, guid: 89c46de7ca3ed284a9c73e13c7d19aa0, type: 3}
-  shotgunFire: {fileID: 8300000, guid: ef7a876ad03572443b620ce932f7940d, type: 3}
+  randomShootAudio:
+  - {fileID: 8300000, guid: ef7a876ad03572443b620ce932f7940d, type: 3}
+  - {fileID: 8300000, guid: ef7a876ad03572443b620ce932f7940d, type: 3}
+  randomBaseballBatImpactAudio:
+  - {fileID: 8300000, guid: 6ab68cd4155175b499d2a613df379d88, type: 3}
+  randomMacheteImpactAudio:
+  - {fileID: 8300000, guid: 89c46de7ca3ed284a9c73e13c7d19aa0, type: 3}
+  randomMalletImpactAudio:
+  - {fileID: 8300000, guid: 8e247d5f07b45184ba993c546a7af24a, type: 3}
+  weaponPushAmount: 0
   weaponSelection: 2
 --- !u!136 &136730777481892434
 CapsuleCollider:

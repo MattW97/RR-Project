@@ -14,10 +14,7 @@ public class PlayerAnimationScript : MonoBehaviour {
     
 
     private AudioSource audioSource;
-    //public AudioClip shotgunFire;
-    public AudioClip swingClip;
-    //public AudioClip malletSwing;
-    //public AudioClip macheteSwing;
+    public AudioClip[] randomSwingAudio;
 
     // Use this for initialization
     void Start ()
@@ -89,7 +86,7 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 0);
                 animator.SetLayerWeight(4, 0);
 
-                Attack(1.0f, 2, "BaseballBatMovementBlendTree", swingClip, 2.0f);
+                Attack(1.0f, 2, "BaseballBatMovementBlendTree", 2.0f);
             }
 
             if (weapon.weaponSelection == WeaponScript.WeaponType.Mallet)
@@ -99,7 +96,7 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 1);
                 animator.SetLayerWeight(4, 0);
 
-                Attack(1.5f, 3, "MalletMovementBlendTree", swingClip, 2.5f);
+                Attack(1.5f, 3, "MalletMovementBlendTree", 2.5f);
             }
 
             if (weapon.weaponSelection == WeaponScript.WeaponType.Machete)
@@ -109,7 +106,7 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 0);
                 animator.SetLayerWeight(4, 1);
 
-                Attack(0.5f, 4, "MacheteMovementBlendTree", swingClip, 1.5f);
+                Attack(0.5f, 4, "MacheteMovementBlendTree", 1.5f);
             }
         }      
     }
@@ -140,7 +137,7 @@ public class PlayerAnimationScript : MonoBehaviour {
         }
     }
 
-    void Attack(float heavyChargeTime, int animatorStateIndex, string animatorStateName, AudioClip soundFX, float heavyAttackMultiplier)
+    void Attack(float heavyChargeTime, int animatorStateIndex, string animatorStateName, float heavyAttackMultiplier)
     {
         // Charge a heavy attack whilst holding the attack button down
         if (playerController.Player.GetButton("Attack"))
@@ -171,7 +168,8 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetTrigger("LightAttackTrigger");
 
                 // Play sound effect
-                audioSource.PlayOneShot(soundFX, 1.0f);
+                int index = Random.Range(0, randomSwingAudio.Length);
+                audioSource.PlayOneShot(randomSwingAudio[index], 1.0f);
 
                 // Rounds damage multiplier to 2 decimal places
                 damageMultiplier = Mathf.Round((currentHeavyChargeTime / heavyChargeTime) * 100) / 100;
@@ -191,7 +189,8 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetTrigger("HeavyAttackTrigger");
 
                 // Play sound effect
-                audioSource.PlayOneShot(soundFX, 1.0f);
+                int index = Random.Range(0, randomSwingAudio.Length);
+                audioSource.PlayOneShot(randomSwingAudio[index], 1.0f);
 
                 //Resets current heavy charge time to 0
                 currentHeavyChargeTime = 0;

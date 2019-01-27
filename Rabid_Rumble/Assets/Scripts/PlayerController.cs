@@ -216,7 +216,6 @@ public class PlayerController : MonoBehaviour
                 yButtonUI = child.gameObject.GetComponent<Image>();
             }
         }
-
         bButtonMash.SetActive(false);
         bButtonPickUp.enabled = false;
         yButtonUI.enabled = false;
@@ -572,7 +571,7 @@ public class PlayerController : MonoBehaviour
             GetComponentInChildren<Animator>().enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
             skeletalMeshRef.transform.parent = null;
-
+            
             bButtonMash.SetActive(true);
 
             foreach (Transform bones in skeletalMeshRef.transform.Find("Pelvis").GetComponentsInChildren<Transform>())

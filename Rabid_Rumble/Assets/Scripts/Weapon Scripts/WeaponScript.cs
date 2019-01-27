@@ -36,10 +36,10 @@ public class WeaponScript : MonoBehaviour
     public ParticleSystem muzzleFlash;
 
     private AudioSource audioSource;
-    public AudioClip baseballBatImpact;
-    public AudioClip malletImpact;
-    public AudioClip macheteImpact;
-    public AudioClip shotgunFire;
+    public AudioClip[] randomShootAudio;
+    public AudioClip[] randomBaseballBatImpactAudio;
+    public AudioClip[] randomMacheteImpactAudio;
+    public AudioClip[] randomMalletImpactAudio;
 
     private string playerTag;
 
@@ -154,7 +154,10 @@ public class WeaponScript : MonoBehaviour
                 }
 
                 muzzleFlash.Play();
-                audioSource.PlayOneShot(shotgunFire, 1.0f);
+
+                int index = Random.Range(0, randomShootAudio.Length);
+                audioSource.PlayOneShot(randomShootAudio[index], 1.0f);
+
                 initAmmoAmount = initAmmoAmount - 1;
                 player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f, 1.0f);
             }
@@ -238,17 +241,20 @@ public class WeaponScript : MonoBehaviour
                 // Impact sounds
                 if (weaponSelection == WeaponType.BaseballBat)
                 {
-                    audioSource.PlayOneShot(baseballBatImpact, 1.0f);
+                    int index = Random.Range(0, randomBaseballBatImpactAudio.Length);
+                    audioSource.PlayOneShot(randomBaseballBatImpactAudio[index], 1.0f);
                     collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "BaseballBat";
                 }
                 if (weaponSelection == WeaponType.Mallet)
                 {
-                    audioSource.PlayOneShot(malletImpact, 1.0f);
+                    int index = Random.Range(0, randomMalletImpactAudio.Length);
+                    audioSource.PlayOneShot(randomMalletImpactAudio[index], 1.0f);
                     collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Mallet";
                 }
                 if (weaponSelection == WeaponType.Machete)
                 {
-                    audioSource.PlayOneShot(macheteImpact, 1.0f);
+                    int index = Random.Range(0, randomMacheteImpactAudio.Length);
+                    audioSource.PlayOneShot(randomMacheteImpactAudio[index], 1.0f);
                     collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Machete";
                 }
             }
