@@ -74,17 +74,17 @@ public class WeaponScript : MonoBehaviour
         if (weaponSelection == WeaponType.BaseballBat)
         {
             maxMeleeDamage = 12;
-            weaponPushAmount = 10;
+            weaponPushAmount = 50;
         }
         if (weaponSelection == WeaponType.Mallet)
         {
             maxMeleeDamage = 18;
-            weaponPushAmount = 20;
+            weaponPushAmount = 50;
         }
         if (weaponSelection == WeaponType.Machete)
         {
             maxMeleeDamage = 10;
-            weaponPushAmount = 5;
+            weaponPushAmount = 50;
         }
     }
 
@@ -137,6 +137,8 @@ public class WeaponScript : MonoBehaviour
         canShoot = false;
 
         canDealDamage = false;
+
+        if(weaponSelection != WeaponType.Shotgun)
         GetComponent<MeleeWeaponTrail>().Emit = false;
 
         gameObject.GetComponent<Outline>().enabled = true;

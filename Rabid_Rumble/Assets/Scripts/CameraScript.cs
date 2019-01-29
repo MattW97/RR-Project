@@ -93,7 +93,9 @@ public class CameraScript : MonoBehaviour {
 
         Vector3 des = new Vector3(midPoint.transform.position.x, (newCameraPos.y + cameraYOffset), (newCameraPos.z + cameraZOffset));
 
-        Camera.main.transform.position = des;
+        //Camera.main.transform.position = des;
+
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, des, Time.deltaTime * 2);
     }
 
     void FixedUpdate()

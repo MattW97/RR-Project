@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private float respawnTimer;
     private float respawnTimerReset = 3;
     public float knockbackTimer;
-    public float knockbackTimerReset = 0.05f;
+    public float knockbackTimerReset = 0.1f;
     public float groundDistance = 0.3f;
     #endregion
 
@@ -418,6 +418,7 @@ public class PlayerController : MonoBehaviour
             if (knockbackTimer <= 0)
             {
                 isPushed = false;
+                canControl = true;
                 knockbackTimer = knockbackTimerReset;
             }
         }
@@ -489,6 +490,8 @@ public class PlayerController : MonoBehaviour
             Vector3 lookPos = new Vector3(targetPlayer.transform.position.x, thisTransform.position.y, targetPlayer.transform.position.z);
             thisTransform.LookAt(lookPos);
 
+            targetIndicator.SetActive(true);
+
             if(targetPlayer.name == "Player Origin 1")
             {
                 targetIndicator.GetComponent<Renderer>().material.SetColor("_EmissionColor", player1Colour);
@@ -509,6 +512,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             LockOnToPlayer();
+            targetIndicator.SetActive(false);
 
             if (movementInput != Vector3.zero)
             {
@@ -681,6 +685,7 @@ public class PlayerController : MonoBehaviour
         // Left Bumper picks up player when held
         if (player.GetButton("Interact") && !pickUpMode && inRange && !ragdolling)
         {
+            DropWeapon();
             pickUpMode = true;
             draggingPlayer = true;
         }
@@ -714,13 +719,13 @@ public class PlayerController : MonoBehaviour
         {
             WeaponScript weaponScript = weapon.GetComponent<WeaponScript>();
             weaponScript.GetDropped();
-
         }
     }
 
     void Pushback(Vector3 direction, int pushAmount)
     {
         GetComponent<Rigidbody>().AddForce(direction * pushAmount, ForceMode.Impulse);
+        canControl = false;
     }
 
     public void ControllerVibrate(float vibrationTime, float intensity)

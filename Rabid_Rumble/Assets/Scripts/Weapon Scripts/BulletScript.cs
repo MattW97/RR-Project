@@ -32,14 +32,21 @@ public class BulletScript : MonoBehaviour {
         {
             other.gameObject.GetComponent<PlayerHealthManager>().DamagePlayer(bulletDamage);
 
-            //Transform bloodParticleObject = other.gameObject.transform.Find("BloodSplatterParticle");
-            //bloodParticleObject.rotation = Quaternion.LookRotation(this.gameObject.transform.forward);
-            //bloodParticleObject.GetComponent<ParticleSystem>().Play();
+            Transform bloodParticleObject = other.gameObject.transform.Find("BloodSplatterParticle");
+            bloodParticleObject.rotation = Quaternion.LookRotation(this.gameObject.transform.forward);
+            bloodParticleObject.GetComponent<ParticleSystem>().Play();
 
             Transform obiBloodObject = other.gameObject.transform.Find("ObiBloodEmitter");
             obiBloodObject.rotation = Quaternion.LookRotation(thisTransform.forward);
             other.gameObject.GetComponentInChildren<ObiBloodScript>().bloodTriggered = true;
             other.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Mallet";
+
+            Vector3 moveDirection = other.transform.position - thisTransform.position;
+
+            other.GetComponent<PlayerController>().pushbackDirection = moveDirection;
+            other.GetComponent<PlayerController>().isPushed = true;
+
+            other.gameObject.GetComponent<PlayerController>().pushAmount = 100;
         }
     }
 
