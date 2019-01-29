@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
     public GameObject tagSetter;
     public GameObject playerReticle;
     public GameObject targetPlayer;
+    public GameObject targetIndicator;
     #endregion
 
     private Image bButtonMashFill;
@@ -126,6 +127,11 @@ public class PlayerController : MonoBehaviour
 
     private Transform thisTransform;
     private Rigidbody thisRigidbody;
+
+    private Color player1Colour;
+    private Color player2Colour;
+    private Color player3Colour;
+    private Color player4Colour;
 
     [HideInInspector] public Rigidbody rightHand;
     [HideInInspector] public PickUp pickUpScript;
@@ -184,6 +190,11 @@ public class PlayerController : MonoBehaviour
         RagdollSetup();
         playerTag = tagSetter.tag;
         knockbackTimer = knockbackTimerReset;
+
+        player1Colour = new Color(1.0f, 0.1674208f, 0.1674208f);
+        player2Colour = new Color(0.145098f, 0.4509804f, 0.8666667f);
+        player3Colour = new Color(0.1641987f, 1.0f, 0.09558827f);
+        player4Colour = new Color(0.7725491f, 0.8901961f, 0.03137255f);
 
         // Recursivly searches all children to find the right hand
         Transform[] allChildren = GetComponentsInChildren<Transform>();
@@ -477,6 +488,23 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 lookPos = new Vector3(targetPlayer.transform.position.x, thisTransform.position.y, targetPlayer.transform.position.z);
             thisTransform.LookAt(lookPos);
+
+            if(targetPlayer.name == "Player Origin 1")
+            {
+                targetIndicator.GetComponent<Renderer>().material.SetColor("_EmissionColor", player1Colour);
+            }
+            else if (targetPlayer.name == "Player Origin 2")
+            {
+                targetIndicator.GetComponent<Renderer>().material.SetColor("_EmissionColor", player2Colour);
+            }
+            else if (targetPlayer.name == "Player Origin 3")
+            {
+                targetIndicator.GetComponent<Renderer>().material.SetColor("_EmissionColor", player3Colour);
+            }
+            else if (targetPlayer.name == "Player Origin 4")
+            {
+                targetIndicator.GetComponent<Renderer>().material.SetColor("_EmissionColor", player4Colour);
+            }
         }
         else
         {
@@ -686,6 +714,7 @@ public class PlayerController : MonoBehaviour
         {
             WeaponScript weaponScript = weapon.GetComponent<WeaponScript>();
             weaponScript.GetDropped();
+
         }
     }
 

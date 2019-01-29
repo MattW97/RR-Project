@@ -52,5 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapName: Terrible Torture
-  associatedLevel: TESTLEVEL
+  associatedLevel: S_Factory
   mapSprite: {fileID: 0}

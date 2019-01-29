@@ -43,6 +43,8 @@ ModelImporter:
     100070: NEWBody
     100072: NEWFoxhead
     100074: NEWFoxTail
+    100076: Eyes
+    100078: Fox
     400000: BODY
     400002: Chest
     400004: FoxTail
@@ -81,12 +83,16 @@ ModelImporter:
     400070: NEWBody
     400072: NEWFoxhead
     400074: NEWFoxTail
+    400076: Eyes
+    400078: Fox
     4300000: NEWFox
     4300002: BODY
     4300004: FoxTail
     4300006: NEWBody
     4300008: NEWFoxTail
     4300010: NEWFoxhead
+    4300012: Fox
+    4300014: Eyes
     7400000: Take 001
     9500000: //RootNode
     13700000: BODY
@@ -95,6 +101,8 @@ ModelImporter:
     13700006: NEWBody
     13700008: NEWFoxhead
     13700010: NEWFoxTail
+    13700012: Eyes
+    13700014: Fox
   externalObjects:
   - first:
       type: UnityEngine:Material

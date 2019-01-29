@@ -52,5 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapName: Circus
-  associatedLevel: TESTLEVEL
+  associatedLevel: S_Dungeon
   mapSprite: {fileID: 0}

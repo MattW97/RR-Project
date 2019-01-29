@@ -40,6 +40,8 @@ ModelImporter:
     100064: Spine4
     100066: Spine5
     100068: NEWBody
+    100070: Bear
+    100072: Eyes
     400000: BODY
     400002: Chest
     400004: Head
@@ -75,14 +77,20 @@ ModelImporter:
     400064: Spine4
     400066: Spine5
     400068: NEWBody
+    400070: Bear
+    400072: Eyes
     4300000: NEWBearhead
     4300002: BODY
     4300004: NEWBody
+    4300006: Bear
+    4300008: Eyes
     7400000: Take 001
     9500000: //RootNode
     13700000: BODY
     13700002: NEWBearhead
     13700004: NEWBody
+    13700006: Bear
+    13700008: Eyes
   externalObjects:
   - first:
       type: UnityEngine:Material

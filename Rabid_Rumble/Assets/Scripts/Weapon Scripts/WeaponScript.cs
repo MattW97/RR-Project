@@ -136,6 +136,9 @@ public class WeaponScript : MonoBehaviour
 
         canShoot = false;
 
+        canDealDamage = false;
+        GetComponent<MeleeWeaponTrail>().Emit = false;
+
         gameObject.GetComponent<Outline>().enabled = true;
     }
 
