@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4250e6e25face34b959eddfc3a6098a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapName: Fatal Fairground
+  mapName: FATAL FAIRGROUND
   associatedLevel: S_Dungeon
   mapSprite: {fileID: 0}

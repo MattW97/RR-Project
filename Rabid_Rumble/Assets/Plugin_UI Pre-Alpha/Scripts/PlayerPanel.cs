@@ -74,6 +74,7 @@ public class PlayerPanel : MonoBehaviour
             {
                 if (hasControllerAssinged)
                 {
+                    hasControllerAssinged = false;
                     controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
                     rewiredPlayer.controllers.RemoveController(playerController);
 
@@ -139,10 +140,11 @@ public class PlayerPanel : MonoBehaviour
                     }
 
                     joinMessage.SetActive(true);
-                    hasControllerAssinged = false;
                 }
                 else if (!hasControllerAssinged)
                 {
+                    hasControllerAssinged = false;
+                    _chosenCharScript.existingConNums.Clear();
 
                     foreach (Player player in ReInput.players.Players)
                     {
@@ -152,6 +154,7 @@ public class PlayerPanel : MonoBehaviour
 
                     if (_chosenCharScript.p1ChosenCharacter != null)
                     {
+
                         rewiredPlayer.controllers.RemoveController(rewiredPlayer.controllers.GetController<Controller>(1));
                         controlAssign.maxPlayers = controlAssign.maxPlayers + 1;
                         controlAssign.existingConNums.Remove(1);
@@ -207,7 +210,6 @@ public class PlayerPanel : MonoBehaviour
                     }
 
                     joinMessage.SetActive(true);
-                    hasControllerAssinged = false;
                     controlAssign._startMenu.ClosePlayerSelection();
                     controlAssign._startMenu.closeCharSelection = false;
                 }
@@ -566,6 +568,8 @@ public class PlayerPanel : MonoBehaviour
                 {
                     if (!hasControllerAssinged)
                     {
+                        hasControllerAssinged = false;
+                        _chosenCharScript.existingConNums.Clear();
                         foreach (Player player in ReInput.players.Players)
                         {
                             player.controllers.maps.SetMapsEnabled(false, "Assignment");

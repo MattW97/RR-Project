@@ -145,9 +145,9 @@ public class MapPopulator : MonoBehaviour
                 }
 
                 choosenMap.gameObject.SetActive(true);
-                choosenMap.GetComponent<Image>().color = highestMap.GetComponent<Image>().color;
+                //choosenMap.GetComponent<Image>().color = highestMap.GetComponent<Image>().color;
                 choosenMap.mapName.text = highestMap.GetComponent<MapUIPosition>().mapName.gameObject.GetComponent<Text>().text;
-                choosenMap.mapImage.sprite = highestMap.GetComponent<Image>().sprite;
+                //choosenMap.mapImage.sprite = highestMap.GetComponent<Image>().sprite;
                 choosenMap.sceneToLoad = highestMap.sceneToLoad;
 
                 StartCoroutine(TimerToLevelLoad());

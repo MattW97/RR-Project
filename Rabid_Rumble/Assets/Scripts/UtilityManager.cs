@@ -11,7 +11,7 @@ public class UtilityManager : MonoBehaviour
 
     public Canvas inGameUI;
     public Text countdownTimerText;
-    public Button backToMenuButton;
+    public Image backToMenuButton;
 
     public bool activeGame;
     public bool countdownTimerActive;

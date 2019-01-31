@@ -403,7 +403,7 @@ public class PlayerController : MonoBehaviour
             bButtonPickUp.enabled = false;
         }
 
-        deathCounterText.text = "Player " + (playerId + 1).ToString() + " Deaths: " + deathCount.ToString();
+        deathCounterText.text = " DEATHS: " + deathCount.ToString();
     }
 
     private void FixedUpdate()
