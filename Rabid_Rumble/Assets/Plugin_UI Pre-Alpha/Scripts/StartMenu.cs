@@ -288,7 +288,7 @@ public class StartMenu : MonoBehaviour
 
     public void TempRunOverride()
     {
-        SceneManager.LoadScene("TESTLEVEL");
+        SceneManager.LoadScene("S_Factory");
     }
     public void RunOverride()
     {

@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 198704681690963546}
   - component: {fileID: 199900569196220316}
   - component: {fileID: 114052929291030756}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: BloodSplatterParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

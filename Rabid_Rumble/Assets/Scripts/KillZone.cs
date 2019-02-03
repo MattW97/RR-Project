@@ -55,9 +55,13 @@ public class KillZone : MonoBehaviour
                 }
 
                 other.gameObject.GetComponentInParent<PlayerController>().isDead = true;
-                //other.gameObject.SetActive(false);
 
-                //goreSpawner.GetComponent<TrapGoreSpawner>().SpawnGore();
+                goreSpawner.GetComponent<TrapGoreSpawner>().SpawnGore();
+
+                if(other.tag == "Gore")
+                {
+                    Destroy(other.gameObject);
+                }
 
             }
             else if (zoneSelection == ZoneType.removeCollisions)

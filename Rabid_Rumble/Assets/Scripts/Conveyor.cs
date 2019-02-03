@@ -6,7 +6,6 @@ public class Conveyor : MonoBehaviour
 {
     public Transform endOfBelt;
     public float conveyorSpeed = 2;
-    public float textureSpeed = 1;
 
     private void OnTriggerStay(Collider objectOnBelt)
     {

@@ -124,13 +124,13 @@ MonoBehaviour:
         temperature: 17.7
         tint: 0
         hueShift: 0
-        saturation: 1
+        saturation: 0.75
         contrast: 1.1
       channelMixer:
         red: {x: 1.07, y: 0.11, z: -0.16}
         green: {x: 0.04, y: 1, z: 0}
         blue: {x: 0, y: 0, z: 0.82}
-        currentEditingChannel: 1
+        currentEditingChannel: 0
       colorWheels:
         mode: 0
         log:
