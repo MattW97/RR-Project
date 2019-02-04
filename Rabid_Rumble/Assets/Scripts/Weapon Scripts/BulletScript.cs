@@ -41,7 +41,7 @@ public class BulletScript : MonoBehaviour {
             other.GetComponent<PlayerController>().pushbackDirection = moveDirection;
             other.GetComponent<PlayerController>().isPushed = true;
 
-            other.gameObject.GetComponent<PlayerController>().pushAmount = 100;
+            other.gameObject.GetComponent<PlayerController>().pushAmount = 70;
         }
     }
 

@@ -74,17 +74,17 @@ public class WeaponScript : MonoBehaviour
         if (weaponSelection == WeaponType.BaseballBat)
         {
             maxMeleeDamage = 12;
-            weaponPushAmount = 50;
+            weaponPushAmount = 25;
         }
         if (weaponSelection == WeaponType.Mallet)
         {
             maxMeleeDamage = 18;
-            weaponPushAmount = 50;
+            weaponPushAmount = 35;
         }
         if (weaponSelection == WeaponType.Machete)
         {
             maxMeleeDamage = 10;
-            weaponPushAmount = 50;
+            weaponPushAmount = 10;
         }
     }
 

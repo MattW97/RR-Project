@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
     public GameObject weapon;
     public GameObject gorePackage;
     public GameObject tagSetter;
-    public GameObject playerReticle;
+    public GameObject playerIndicator;
     public GameObject targetPlayer;
     public GameObject targetIndicator;
     #endregion
@@ -230,6 +230,7 @@ public class PlayerController : MonoBehaviour
         bButtonMash.SetActive(false);
         bButtonPickUp.enabled = false;
         yButtonUI.enabled = false;
+        playerIndicator.SetActive(true);
 
         // Set player number for UI
         #region Player numbers
@@ -322,6 +323,7 @@ public class PlayerController : MonoBehaviour
                 //yButtonUI.SetActive(false);
                 bButtonMash.SetActive(false);
                 yButtonUI.enabled = false;
+                playerIndicator.SetActive(true);
             }
 
             if (ragdolling)
@@ -339,10 +341,11 @@ public class PlayerController : MonoBehaviour
         {
             #region Respawning
             respawnTimer -= Time.deltaTime;
+            playerIndicator.SetActive(false);
 
             if (!deathVibrate)
             {
-                ControllerVibrate(0.3f, 1.0f);
+                ControllerVibrate(0.5f, 1.0f);
                 deathVibrate = true;
             }
 
@@ -381,6 +384,7 @@ public class PlayerController : MonoBehaviour
                 healthManager.currentHealth = healthManager.startingHealth;
                 respawnTimer = respawnTimerReset;
                 goreAmmount = 0;
+                deathVibrate = false;
             }
             #endregion
         }
