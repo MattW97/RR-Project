@@ -8,6 +8,7 @@ public class UtilityManager : MonoBehaviour
 {
     public float countdownSeconds = 30;
     public float countdownMinutes = 1;
+    public float debuggedTimer = 90;
 
     public Canvas inGameUI;
     public Text countdownTimerText;
@@ -90,6 +91,8 @@ public class UtilityManager : MonoBehaviour
 
                 backToMenuButton.gameObject.SetActive(true);
             }
+
+            debuggedTimer -= Time.deltaTime;
             #endregion
         }
     }
