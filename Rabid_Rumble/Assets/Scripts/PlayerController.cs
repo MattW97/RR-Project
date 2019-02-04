@@ -355,7 +355,6 @@ public class PlayerController : MonoBehaviour
             if (goreAmmount == 1)
             {
                 Instantiate(gorePackage, thisPlayersOrigin.position, thisPlayersOrigin.rotation);
-                GetComponentInChildren<ObiGoreScript>().bloodTriggered = true;
 
                 goreAmmount++;
 
@@ -725,7 +724,7 @@ public class PlayerController : MonoBehaviour
     void Pushback(Vector3 direction, int pushAmount)
     {
         GetComponent<Rigidbody>().AddForce(direction * pushAmount, ForceMode.Impulse);
-        canControl = false;
+        //canControl = false;
     }
 
     public void ControllerVibrate(float vibrationTime, float intensity)

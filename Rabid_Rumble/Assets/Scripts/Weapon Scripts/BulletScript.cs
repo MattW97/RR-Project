@@ -36,11 +36,6 @@ public class BulletScript : MonoBehaviour {
             bloodParticleObject.rotation = Quaternion.LookRotation(this.gameObject.transform.forward);
             bloodParticleObject.GetComponent<ParticleSystem>().Play();
 
-            Transform obiBloodObject = other.gameObject.transform.Find("ObiBloodEmitter");
-            obiBloodObject.rotation = Quaternion.LookRotation(thisTransform.forward);
-            other.gameObject.GetComponentInChildren<ObiBloodScript>().bloodTriggered = true;
-            other.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Mallet";
-
             Vector3 moveDirection = other.transform.position - thisTransform.position;
 
             other.GetComponent<PlayerController>().pushbackDirection = moveDirection;

@@ -231,10 +231,6 @@ public class WeaponScript : MonoBehaviour
                 bloodParticleObject.rotation = Quaternion.LookRotation(thisTransform.forward);
                 bloodParticleObject.GetComponent<ParticleSystem>().Play();
 
-                Transform obiBloodObject = collider.gameObject.transform.Find("ObiBloodEmitter");
-                obiBloodObject.rotation = Quaternion.LookRotation(thisTransform.forward);
-                collider.gameObject.GetComponentInChildren<ObiBloodScript>().bloodTriggered = true;
-
                 player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f, 1.0f);
                 collider.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.2f, 1.0f);
 
@@ -248,19 +244,16 @@ public class WeaponScript : MonoBehaviour
                 {
                     int index = Random.Range(0, randomBaseballBatImpactAudio.Length);
                     audioSource.PlayOneShot(randomBaseballBatImpactAudio[index], 1.0f);
-                    collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "BaseballBat";
                 }
                 if (weaponSelection == WeaponType.Mallet)
                 {
                     int index = Random.Range(0, randomMalletImpactAudio.Length);
                     audioSource.PlayOneShot(randomMalletImpactAudio[index], 1.0f);
-                    collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Mallet";
                 }
                 if (weaponSelection == WeaponType.Machete)
                 {
                     int index = Random.Range(0, randomMacheteImpactAudio.Length);
                     audioSource.PlayOneShot(randomMacheteImpactAudio[index], 1.0f);
-                    collider.gameObject.GetComponentInChildren<ObiBloodScript>().weaponType = "Machete";
                 }
             }
         }

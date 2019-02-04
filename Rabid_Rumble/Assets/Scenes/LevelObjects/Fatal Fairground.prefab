@@ -52,5 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapName: FATAL FAIRGROUND
-  associatedLevel: S_Dungeon
+  associatedLevel: S_Factory
   mapSprite: {fileID: 0}

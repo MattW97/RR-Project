@@ -20,20 +20,27 @@ public class TrapTimeActiveScript : MonoBehaviour {
 
         if (gameTime <= triggerTrapTime)
         {
-            sawBladeSparks.SetActive(true);
+            if (sawBladeSparks != null)
+            {
+                sawBladeSparks.SetActive(true);
+            }
             GetComponent<Animator>().speed = animationSpeed;
         }
     }
 
     public void ActivateParticle()
     {
-        sawBladeSparks.GetComponentInChildren<ParticleSystem>().Play();
-        Debug.Log("Activated");
+        if (sawBladeSparks != null)
+        {
+            sawBladeSparks.GetComponentInChildren<ParticleSystem>().Play();
+        }
     }
 
     public void DeactivateParticle()
     {
-        sawBladeSparks.GetComponentInChildren<ParticleSystem>().Stop();
-        Debug.Log("Deactivated");
+        if (sawBladeSparks != null)
+        {
+            sawBladeSparks.GetComponentInChildren<ParticleSystem>().Stop();
+        }
     }
 }

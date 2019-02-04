@@ -6,13 +6,14 @@ public class FanActivationScript : MonoBehaviour {
 
     public GameObject fanObject;
     public GameObject fanConveyor;
+    public FanPuller fanSucker;
     public GameObject killZone;
     private bool fanActive;
     public int fanSpeed;
 
     private void Start()
     {
-        fanObject.GetComponent<Animator>().speed = 0;
+        fanObject.GetComponent<Animator>().speed = 0.2f;
         fanConveyor.SetActive(false);
         killZone.SetActive(false);
     }
@@ -38,13 +39,25 @@ public class FanActivationScript : MonoBehaviour {
                 fanActive = true;
             }
         }
+        if (other.tag == "Player" && other.GetComponent<PlayerController>().Player.GetButtonDown("Attack"))
+        {
+            if (!fanActive)
+            {
+                fanObject.GetComponent<Animator>().speed = fanSpeed;
+                fanSucker.runFanSuck = true;
+                killZone.SetActive(true);
+
+                fanActive = true;
+            }
+        }
     }
 
     private void DeactivateFan()
     {
         fanActive = false;
-        fanObject.GetComponent<Animator>().speed = 0;
+        fanObject.GetComponent<Animator>().speed = 0.2f;
         fanConveyor.SetActive(false);
+        fanSucker.runFanSuck = false;
         killZone.SetActive(false);
     }
 }
