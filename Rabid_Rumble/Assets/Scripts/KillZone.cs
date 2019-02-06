@@ -17,7 +17,7 @@ public class KillZone : MonoBehaviour
 
     public ZoneType zoneSelection;
     public int damageFromTrap;
-    public bool grinder;
+    public bool press;
     private int goreTimer;
     public GameObject goreSpawner;
     private bool goreSpawned;
@@ -56,7 +56,14 @@ public class KillZone : MonoBehaviour
 
                 other.gameObject.GetComponentInParent<PlayerController>().isDead = true;
 
-                goreSpawner.GetComponent<TrapGoreSpawner>().SpawnGore();
+                if (!press)
+                {
+                    goreSpawner.GetComponent<TrapGoreSpawner>().SpawnGore();
+                }
+                else
+                {
+                    Instantiate(goreSpawner, transform.position, transform.rotation);
+                }
 
                 if(other.tag == "Gore")
                 {

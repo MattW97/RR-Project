@@ -620,7 +620,7 @@ public class PlayerController : MonoBehaviour
             ragdolling = false;
 
             skeletalMeshRef.transform.parent = gameObject.transform;
-            skeletalMeshRef.transform.position = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
+            skeletalMeshRef.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
             skeletalMeshRef.transform.Find("Pelvis").transform.position = new Vector3(gameObject.transform.position.x, 0.19f, gameObject.transform.position.z);
             foreach (Transform bones in skeletalMeshRef.transform.Find("Pelvis").GetComponentsInChildren<Transform>())
             {
