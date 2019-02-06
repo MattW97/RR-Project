@@ -15,7 +15,7 @@ public class MapPopulator : MonoBehaviour
     public Text mapCCount;
     public Text mapDCount;
     public MapUIPosition choosenMap;
-    public Image screenBlur;
+    public Image loadingScreen;
 
     public int timeLeft = 10;
     private int loadIn = 5;
@@ -35,12 +35,13 @@ public class MapPopulator : MonoBehaviour
     private int mapC = 0;
     private int mapD = 0;
     private int lastVote;
+    private int totalVoteCount;
 
     private void Start()
     {
         choosenMap.gameObject.SetActive(false);
         loadCountdown.gameObject.SetActive(false);
-        screenBlur.gameObject.SetActive(false);
+        loadingScreen.gameObject.SetActive(false);
         //GetFourMaps();
     }
 
@@ -97,6 +98,11 @@ public class MapPopulator : MonoBehaviour
 
         if (voting)
         {
+            if(totalVoteCount == GetComponentInParent<StartMenu>().controlAssign.existingConNums.Count)
+            {
+                timeLeft = 0;
+            }
+
             timerCountdown.text = timeLeft.ToString();
             mapACount.text = mapA.ToString();
             mapBCount.text = mapB.ToString();
@@ -162,6 +168,7 @@ public class MapPopulator : MonoBehaviour
                     ReInput.players.GetPlayer(j).controllers.maps.SetMapsEnabled(false, "UIVoting");
                     //A Map Vote
                     mapPositions[0].voteNumber++;
+                    totalVoteCount++;
                     mapA++;
                 }
                 if (ReInput.players.GetPlayer(j).GetButtonUp("UIB"))
@@ -169,6 +176,7 @@ public class MapPopulator : MonoBehaviour
                     ReInput.players.GetPlayer(j).controllers.maps.SetMapsEnabled(false, "UIVoting");
                     //B Map Vote
                     mapPositions[1].voteNumber++;
+                    totalVoteCount++;
                     mapB++;
                 }
                 if (ReInput.players.GetPlayer(j).GetButtonUp("UIX"))
@@ -176,6 +184,7 @@ public class MapPopulator : MonoBehaviour
                     ReInput.players.GetPlayer(j).controllers.maps.SetMapsEnabled(false, "UIVoting");
                     //X Map Vote
                     mapPositions[2].voteNumber++;
+                    totalVoteCount++;
                     mapC++;
                 }
                 if (ReInput.players.GetPlayer(j).GetButtonUp("UIY"))
@@ -183,15 +192,17 @@ public class MapPopulator : MonoBehaviour
                     ReInput.players.GetPlayer(j).controllers.maps.SetMapsEnabled(false, "UIVoting");
                     //Y Map Vote
                     mapPositions[3].voteNumber++;
+                    totalVoteCount++;
                     mapD++;
                 }
             }
         }
-
+        
         if (loadIn <= 0)
         {
             StopCoroutine(TimerToLevelLoad());
-            screenBlur.gameObject.SetActive(true);
+            loadingScreen.gameObject.SetActive(true);
+            this.GetComponent<LoadingTips>().GenerateTip();
             load = true;
         }
         else

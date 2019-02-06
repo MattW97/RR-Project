@@ -10,7 +10,7 @@ using Rewired;
 public class ControllerAssigner : MonoBehaviour
 {
 
-    public int maxPlayers = 4;
+    [HideInInspector] public int maxPlayers = 4;
     private List<PlayerMap> playerMap; // Maps Rewired Player ids to game player ids
     private int gamePlayerIdCounter = 0;
 
@@ -28,6 +28,12 @@ public class ControllerAssigner : MonoBehaviour
     }
 
     private void Start()
+    {
+        existingConNums.Clear();
+        _chosenCharLink.existingConNums.Clear();
+    }
+
+    private void OnEnable()
     {
         existingConNums.Clear();
         _chosenCharLink.existingConNums.Clear();

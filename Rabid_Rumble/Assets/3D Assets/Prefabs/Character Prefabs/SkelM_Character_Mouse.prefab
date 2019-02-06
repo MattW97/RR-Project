@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 114898162268693652}
   - component: {fileID: 95068536451490646}
   - component: {fileID: 114248002505486164}
+  - component: {fileID: 114229933362157126}
   m_Layer: 0
   m_Name: SkelM_Character_Mouse
   m_TagString: SkeletalMesh
@@ -1490,6 +1491,21 @@ MonoBehaviour:
   rb: {fileID: 0}
   join: 0
   playerToJoinTo: {fileID: 0}
+--- !u!114 &114229933362157126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1882077448656242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc2a71dc6d86484683869f512d75afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  characterPrefab: {fileID: 1882077448656242, guid: fd0acf34be25538419b30111c421de05,
+    type: 2}
+  selected: 0
 --- !u!114 &114248002505486164
 MonoBehaviour:
   m_ObjectHideFlags: 1

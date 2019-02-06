@@ -12,7 +12,7 @@ public class UtilityManager : MonoBehaviour
 
     public Canvas inGameUI;
     public Text countdownTimerText;
-    public Image backToMenuButton;
+    public GameObject gameOverUI;
 
     public bool activeGame;
     public bool countdownTimerActive;
@@ -22,7 +22,7 @@ public class UtilityManager : MonoBehaviour
         activeGame = false;
         countdownTimerActive = false;
         inGameUI.gameObject.SetActive(false);
-        backToMenuButton.gameObject.SetActive(false);
+        gameOverUI.SetActive(false);
 
         countdownTimerText.text = Mathf.RoundToInt(countdownMinutes).ToString() + ":0" + Mathf.RoundToInt(countdownSeconds).ToString();
     }
@@ -89,7 +89,7 @@ public class UtilityManager : MonoBehaviour
                 countdownMinutes = 0;
                 countdownTimerText.text = "ROUND OVER";
 
-                backToMenuButton.gameObject.SetActive(true);
+                gameOverUI.SetActive(true);
             }
 
             debuggedTimer -= Time.deltaTime;

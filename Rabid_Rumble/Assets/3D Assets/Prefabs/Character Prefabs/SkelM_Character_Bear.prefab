@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 114132538013159270}
   - component: {fileID: 95820435880834050}
   - component: {fileID: 114577180479687792}
+  - component: {fileID: 114432411749596120}
   m_Layer: 0
   m_Name: SkelM_Character_Bear
   m_TagString: SkeletalMesh
@@ -1507,6 +1508,21 @@ MonoBehaviour:
   rb: {fileID: 0}
   join: 0
   playerToJoinTo: {fileID: 0}
+--- !u!114 &114432411749596120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1786413499934164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc2a71dc6d86484683869f512d75afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  characterPrefab: {fileID: 1786413499934164, guid: 88b8cced8d11c634992ba83bb2d9b0c9,
+    type: 2}
+  selected: 0
 --- !u!114 &114577180479687792
 MonoBehaviour:
   m_ObjectHideFlags: 1

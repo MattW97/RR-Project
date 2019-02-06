@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 114387148467726370}
   - component: {fileID: 95445343393458128}
   - component: {fileID: 114025060898751696}
+  - component: {fileID: 114766151086110830}
   m_Layer: 0
   m_Name: SkelM_Character_Squirrel
   m_TagString: SkeletalMesh
@@ -1527,6 +1528,21 @@ MonoBehaviour:
   rb: {fileID: 0}
   join: 0
   playerToJoinTo: {fileID: 0}
+--- !u!114 &114766151086110830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745968806605572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc2a71dc6d86484683869f512d75afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  characterPrefab: {fileID: 1745968806605572, guid: 6bfa28fbc5e55774c9190e029bb4c590,
+    type: 2}
+  selected: 0
 --- !u!135 &135776135603303742
 SphereCollider:
   m_ObjectHideFlags: 1

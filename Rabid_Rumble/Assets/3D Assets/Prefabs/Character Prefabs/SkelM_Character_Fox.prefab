@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 114995364456019908}
   - component: {fileID: 95598862660239354}
   - component: {fileID: 114364461355525318}
+  - component: {fileID: 114010662301222272}
   m_Layer: 0
   m_Name: SkelM_Character_Fox
   m_TagString: SkeletalMesh
@@ -1475,6 +1476,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114010662301222272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1818902562507452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc2a71dc6d86484683869f512d75afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  characterPrefab: {fileID: 1818902562507452, guid: 754d75ee8a7e7ad449a81cfa7c4ef592,
+    type: 2}
+  selected: 0
 --- !u!114 &114364461355525318
 MonoBehaviour:
   m_ObjectHideFlags: 1

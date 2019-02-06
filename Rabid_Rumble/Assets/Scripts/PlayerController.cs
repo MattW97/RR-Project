@@ -361,7 +361,7 @@ public class PlayerController : MonoBehaviour
 
                 goreAmmount++;
 
-                deathCount = deathCount + 1;
+                DeathCount = DeathCount + 1;
             }
             else
             {
@@ -406,7 +406,7 @@ public class PlayerController : MonoBehaviour
             bButtonPickUp.enabled = false;
         }
 
-        deathCounterText.text = " DEATHS: " + deathCount.ToString();
+        deathCounterText.text = " DEATHS: " + DeathCount.ToString();
     }
 
     private void FixedUpdate()
@@ -777,5 +777,18 @@ public class PlayerController : MonoBehaviour
     public bool PlayerInGame { get { return playerInGame; } set { playerInGame = value; } }
     public GameObject ClosestPlayer { get { return closestPlayer; } set { closestPlayer = value; } }
     public Player Player { get { return player; } set { player = value; } }
+
+    public int DeathCount
+    {
+        get
+        {
+            return deathCount;
+        }
+
+        set
+        {
+            deathCount = value;
+        }
+    }
     #endregion
 }

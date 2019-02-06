@@ -7,5 +7,6 @@ public class CharacterDetails : MonoBehaviour {
     public string charName;
     public GameObject characterPrefab;
     public bool selected;
+    
 
 }

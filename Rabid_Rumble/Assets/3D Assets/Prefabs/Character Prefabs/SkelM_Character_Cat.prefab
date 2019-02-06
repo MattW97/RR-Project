@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 114354368218628684}
   - component: {fileID: 95692942875946744}
   - component: {fileID: 114059357760109984}
+  - component: {fileID: 114249218946650110}
   m_Layer: 0
   m_Name: SkelM_Character_Cat
   m_TagString: SkeletalMesh
@@ -1465,6 +1466,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cf6e4595ce161f54db0abb8a15196834, type: 3}
   - {fileID: 8300000, guid: 342027780f6b5fa499c4567a3249e8a5, type: 3}
   - {fileID: 8300000, guid: 35032bd4581bca64b985284ea603cf22, type: 3}
+--- !u!114 &114249218946650110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074024866372872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc2a71dc6d86484683869f512d75afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  characterPrefab: {fileID: 1074024866372872, guid: ac716857e9e0e344e8ae08a558700e46,
+    type: 2}
+  selected: 0
 --- !u!114 &114354368218628684
 MonoBehaviour:
   m_ObjectHideFlags: 1

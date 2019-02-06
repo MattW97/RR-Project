@@ -8,6 +8,7 @@ using System.Collections.Generic;
 /// </summary>
 public class PlayerPanel : MonoBehaviour
 {
+    public AnimationClip idleClip;
     public bool hasControllerAssinged;
     private bool leftSelection = false;
     private bool rightSelection = false;
@@ -64,6 +65,11 @@ public class PlayerPanel : MonoBehaviour
             player.controllers.maps.SetMapsEnabled(true, "UI");
         }
         joinMessage.SetActive(true);
+
+        foreach (GameObject prefab in _chosenCharScript.charOptions)
+        {
+            prefab.GetComponent<Animation>().clip = idleClip;
+        }
     }
 
     private void Update()
@@ -272,7 +278,9 @@ public class PlayerPanel : MonoBehaviour
 
                     charNameText.text = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().charName;
                     _chosenCharScript.p1ChosenCharacter = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().characterPrefab;
+                    _chosenCharScript.charOptions[charNum].GetComponent<Animation>().clip = idleClip;
                     Instantiate(_chosenCharScript.charOptions[charNum], _chosenCharScript.p1CharSpawn.position, _chosenCharScript.p1CharSpawn.rotation, _chosenCharScript.p1CharSpawn);
+
 
                     leftP1 = false;
                 }
@@ -311,7 +319,9 @@ public class PlayerPanel : MonoBehaviour
 
                     charNameText.text = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().charName;
                     _chosenCharScript.p2ChosenCharacter = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().characterPrefab;
+                    _chosenCharScript.charOptions[charNum].GetComponent<Animation>().clip = idleClip;
                     Instantiate(_chosenCharScript.charOptions[charNum], _chosenCharScript.p2CharSpawn.position, _chosenCharScript.p2CharSpawn.rotation, _chosenCharScript.p2CharSpawn);
+
 
                     leftP2 = false;
                 }
@@ -350,8 +360,9 @@ public class PlayerPanel : MonoBehaviour
 
                     charNameText.text = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().charName;
                     _chosenCharScript.p3ChosenCharacter = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().characterPrefab;
+                    _chosenCharScript.charOptions[charNum].GetComponent<Animation>().clip = idleClip;
                     Instantiate(_chosenCharScript.charOptions[charNum], _chosenCharScript.p3CharSpawn.position, _chosenCharScript.p3CharSpawn.rotation, _chosenCharScript.p3CharSpawn);
-
+                    
                     leftP3 = false;
                 }
                 else
@@ -389,8 +400,9 @@ public class PlayerPanel : MonoBehaviour
 
                     charNameText.text = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().charName;
                     _chosenCharScript.p4ChosenCharacter = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().characterPrefab;
+                    _chosenCharScript.charOptions[charNum].GetComponent<Animation>().clip = idleClip;
                     Instantiate(_chosenCharScript.charOptions[charNum], _chosenCharScript.p4CharSpawn.position, _chosenCharScript.p4CharSpawn.rotation, _chosenCharScript.p4CharSpawn);
-
+                    
                     leftP4 = false;
                 }
                 else
@@ -429,7 +441,9 @@ public class PlayerPanel : MonoBehaviour
 
                     charNameText.text = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().charName;
                     _chosenCharScript.p1ChosenCharacter = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().characterPrefab;
+                    _chosenCharScript.charOptions[charNum].GetComponent<Animation>().clip = idleClip;
                     Instantiate(_chosenCharScript.charOptions[charNum], _chosenCharScript.p1CharSpawn.position, _chosenCharScript.p1CharSpawn.rotation, _chosenCharScript.p1CharSpawn);
+
 
                     rightP1 = false;
                 }
@@ -469,7 +483,9 @@ public class PlayerPanel : MonoBehaviour
 
                     charNameText.text = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().charName;
                     _chosenCharScript.p2ChosenCharacter = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().characterPrefab;
+                    _chosenCharScript.charOptions[charNum].GetComponent<Animation>().clip = idleClip;
                     Instantiate(_chosenCharScript.charOptions[charNum], _chosenCharScript.p2CharSpawn.position, _chosenCharScript.p2CharSpawn.rotation, _chosenCharScript.p2CharSpawn);
+
 
                     rightP2 = false;
                 }
@@ -509,8 +525,9 @@ public class PlayerPanel : MonoBehaviour
 
                     charNameText.text = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().charName;
                     _chosenCharScript.p3ChosenCharacter = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().characterPrefab;
+                    _chosenCharScript.charOptions[charNum].GetComponent<Animation>().clip = idleClip;
                     Instantiate(_chosenCharScript.charOptions[charNum], _chosenCharScript.p3CharSpawn.position, _chosenCharScript.p3CharSpawn.rotation, _chosenCharScript.p3CharSpawn);
-
+                    
                     rightP3 = false;
                 }
                 else
@@ -549,8 +566,9 @@ public class PlayerPanel : MonoBehaviour
 
                     charNameText.text = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().charName;
                     _chosenCharScript.p4ChosenCharacter = _chosenCharScript.charOptions[charNum].GetComponent<CharacterDetails>().characterPrefab;
+                    _chosenCharScript.charOptions[charNum].GetComponent<Animation>().clip = idleClip;
                     Instantiate(_chosenCharScript.charOptions[charNum], _chosenCharScript.p4CharSpawn.position, _chosenCharScript.p4CharSpawn.rotation, _chosenCharScript.p4CharSpawn);
-
+                    
                     rightP4 = false;
                 }
                 else

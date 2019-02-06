@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 114741011887472310}
   - component: {fileID: 95045230006292062}
   - component: {fileID: 114654231230619808}
+  - component: {fileID: 114931170208515114}
   m_Layer: 0
   m_Name: SkelM_Character_Pig
   m_TagString: SkeletalMesh
@@ -1512,6 +1513,21 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &114931170208515114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406109708269852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc2a71dc6d86484683869f512d75afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  characterPrefab: {fileID: 1406109708269852, guid: 8ca52722006d3104bb905acd3cf3552d,
+    type: 2}
+  selected: 0
 --- !u!114 &114995619275419596
 MonoBehaviour:
   m_ObjectHideFlags: 1
