@@ -9,9 +9,10 @@ public class PlayerAnimationScript : MonoBehaviour {
     [HideInInspector] public float damageMultiplier;
     private float heavyChargeTime;
     private float currentHeavyChargeTime;
+    private float shotCooldownTime;
+    private float currentShotCooldownTime;
 
     private bool weaponCharged;
-    
 
     private AudioSource audioSource;
     public AudioClip[] randomSwingAudio;
@@ -24,6 +25,9 @@ public class PlayerAnimationScript : MonoBehaviour {
         audioSource = GetComponentInParent<AudioSource>();
 
         currentHeavyChargeTime = 0;
+
+        shotCooldownTime = 4.0f;
+        currentShotCooldownTime = 0;
     }
     
 	// Update is called once per frame
@@ -71,11 +75,20 @@ public class PlayerAnimationScript : MonoBehaviour {
                 animator.SetLayerWeight(3, 0);
                 animator.SetLayerWeight(4, 0);
 
-                if (playerController.Player.GetButtonDown("Attack") && animator.GetCurrentAnimatorStateInfo(1).IsName("ShotgunMovementBlendTree") &&
-                    playerController.weapon.GetComponent<WeaponScript>().initAmmoAmount > 0)
+                if(currentShotCooldownTime <= 0)
                 {
-                    animator.ResetTrigger("LightAttackTrigger");
-                    animator.SetTrigger("LightAttackTrigger");
+                    if (playerController.Player.GetButtonDown("Attack") && animator.GetCurrentAnimatorStateInfo(1).IsName("ShotgunMovementBlendTree") &&
+                    playerController.weapon.GetComponent<WeaponScript>().initAmmoAmount > 0)
+                    {
+                        animator.ResetTrigger("LightAttackTrigger");
+                        animator.SetTrigger("LightAttackTrigger");
+
+                        currentShotCooldownTime = shotCooldownTime;
+                    }   
+                }
+                else if(currentShotCooldownTime > 0)
+                {
+                    currentShotCooldownTime -= Time.deltaTime;
                 }
             }
 

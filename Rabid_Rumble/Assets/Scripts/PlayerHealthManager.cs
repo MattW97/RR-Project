@@ -8,8 +8,14 @@ public class PlayerHealthManager : MonoBehaviour {
     public float startingHealth;
     public float currentHealth;
 
+    public float startingStamina;
+    public float currentStamina;
+    public float staminaConsumptionRate;
+    public float staminaRechargeRate;
+
     private Canvas worldSpaceUICanvas;
     private Image healthBar;
+    private Image staminaBar;
 
     private Camera mainCam;
 

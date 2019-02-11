@@ -4,22 +4,14 @@ using UnityEngine;
 
 public class WeaponSpawner : MonoBehaviour
 {
-    private bool isOccupied;
-
+    [SerializeField] private float initRespawnTime;
     private int weaponIndex;
-
     private float respawnTimer;
-    private float initRespawnTime = 15;
-
     private Transform thisTransform;
-
     private Vector3 spawnOffset;
-
     private Quaternion spawnTilt;
 
     public List<GameObject> weapons;
-    public GameObject lightObject;
-
     public ParticleSystem confetti;
 
     void Start()

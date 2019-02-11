@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GorePackageScript : MonoBehaviour {
 
-    private float despawnTimer = 10;
+    private float despawnTimer = 15;
     private float timer;
 
 	void Start () {

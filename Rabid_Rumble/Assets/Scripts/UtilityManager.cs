@@ -8,7 +8,7 @@ public class UtilityManager : MonoBehaviour
 {
     public float countdownSeconds = 30;
     public float countdownMinutes = 1;
-    public float debuggedTimer = 90;
+    public float debuggedTimer = 120;
 
     public Canvas inGameUI;
     public Text countdownTimerText;

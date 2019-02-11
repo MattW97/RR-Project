@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114662994848354396}
   m_Layer: 8
   m_Name: RightPalm
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4671137085849202}
   m_Layer: 8
   m_Name: Spine2
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 144565378135661876}
   m_Layer: 8
   m_Name: RightUpperArm
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4308545265532924}
   m_Layer: 8
   m_Name: RightUpperThumb
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 144675835634941568}
   m_Layer: 8
   m_Name: Spine3
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 144793748251601196}
   m_Layer: 8
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4531346979978102}
   m_Layer: 8
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 4982318004465196}
   m_Layer: 8
   m_Name: RightFingers
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 4095067488486316}
   m_Layer: 8
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 144797890699457468}
   m_Layer: 8
   m_Name: RightLowerArm
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 4400517453116938}
   m_Layer: 8
   m_Name: Spine1
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 4657829820794034}
   m_Layer: 8
   m_Name: LeftLowerThumb
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 4330990202351246}
   m_Layer: 8
   m_Name: RightLowerThumb
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 54665151774008496}
   m_Layer: 8
   m_Name: Pelvis
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 59005527679483790}
   m_Layer: 8
   m_Name: LeftPalm
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 4521666122437754}
   m_Layer: 8
   m_Name: LeftUpperThumb
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 4086350970897240}
   m_Layer: 8
   m_Name: LeftArmCollarbone
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 4144975997908494}
   m_Layer: 8
   m_Name: Spine4
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 4741271775677294}
   m_Layer: 8
   m_Name: LeftFingers
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 144930065533905444}
   m_Layer: 8
   m_Name: LeftLowerArm
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 144179550486979750}
   m_Layer: 8
   m_Name: LeftUpperArm
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 4068613258148422}
   m_Layer: 8
   m_Name: RightArmCollarbone
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 4274954318610286}
   m_Layer: 8
   m_Name: Spine5
-  m_TagString: Untagged
+  m_TagString: PlayerRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

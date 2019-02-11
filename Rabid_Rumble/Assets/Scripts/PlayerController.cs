@@ -16,25 +16,26 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 3.0f;
     [HideInInspector]
     public float numToMash = 5;
-
     [HideInInspector]
     public float playerNum;   
     [HideInInspector]
     public float forwardBackward;
     [HideInInspector]
     public float rightLeft;
+    public float knockbackTimer;
+    public float knockbackTimerReset = 0.1f;
+    public float groundDistance = 0.3f;
 
     private float distanceCheck;
     private float playerTurnSpeed = 20;
-    //private float mashTimer;
     private float numToMashMultiplier = 2.0f;
     private float joystickAxisValue;
     private float verticalVelocity;
     private float respawnTimer;
     private float respawnTimerReset = 3;
-    public float knockbackTimer;
-    public float knockbackTimerReset = 0.1f;
-    public float groundDistance = 0.3f;
+
+    public float currentSearchProgressBarTime;
+    private float searchProgressBarTime = 5;
     #endregion
 
     #region ints
@@ -46,13 +47,13 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region bools 
-    [HideInInspector] public bool canControl;
-    [HideInInspector] public bool canPickUpWeapon;
-    [HideInInspector] public bool isHoldingWeapon;
-    [HideInInspector] public bool beingDragged;
-    [HideInInspector] public bool draggingPlayer;
-    [HideInInspector] public bool pickUpMode;
-    [HideInInspector] public bool inCountdown;
+    public bool canControl;
+    public bool canPickUpWeapon;
+    public bool isHoldingWeapon;
+    public bool beingDragged;
+    public bool draggingPlayer;
+    public bool pickUpMode;
+    public bool inCountdown;
 
     public bool isDead;
     public bool ragdolling;
@@ -100,6 +101,7 @@ public class PlayerController : MonoBehaviour
     private GameObject pelvisGameObj;
     private GameObject characterInfo;
     private GameObject bButtonMash;
+    private GameObject bButtonSearchProgress;
 
     public GameObject weapon;
     public GameObject gorePackage;
@@ -111,6 +113,7 @@ public class PlayerController : MonoBehaviour
 
     private Image bButtonMashFill;
     private Image bButtonPickUp;
+    private Image bButtonSearch;
     private Image yButtonUI;
 
     #region Vector3s
@@ -180,9 +183,7 @@ public class PlayerController : MonoBehaviour
         deathCounterText.gameObject.SetActive(false);
 
         healthManager = GetComponent<PlayerHealthManager>();
-        //canControl = false;
         isDead = false;
-        //mashTimer = 0.5f;
         respawnTimer = respawnTimerReset;
         isHoldingWeapon = false;
         isLockedOn = false;
@@ -190,6 +191,7 @@ public class PlayerController : MonoBehaviour
         RagdollSetup();
         playerTag = tagSetter.tag;
         knockbackTimer = knockbackTimerReset;
+        currentSearchProgressBarTime = 0;
 
         player1Colour = new Color(1.0f, 0.1674208f, 0.1674208f);
         player2Colour = new Color(0.145098f, 0.4509804f, 0.8666667f);
@@ -222,13 +224,23 @@ public class PlayerController : MonoBehaviour
                 bButtonPickUp = child.gameObject.GetComponent<Image>();
             }
 
+            if (child.gameObject.name == "SearchProgressBar")
+            {
+                bButtonSearchProgress = child.gameObject;
+                bButtonSearch = bButtonSearchProgress.transform.Find("B-ButtonSearch").GetComponent<Image>();
+
+                bButtonSearchProgress.GetComponent<Image>().fillAmount = 0;
+            }
+
             if (child.gameObject.name == "Y-Button")
             {
                 yButtonUI = child.gameObject.GetComponent<Image>();
             }
         }
+
         bButtonMash.SetActive(false);
         bButtonPickUp.enabled = false;
+        bButtonSearchProgress.SetActive(false);
         yButtonUI.enabled = false;
         playerIndicator.SetActive(true);
 
@@ -330,7 +342,7 @@ public class PlayerController : MonoBehaviour
             {
                 ButtonMashing();
                 //thisPlayersOrigin.position = rightHand.transform.position;
-                transform.position = new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z);
+                transform.position = new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, skeletalMeshRef.transform.Find("Pelvis").transform.position.y, skeletalMeshRef.transform.Find("Pelvis").transform.position.z);
                 //new Vector3(skeletalMeshRef.transform.Find("Pelvis").transform.position.x, 0, skeletalMeshRef.transform.Find("Pelvis").transform.position.z)
 
                 bButtonMashFill.fillAmount = totalCurrentMashes / numToMash;
@@ -385,6 +397,7 @@ public class PlayerController : MonoBehaviour
                 respawnTimer = respawnTimerReset;
                 goreAmmount = 0;
                 deathVibrate = false;
+                skeletalMeshRef.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
             #endregion
         }
@@ -395,6 +408,11 @@ public class PlayerController : MonoBehaviour
             //thisTransform.position =  pelvisGameObj.transform.position;
             isHoldingWeapon = false;
             DropWeapon();
+        }
+
+        if(!canControl && ragdolling)
+        {
+            bButtonMash.SetActive(true);
         }
 
         if (!draggingPlayer)
@@ -420,13 +438,21 @@ public class PlayerController : MonoBehaviour
             }
             if (knockbackTimer <= 0)
             {
-                isPushed = false;
-                canControl = true;
-                knockbackTimer = knockbackTimerReset;
+                if (ragdolling)
+                {
+                    isPushed = false;
+                    knockbackTimer = knockbackTimerReset;
+                }
+                else
+                {
+                    isPushed = false;
+                    canControl = true;
+                    knockbackTimer = knockbackTimerReset;
+                }                
             }
         }
 
-        if (!Physics.Raycast(thisPlayersOrigin.transform.position, -Vector3.up, groundDistance))
+        if (!Physics.Raycast(thisPlayersOrigin.transform.position, -Vector3.up, groundDistance, LayerMask.GetMask("Ground")))
         {
             isGrounded = false;
         }
@@ -606,13 +632,11 @@ public class PlayerController : MonoBehaviour
             GetComponentInChildren<Animator>().enabled = false;
             GetComponent<CapsuleCollider>().enabled = false;
             skeletalMeshRef.transform.parent = null;
-            
-            bButtonMash.SetActive(true);
 
-            foreach (Transform bones in skeletalMeshRef.transform.Find("Pelvis").GetComponentsInChildren<Transform>())
-            {
-                bones.gameObject.tag = "PlayerRagdoll";
-            }
+            //foreach (Transform bones in skeletalMeshRef.transform.Find("Pelvis").GetComponentsInChildren<Transform>())
+            //{
+            //    bones.gameObject.tag = "PlayerRagdoll";
+            //}
         }
 
         else if (!ragdollToggle) //Reset Ragdoll
@@ -621,11 +645,11 @@ public class PlayerController : MonoBehaviour
 
             skeletalMeshRef.transform.parent = gameObject.transform;
             skeletalMeshRef.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-            skeletalMeshRef.transform.Find("Pelvis").transform.position = new Vector3(gameObject.transform.position.x, 0.19f, gameObject.transform.position.z);
-            foreach (Transform bones in skeletalMeshRef.transform.Find("Pelvis").GetComponentsInChildren<Transform>())
-            {
-                bones.gameObject.tag = "Untagged";
-            }
+            skeletalMeshRef.transform.Find("Pelvis").transform.position = new Vector3(gameObject.transform.position.x, (gameObject.transform.position.y + 0.19f), gameObject.transform.position.z);
+            //foreach (Transform bones in skeletalMeshRef.transform.Find("Pelvis").GetComponentsInChildren<Transform>())
+            //{
+            //    bones.gameObject.tag = "Untagged";
+            //}
 
             totalCurrentMashes = 0;
             numToMash = numToMash * numToMashMultiplier;
@@ -637,6 +661,7 @@ public class PlayerController : MonoBehaviour
             thisRigidbody.isKinematic = false;
             GetComponentInChildren<Animator>().enabled = true;
             GetComponent<CapsuleCollider>().enabled = true;
+            skeletalMeshRef.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -754,13 +779,44 @@ public class PlayerController : MonoBehaviour
     {
         if (!isHoldingWeapon && canControl)
         {
-            if (col.gameObject.tag == "Weapon")
+            if (col.gameObject.tag == "Weapon" && !ragdolling)
             {
                 weapon = col.transform.parent.gameObject;
                 canPickUpWeapon = true;
                 bButtonPickUp.enabled = true;
             }
+
         }
+        else
+        {
+            bButtonPickUp.enabled = false;
+        }
+
+        //if (col.gameObject.name == "BoxSearchZone" && !ragdolling)
+        //{      
+        //    bButtonSearchProgress.SetActive(true);
+
+        //    if (Input.GetButton("Interact") && currentSearchProgressBarTime < searchProgressBarTime)
+        //    {
+        //        currentSearchProgressBarTime += Time.deltaTime;
+        //        bButtonSearchProgress.GetComponent<Image>().fillAmount = currentSearchProgressBarTime / searchProgressBarTime;
+        //    }
+        //    else if (!Input.GetButton("Interact") && currentSearchProgressBarTime < searchProgressBarTime)
+        //    {
+        //        currentSearchProgressBarTime = 0;
+        //        bButtonSearchProgress.GetComponent<Image>().fillAmount = 0;
+        //    }
+        //    else if (currentSearchProgressBarTime >= searchProgressBarTime)
+        //    {
+        //        currentSearchProgressBarTime = 0;
+        //        bButtonSearchProgress.GetComponent<Image>().fillAmount = 0;
+        //        bButtonSearchProgress.SetActive(false);
+        //        col.gameObject.SetActive(false);
+
+        //        // Spawn weapon
+        //        col.gameObject.GetComponent<BoxSearchScript>().SpawnWeapon();
+        //    }
+        //}
     }
 
     void OnTriggerExit(Collider col)
@@ -770,6 +826,11 @@ public class PlayerController : MonoBehaviour
             this.weapon = null;
             canPickUpWeapon = false;
             bButtonPickUp.enabled = false;
+        }
+
+        if (col.gameObject.name == "BoxSearchZone")
+        {
+            bButtonSearchProgress.SetActive(false);
         }
     }
 

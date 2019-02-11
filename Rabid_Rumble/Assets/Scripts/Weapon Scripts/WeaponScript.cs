@@ -146,8 +146,6 @@ public class WeaponScript : MonoBehaviour
 
     public void Shoot()
     {
-        //PlayerController playerController = player.GetComponent<PlayerController>();
-
         // If right trigger is pressed...
         if (weaponSelection == WeaponType.Shotgun)
         {
@@ -166,35 +164,6 @@ public class WeaponScript : MonoBehaviour
                 initAmmoAmount = initAmmoAmount - 1;
                 player.gameObject.GetComponent<PlayerController>().ControllerVibrate(0.1f, 1.0f);
             }
-            # region OldCode
-            //if (playerController.Player.GetAxis("Attack") > 0 && !reloading && !playerController.pickUpMode)
-            //{
-            //    if (initAmmoAmount > 0)
-            //    {
-
-            //        shotTimer -= Time.deltaTime;
-
-            //        if (shotTimer <= 0 && player.GetComponentInParent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("ShotgunMovementBlendTree"))
-            //        {
-            //            for (int i = 0; i < bulletSpawn.Length; i++)
-            //            {
-
-            //                Instantiate(bullet, bulletSpawn[i].transform.position, bulletSpawn[i].transform.rotation);
-            //            }
-
-            //            muzzleFlash.Play();
-            //            shotTimer = fireRate;
-            //            initAmmoAmount = initAmmoAmount - 1;
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    // Stops delay between pressing the fire button and the shot firing
-            //    // Makes it so shotTimer is only active whilst the fire button is down
-            //    shotTimer = 0;
-            //}
-            #endregion
         }
     }
 

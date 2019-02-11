@@ -28,7 +28,7 @@ public class FanActivationScript : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && other.GetComponent<PlayerController>().Player.GetButtonDown("Interact"))
+        if (other.tag == "Player" && other.GetComponent<PlayerController>().Player.GetButtonDown("InteractOption1"))
         {
             if (!fanActive)
             {
@@ -39,7 +39,7 @@ public class FanActivationScript : MonoBehaviour {
                 fanActive = true;
             }
         }
-        if (other.tag == "Player" && other.GetComponent<PlayerController>().Player.GetButtonDown("Attack"))
+        if (other.tag == "Player" && other.GetComponent<PlayerController>().Player.GetButtonDown("InteractOption2"))
         {
             if (!fanActive)
             {

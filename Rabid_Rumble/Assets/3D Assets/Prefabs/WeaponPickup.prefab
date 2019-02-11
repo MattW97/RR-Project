@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 1725091296434496, guid: debb0b19e1becdb4cbdfed32b5fa074e, type: 2}
   - {fileID: 1909462761593118, guid: 9909f2521694a5447817ec050e51bc72, type: 2}
   - {fileID: 1014203658083364, guid: 65e0a5962e556eb46b32a22e0df21ccf, type: 2}
   - {fileID: 1282994070294796, guid: 2d7fe8e0dc64a9f4da9d91a135a25c4a, type: 2}
