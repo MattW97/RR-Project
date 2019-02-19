@@ -18,11 +18,13 @@ public class StartMenu : MonoBehaviour
     public GameObject creditMenuGameObj;
     public GameObject optionMenuGameObj;
     public GameObject playerSelectionGameObj;
+    public GameObject gameModeSelectionGameObj;
     public GameObject mapSelectionGameObj;
     public GameObject startGameInfo;
     public GameObject parentObject;
     public GameObject overrideButton;
     public GameObject fightButton;
+    public GameObject modeOne;
     public GameObject closeOptionsButton;
 
     public string currentMenu;
@@ -72,6 +74,7 @@ public class StartMenu : MonoBehaviour
         playerSelectionGameObj.SetActive(false);
         optionMenuGameObj.SetActive(false);
         creditMenuGameObj.SetActive(false);
+        gameModeSelectionGameObj.SetActive(false);
         mapSelectionGameObj.SetActive(false);
         countdownScreen.SetActive(false);
 
@@ -109,7 +112,10 @@ public class StartMenu : MonoBehaviour
                     if (ReInput.players.GetPlayer(j).GetButtonDown("Jump"))
                     {
                         playerSelectionGameObj.SetActive(false);
-                        mapSelectionGameObj.SetActive(true);
+                        gameModeSelectionGameObj.SetActive(true);
+
+                        es.SetSelectedGameObject(null);
+                        es.SetSelectedGameObject(modeOne);
 
                         //SceneManager.LoadScene("TESTLEVEL");
 
@@ -347,6 +353,12 @@ public class StartMenu : MonoBehaviour
 
         es.SetSelectedGameObject(null);
         es.SetSelectedGameObject(fightButton);
+    }
+
+    public void MapSelection()
+    {
+        gameModeSelectionGameObj.SetActive(false);
+        mapSelectionGameObj.SetActive(true);
     }
 
     private void HideAll()

@@ -24,7 +24,7 @@ public class UtilityManager : MonoBehaviour
         inGameUI.gameObject.SetActive(false);
         gameOverUI.SetActive(false);
 
-        countdownTimerText.text = Mathf.RoundToInt(countdownMinutes).ToString() + ":0" + Mathf.RoundToInt(countdownSeconds).ToString();
+        countdownTimerText.text = Mathf.RoundToInt(countdownMinutes).ToString() + ":" + Mathf.RoundToInt(countdownSeconds).ToString();
     }
 
     void Update()

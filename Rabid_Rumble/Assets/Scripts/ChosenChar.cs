@@ -19,8 +19,7 @@ public class ChosenChar : MonoBehaviour
     public List<int> existingConNums;
     public List<GameObject> charOptions;
     public List<GameObject> currentSelectedChars;
-
-
+    
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);

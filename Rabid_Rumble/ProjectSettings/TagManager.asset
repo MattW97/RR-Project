@@ -18,6 +18,7 @@ TagManager:
   - PlayerRagdoll
   - Ramp
   - Gore
+  - KingScoreZone
   layers:
   - Default
   - TransparentFX

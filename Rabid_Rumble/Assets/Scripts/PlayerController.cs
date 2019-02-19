@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region ints
+    public int kingScore = 0;
     [HideInInspector]
     public int totalCurrentMashes = 0;
     private int deathCount = 0;
@@ -424,7 +425,7 @@ public class PlayerController : MonoBehaviour
             bButtonPickUp.enabled = false;
         }
 
-        deathCounterText.text = " DEATHS: " + DeathCount.ToString();
+        //deathCounterText.text = " DEATHS: " + DeathCount.ToString();
     }
 
     private void FixedUpdate()
