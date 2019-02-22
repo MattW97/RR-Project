@@ -1,37 +1,30 @@
 fileFormatVersion: 2
-guid: 9de425b2013c0f44ca3910e6ae3a098b
-timeCreated: 1548607853
-licenseType: Free
+guid: 4f906a9e945cc4e4e9bd5d05b8b232c1
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     100002: SM_Trap_Dungeon_SpikedPillar_Collision
+    100004: SM_Trap_Dungeon_SpikedPillar
     400000: //RootNode
     400002: SM_Trap_Dungeon_SpikedPillar_Collision
+    400004: SM_Trap_Dungeon_SpikedPillar
+    2100000: Allparts_Teeth1_defaultMat
+    2100002: Allparts_Nose1_defaultMat
     2300000: //RootNode
     2300002: SM_Trap_Dungeon_SpikedPillar_Collision
+    2300004: SM_Trap_Dungeon_SpikedPillar
     3300000: //RootNode
     3300002: SM_Trap_Dungeon_SpikedPillar_Collision
+    3300004: SM_Trap_Dungeon_SpikedPillar
     4300000: SM_Trap_Dungeon_SpikedPillar
     4300002: SM_Trap_Dungeon_SpikedPillar_Collision
-    9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Allparts_Nose1_defaultMat
-    second: {fileID: 2100000, guid: 4018c4da91913b547b12b9d5e73c905e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Allparts_Teeth1_defaultMat
-    second: {fileID: 2100000, guid: ce088cfd49915424c9091fe9c515d21d, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -95,7 +88,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0

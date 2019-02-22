@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4250e6e25face34b959eddfc3a6098a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapName: PIRATE
-  associatedLevel: S_Factory
+  mapName: PIRATE (Dungeon)
+  associatedLevel: S_Dungeon
   mapSprite: {fileID: 21300000, guid: 66601f5e7a65fc945b29d8967cfe935d, type: 3}

@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: fb186d108d5df0644b69652fc90a1174
-timeCreated: 1548607854
-licenseType: Free
+guid: 3d325c6f8aaa1464dbd28e9164cec6c0
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -16,6 +14,7 @@ ModelImporter:
     100016: SM_Dungeon_Trap_SwingingAxes_Collision_02
     100018: SM_Dungeon_Trap_SwingingAxes_Collision_03
     100020: //RootNode
+    100022: SM_Dungeon_Trap_SwingingAxes
     400000: Point003
     400002: Point004
     400004: Point005
@@ -27,6 +26,9 @@ ModelImporter:
     400016: SM_Dungeon_Trap_SwingingAxes_Collision_02
     400018: SM_Dungeon_Trap_SwingingAxes_Collision_03
     400020: //RootNode
+    400022: SM_Dungeon_Trap_SwingingAxes
+    2100000: Default
+    2100002: No Name
     2300000: SM_Dungeon_Trap_SwingingAxes_01
     2300002: SM_Dungeon_Trap_SwingingAxes_02
     2300004: SM_Dungeon_Trap_SwingingAxes_03
@@ -35,6 +37,7 @@ ModelImporter:
     2300010: SM_Dungeon_Trap_SwingingAxes_Collision_02
     2300012: SM_Dungeon_Trap_SwingingAxes_Collision_03
     2300014: //RootNode
+    2300016: SM_Dungeon_Trap_SwingingAxes
     3300000: SM_Dungeon_Trap_SwingingAxes_01
     3300002: SM_Dungeon_Trap_SwingingAxes_02
     3300004: SM_Dungeon_Trap_SwingingAxes_03
@@ -43,6 +46,7 @@ ModelImporter:
     3300010: SM_Dungeon_Trap_SwingingAxes_Collision_02
     3300012: SM_Dungeon_Trap_SwingingAxes_Collision_03
     3300014: //RootNode
+    3300016: SM_Dungeon_Trap_SwingingAxes
     4300000: SM_Dungeon_Trap_SwingingAxes
     4300002: SM_Dungeon_Trap_SwingingAxes_01
     4300004: SM_Dungeon_Trap_SwingingAxes_Collision_03
@@ -51,23 +55,12 @@ ModelImporter:
     4300010: SM_Dungeon_Trap_SwingingAxes_03
     4300012: SM_Dungeon_Trap_SwingingAxes_Collision_02
     4300014: SM_Dungeon_Trap_SwingingAxes_Collision_00
-    9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Default
-    second: {fileID: 2100000, guid: 88431b90178b7894b9d213dd9bc05dac, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: b615a6e7754982f4088cc328812a67cc, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -131,7 +124,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
