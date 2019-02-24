@@ -47,7 +47,7 @@ public class CameraScript : MonoBehaviour {
         cameraYOffset = 0.0f;
         cameraZOffset = 0.0f;
         audioSource = this.GetComponent<AudioSource>();
-        audioSource.clip = mainMenuMusic;
+        audioSource.clip = combatMusic;
         audioSource.Play();
     }
 
@@ -88,7 +88,8 @@ public class CameraScript : MonoBehaviour {
 
         middlePoint = vectorBetweenPlayers;
 
-        newCameraPos.y = (midPoint.transform.position.y + ((distanceBetweenPlayers / maxCameraDistance) * (maxCameraDistance - minCameraDistance))) + minCameraDistance;
+        newCameraPos.y = vectorBetweenPlayers.y + (midPoint.transform.position.y + ((distanceBetweenPlayers / maxCameraDistance) * (maxCameraDistance - minCameraDistance))) + minCameraDistance;
+
         newCameraPos.z = (midPoint.transform.position.z + (-1 * (newCameraPos.y * 1.0f)));
 
         Vector3 des = new Vector3(midPoint.transform.position.x, (newCameraPos.y + cameraYOffset), (newCameraPos.z + cameraZOffset));

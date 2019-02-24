@@ -18,76 +18,112 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: {x: 0, y: -65, z: 0}
-        inSlope: {x: 0, y: -5.3247557, z: 0}
-        outSlope: {x: 0, y: -5.3247557, z: 0}
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.5
-        value: {x: 0, y: 65, z: 0}
+        value: {x: 0, y: -45, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
+        time: 0.25
+        value: {x: 0, y: -45, z: 0}
+        inSlope: {x: 0, y: 180, z: 0}
+        outSlope: {x: 0, y: 180, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: 0, y: 45, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.75
+        value: {x: 0, y: 45, z: 0}
+        inSlope: {x: 0, y: -180, z: 0}
+        outSlope: {x: 0, y: -180, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
         time: 1
-        value: {x: 0, y: -65, z: 0}
-        inSlope: {x: 0, y: -14.918435, z: 0}
-        outSlope: {x: 0, y: -14.918435, z: 0}
+        value: {x: 0, y: -45, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Point003/SM_Dungeon_Trap_SwingingAxes_03
+    path: SM_Dungeon_Trap_SwingingAxes/Point003
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: {x: 0, y: 65, z: 0}
-        inSlope: {x: 0, y: 2.9874885, z: 0}
-        outSlope: {x: 0, y: 2.9874885, z: 0}
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.5
-        value: {x: 0, y: -65, z: 0}
+        value: {x: 0, y: 45, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
+        time: 0.25
+        value: {x: 0, y: 45, z: 0}
+        inSlope: {x: 0, y: -180, z: 0}
+        outSlope: {x: 0, y: -180, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: 0, y: -45, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.75
+        value: {x: 0, y: -45, z: 0}
+        inSlope: {x: 0, y: 180, z: 0}
+        outSlope: {x: 0, y: 180, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
         time: 1
-        value: {x: 0, y: 65, z: 0}
-        inSlope: {x: 0, y: 11.116787, z: 0}
-        outSlope: {x: 0, y: 11.116787, z: 0}
+        value: {x: 0, y: 45, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Point004/SM_Dungeon_Trap_SwingingAxes_02
+    path: SM_Dungeon_Trap_SwingingAxes/Point004
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: {x: 0, y: -65, z: 0}
-        inSlope: {x: 0, y: 8.98827, z: 0}
-        outSlope: {x: 0, y: 8.98827, z: 0}
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.5
-        value: {x: 0, y: 65, z: 0}
+        value: {x: 0, y: -45, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
+        time: 0.25
+        value: {x: 0, y: -45, z: 0}
+        inSlope: {x: 0, y: 180, z: 0}
+        outSlope: {x: 0, y: 180, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.5
+        value: {x: 0, y: 45, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.75
+        value: {x: 0, y: 45, z: 0}
+        inSlope: {x: 0, y: -180, z: 0}
+        outSlope: {x: 0, y: -180, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
         time: 1
-        value: {x: 0, y: -65, z: 0}
-        inSlope: {x: 0, y: -22.92472, z: 0}
-        outSlope: {x: 0, y: -22.92472, z: 0}
+        value: {x: 0, y: -45, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Point005/SM_Dungeon_Trap_SwingingAxes_01
+    path: SM_Dungeon_Trap_SwingingAxes/Point005
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -100,21 +136,21 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1873696060
+      path: 1829839795
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 14
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2557777779
+      path: 4084577808
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 14
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 932140602
+      path: 2222098054
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -150,18 +186,18 @@ AnimationClip:
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       - serializedVersion: 2
         time: 1
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Point003/SM_Dungeon_Trap_SwingingAxes_03
+    path: SM_Dungeon_Trap_SwingingAxes/Point003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -169,27 +205,39 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: -65
-        inSlope: -5.3247557
-        outSlope: -5.3247557
+        value: -45
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.25
+        value: -45
+        inSlope: 180
+        outSlope: 180
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5
-        value: 65
+        value: 45
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.75
+        value: 45
+        inSlope: -180
+        outSlope: -180
+        tangentMode: 0
       - serializedVersion: 2
         time: 1
-        value: -65
-        inSlope: -14.918435
-        outSlope: -14.918435
+        value: -45
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Point003/SM_Dungeon_Trap_SwingingAxes_03
+    path: SM_Dungeon_Trap_SwingingAxes/Point003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -200,18 +248,18 @@ AnimationClip:
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       - serializedVersion: 2
         time: 1
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Point003/SM_Dungeon_Trap_SwingingAxes_03
+    path: SM_Dungeon_Trap_SwingingAxes/Point003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -222,18 +270,18 @@ AnimationClip:
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       - serializedVersion: 2
         time: 1
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Point004/SM_Dungeon_Trap_SwingingAxes_02
+    path: SM_Dungeon_Trap_SwingingAxes/Point004
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -241,27 +289,39 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 65
-        inSlope: 2.9874885
-        outSlope: 2.9874885
+        value: 45
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.25
+        value: 45
+        inSlope: -180
+        outSlope: -180
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5
-        value: -65
+        value: -45
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.75
+        value: -45
+        inSlope: 180
+        outSlope: 180
+        tangentMode: 0
       - serializedVersion: 2
         time: 1
-        value: 65
-        inSlope: 11.116787
-        outSlope: 11.116787
+        value: 45
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Point004/SM_Dungeon_Trap_SwingingAxes_02
+    path: SM_Dungeon_Trap_SwingingAxes/Point004
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -272,18 +332,18 @@ AnimationClip:
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       - serializedVersion: 2
         time: 1
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Point004/SM_Dungeon_Trap_SwingingAxes_02
+    path: SM_Dungeon_Trap_SwingingAxes/Point004
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -294,18 +354,18 @@ AnimationClip:
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       - serializedVersion: 2
         time: 1
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Point005/SM_Dungeon_Trap_SwingingAxes_01
+    path: SM_Dungeon_Trap_SwingingAxes/Point005
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -313,27 +373,39 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: -65
-        inSlope: 8.98827
-        outSlope: 8.98827
+        value: -45
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.25
+        value: -45
+        inSlope: 180
+        outSlope: 180
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5
-        value: 65
+        value: 45
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.75
+        value: 45
+        inSlope: -180
+        outSlope: -180
+        tangentMode: 0
       - serializedVersion: 2
         time: 1
-        value: -65
-        inSlope: -22.92472
-        outSlope: -22.92472
+        value: -45
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Point005/SM_Dungeon_Trap_SwingingAxes_01
+    path: SM_Dungeon_Trap_SwingingAxes/Point005
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -344,18 +416,18 @@ AnimationClip:
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       - serializedVersion: 2
         time: 1
         value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 34
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Point005/SM_Dungeon_Trap_SwingingAxes_01
+    path: SM_Dungeon_Trap_SwingingAxes/Point005
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -366,7 +438,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Point005/SM_Dungeon_Trap_SwingingAxes_01
+    path: SM_Dungeon_Trap_SwingingAxes/Point004
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -376,7 +448,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Point005/SM_Dungeon_Trap_SwingingAxes_01
+    path: SM_Dungeon_Trap_SwingingAxes/Point004
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -386,7 +458,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Point005/SM_Dungeon_Trap_SwingingAxes_01
+    path: SM_Dungeon_Trap_SwingingAxes/Point004
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -396,7 +468,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Point004/SM_Dungeon_Trap_SwingingAxes_02
+    path: SM_Dungeon_Trap_SwingingAxes/Point003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -406,7 +478,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Point004/SM_Dungeon_Trap_SwingingAxes_02
+    path: SM_Dungeon_Trap_SwingingAxes/Point003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -416,7 +488,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Point004/SM_Dungeon_Trap_SwingingAxes_02
+    path: SM_Dungeon_Trap_SwingingAxes/Point003
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -426,7 +498,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Point003/SM_Dungeon_Trap_SwingingAxes_03
+    path: SM_Dungeon_Trap_SwingingAxes/Point005
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -436,7 +508,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Point003/SM_Dungeon_Trap_SwingingAxes_03
+    path: SM_Dungeon_Trap_SwingingAxes/Point005
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -446,7 +518,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Point003/SM_Dungeon_Trap_SwingingAxes_03
+    path: SM_Dungeon_Trap_SwingingAxes/Point005
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
