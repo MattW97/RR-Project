@@ -13,7 +13,12 @@ public class GameModeManagerEditor : Editor
          KOTHCountdownMinutes,
          KOTHCountdownSeconds,
          FFACountdownMinutes,
-         FFACountdownSeconds;
+         FFACountdownSeconds,
+         TDMCountdownMinutes,
+         TDMCountdownSeconds,
+         team1Colours,
+         team2Colours;
+
 
     void OnEnable()
     {
@@ -25,6 +30,10 @@ public class GameModeManagerEditor : Editor
         KOTHCountdownSeconds = serializedObject.FindProperty("KOTHCountdownSeconds");
         FFACountdownMinutes = serializedObject.FindProperty("FFACountdownMinutes");
         FFACountdownSeconds = serializedObject.FindProperty("FFACountdownSeconds");
+        TDMCountdownMinutes = serializedObject.FindProperty("TDMCountdownMinutes");
+        TDMCountdownSeconds = serializedObject.FindProperty("TDMCountdownSeconds");
+        team1Colours = serializedObject.FindProperty("team1Colour");
+        team2Colours = serializedObject.FindProperty("team2Colour");
     }
 
     public override void OnInspectorGUI()
@@ -38,9 +47,6 @@ public class GameModeManagerEditor : Editor
         switch (gm)
         {
             case GameModeManager.GameMode.FreeForAll:
-                //    EditorGUILayout.PropertyField(controllable_Prop, new GUIContent("controllable"));
-                //    EditorGUILayout.IntSlider(valForA_Prop, 0, 10, new GUIContent("valForA"));
-                //    EditorGUILayout.IntSlider(valForAB_Prop, 0, 100, new GUIContent("valForAB"));
 
                 EditorGUILayout.PropertyField(FFACountdownMinutes, new GUIContent("FFA Countdown Minutes"));
                 EditorGUILayout.PropertyField(FFACountdownSeconds, new GUIContent("FFA Countdown Seconds"));
@@ -52,6 +58,15 @@ public class GameModeManagerEditor : Editor
                 EditorGUILayout.PropertyField(KOTHPrefab, new GUIContent("KOTH Prefab"));
                 EditorGUILayout.PropertyField(KOTHCountdownMinutes, new GUIContent("KOTH Countdown Minutes"));
                 EditorGUILayout.PropertyField(KOTHCountdownSeconds, new GUIContent("KOTH Countdown Seconds"));
+
+                break;
+
+            case GameModeManager.GameMode.TeamDeathmatch:
+
+                EditorGUILayout.PropertyField(TDMCountdownMinutes, new GUIContent("TDM Countdown Minutes"));
+                EditorGUILayout.PropertyField(TDMCountdownSeconds, new GUIContent("TDM Countdown Seconds"));
+                EditorGUILayout.PropertyField(team1Colours, new GUIContent("Team 1 Colours"));
+                EditorGUILayout.PropertyField(team2Colours, new GUIContent("Team 2 Colours"));
 
                 break;
 

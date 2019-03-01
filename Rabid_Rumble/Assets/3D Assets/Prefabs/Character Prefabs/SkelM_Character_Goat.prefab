@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 4945512691854016}
   - component: {fileID: 137551652739187854}
   m_Layer: 0
-  m_Name: Goat
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1543,6 +1543,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1396282496769036, guid: a22fff5905a1d344a8a67c75517ecf2e,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: 246c985faa8bec842bbda417dbc12936, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: 946ddc0a185cd9341848702d0980e6fa, type: 2}
 --- !u!135 &135079979026400700
 SphereCollider:
   m_ObjectHideFlags: 1

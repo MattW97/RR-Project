@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 4028530301755982}
   - component: {fileID: 137467152940191116}
   m_Layer: 0
-  m_Name: Bunny
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1511,6 +1511,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1489707324970984, guid: 2f565cea09d0f594cacec8d1cde16284,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: 897e5e8a6291ff1458b973e6f169dc78, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: 70dc078baf6bd914da94a97d1a5cf12f, type: 2}
 --- !u!114 &114375102899380050
 MonoBehaviour:
   m_ObjectHideFlags: 1

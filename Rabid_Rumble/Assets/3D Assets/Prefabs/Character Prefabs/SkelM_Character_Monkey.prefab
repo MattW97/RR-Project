@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 4971602327583616}
   - component: {fileID: 137783866127530750}
   m_Layer: 0
-  m_Name: Monkey
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1508,6 +1508,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1760861705332648, guid: 0b7366459b0273e46b80206a1bdb4964,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: eae293838fb274b45ba51e1ef585f57b, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: 560b8d5ad1ee2c64eab83064631f9ae1, type: 2}
 --- !u!114 &114802137163814354
 MonoBehaviour:
   m_ObjectHideFlags: 1

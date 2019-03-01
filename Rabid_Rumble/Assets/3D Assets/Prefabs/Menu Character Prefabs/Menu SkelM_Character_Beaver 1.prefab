@@ -1490,6 +1490,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1769690828436154, guid: 4e1384369329c6a48a13326462f10e19,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 0}
+  bodyMaterial: {fileID: 0}
 --- !u!135 &135938857998837186
 SphereCollider:
   m_ObjectHideFlags: 1

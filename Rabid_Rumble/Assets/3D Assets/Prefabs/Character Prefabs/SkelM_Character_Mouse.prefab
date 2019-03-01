@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 4395476787178500}
   - component: {fileID: 137500652358935768}
   m_Layer: 0
-  m_Name: Mouse
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1506,6 +1506,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1882077448656242, guid: fd0acf34be25538419b30111c421de05,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: bcab218f875ea8c4ba736a6d0f582767, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: 150067099b2de1842a3b337f210017ff, type: 2}
 --- !u!114 &114248002505486164
 MonoBehaviour:
   m_ObjectHideFlags: 1

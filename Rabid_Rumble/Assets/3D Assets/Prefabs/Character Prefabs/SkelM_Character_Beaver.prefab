@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 4509705251871566}
   - component: {fileID: 137955206194027866}
   m_Layer: 0
-  m_Name: Beaver
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1523,6 +1523,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1769690828436154, guid: 787f7bca5c872344bb8299ebf99e4ce5,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: 0765b64f13efbc3438f8eae80d881141, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: 045e5df4c65379244b1721427d094eaf, type: 2}
 --- !u!114 &114841347975053416
 MonoBehaviour:
   m_ObjectHideFlags: 1

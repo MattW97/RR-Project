@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 4204542551227184}
   - component: {fileID: 137296404264387148}
   m_Layer: 0
-  m_Name: Skunk
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1508,6 +1508,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1094472197553966, guid: 341cccd28e4169c429b3f324b9b1f283,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: 9a2385318f95c7a47adb75480177c4ce, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: 4cda968ec8ec2c04b81b694691f59bfe, type: 2}
 --- !u!114 &114492782824116572
 MonoBehaviour:
   m_ObjectHideFlags: 1

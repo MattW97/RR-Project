@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 4838998984744750}
   - component: {fileID: 137981776537747830}
   m_Layer: 0
-  m_Name: Fox
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1491,6 +1491,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1818902562507452, guid: 754d75ee8a7e7ad449a81cfa7c4ef592,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: 488f7bef72094f3428a3f6f189e602c3, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: b41aac9292da30e4f9acfd114e1e0b2e, type: 2}
 --- !u!114 &114364461355525318
 MonoBehaviour:
   m_ObjectHideFlags: 1

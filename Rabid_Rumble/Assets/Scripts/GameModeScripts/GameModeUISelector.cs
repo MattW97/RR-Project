@@ -23,4 +23,9 @@ public class GameModeUISelector : MonoBehaviour {
         gameModeString = "KingOfTheHill";
     }
 
+    public void TeamDeathmatch()
+    {
+        gameModeString = "TeamDeathmatch";
+    }
+
 }

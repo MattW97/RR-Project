@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 4733318826051038}
   - component: {fileID: 137819413024015446}
   m_Layer: 0
-  m_Name: Pig
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1528,6 +1528,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1406109708269852, guid: 8ca52722006d3104bb905acd3cf3552d,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: 15f56f423ae3d374badb1af986a12650, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: 9aed9f4ed42adb44d89ada127d2b1e83, type: 2}
 --- !u!114 &114995619275419596
 MonoBehaviour:
   m_ObjectHideFlags: 1

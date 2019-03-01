@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 4497589324800810}
   - component: {fileID: 137860853211500314}
   m_Layer: 0
-  m_Name: Squirrel
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1543,6 +1543,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1745968806605572, guid: 6bfa28fbc5e55774c9190e029bb4c590,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: cf96c6c48090cb84295bb15aa42c102a, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: d310cc60fc8d46c4c98d8f1881c23700, type: 2}
 --- !u!135 &135776135603303742
 SphereCollider:
   m_ObjectHideFlags: 1

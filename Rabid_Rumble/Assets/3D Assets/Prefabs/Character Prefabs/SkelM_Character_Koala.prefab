@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4091412950068450}
   - component: {fileID: 137724712085764470}
   m_Layer: 0
-  m_Name: Koala
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1543,6 +1543,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1366916687730132, guid: e67c72563fe645c4dbb162038246736a,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: af003d58bf306e04d8b419a2d9a0c6c6, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: d6cf9e38a0bbddc4daca85f4ade7e77a, type: 2}
 --- !u!135 &135081264253379986
 SphereCollider:
   m_ObjectHideFlags: 1

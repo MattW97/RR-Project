@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4006693878203242}
   - component: {fileID: 137146764261113840}
   m_Layer: 0
-  m_Name: Bear
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1523,6 +1523,8 @@ MonoBehaviour:
   characterPrefab: {fileID: 1786413499934164, guid: 88b8cced8d11c634992ba83bb2d9b0c9,
     type: 2}
   selected: 0
+  headMaterial: {fileID: 2100000, guid: b5d826e40bed9244197e35412712d657, type: 2}
+  bodyMaterial: {fileID: 2100000, guid: e15eab3b035ac444aae94f42593dc975, type: 2}
 --- !u!114 &114577180479687792
 MonoBehaviour:
   m_ObjectHideFlags: 1
